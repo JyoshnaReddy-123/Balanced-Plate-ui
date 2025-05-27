@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance Plate for Professionals</title>
+    <style>
+          * {
+	  margin: 0;
+	  padding: 0;
+	  box-sizing: border-box;
+	}
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #00996D; 
+  z-index: 999;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+
+.navbar {
+  background-color: #008054;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo-icon {
+  font-size: 1.6rem;
+  margin-right: 0.5rem;
+}
+.brand {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+.design-btn {
+  background: #ffffff;
+  color: #008054;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.design-btn:hover {
+  background-color: #E8F5E9;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.nav-item {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+.nav-item:hover {
+  background-color:#66BB6A;
+  color:black;
+}
+.nav-item.active {
+  background-color: white;
+  color: #005d42;
+  font-weight: bold;
+}
+
+
+        
+       
+        .main-content {
+            padding: 5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom:0.5rem;
+            color: #333;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin: 0 auto;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.5s ease-out;
+        }
+        
+        .card {
+            padding: 2rem;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            padding:0rem;
+        }
+        
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            background: #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.8rem;
+            color: #00996D;
+        }
+        
+        .welcome-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #222;
+}
+
+.description {
+    text-align: left;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+
+
+        
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #ddd, transparent);
+            margin: 1.5rem 0;
+        }
+        
+   
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #444;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+        }
+        
+        .error-message {
+            color: #e53935;
+            font-size: 0.8rem;
+            text-align: center;
+            margin-top: 0.5rem;
+            height: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .error-message.show {
+            opacity: 1;
+        }
+        
+      
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 0.9rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            background-color: #43A047;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        
+        #success-page {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .checkmark {
+            font-size: 3rem;
+            color: #4CAF50;
+            margin-bottom: 1rem;
+            animation: bounce 0.6s;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-15px);
+            }
+            60% {
+                transform: translateY(-7px);
+            }
+        }
+        
+       
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                justify-content: center;
+                margin-bottom: 0.5rem;
+            }
+            
+            .container {
+                max-width: 350px;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+     <header>
+    <nav class="navbar">
+      <div class="logo">
+        <span class="logo-icon">🥗</span>
+        <span class="brand">The Balanced Plate</span>
+        <button class="design-btn">Design your own plate</button>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/home/rguktvalley/Desktop/dv/web1.html" class="nav-item">Home</a></li>
+        <li><a href="#" class="nav-item active">Balance Plate</a></li>
+        <li><a href="/home/rguktvalley/Desktop/dv/communitypage.html" class="nav-item">&#128101;Community</a></li>
+        <li><a href="/home/rguktvalley/Desktop/dv/my_plates.html" class="nav-item">My Plates</a></li>
+        <li><a href="/home/rguktvalley/Desktop/dv/bookmarks.html" class="nav-item"> &#128278;Bookmarks</a></li>
+      </ul>
+    </nav>
+  </header>
+    
+    
+    <main class="main-content">
+        <h1 class="page-title">Balanced Plate For Professionals</h1>
+         <p class="subtitle">Quick, nutritious meal options for busy work days</p>
+        
+        <div class="container" id="main-container">
+            <div class="card" id="form-page">
+              
+                
+                <div class="icon-circle">🍽️</div>
+                <h2 class="welcome-title" >Welcome to Balance Plate</h2>
+                <p class="description">We'll create a personalized lunch meal plan based on your nutritional needs according to Indian National Institute of Nutrition guidelines.</p>
+                
+                <div class="divider"></div>
+                
+                <div class="input-group">
+                    <label for="age">Your Age</label>
+                    <input type="number" id="age" min="4" max="100" placeholder="enter your age">
+                    <div class="error-message" id="error-message">Please enter an age between 4 and 100</div>
+                </div>
+                
+                <button class="btn" id="get-started-btn">Get Started</button>
+            </div>
+            
+            <div id="success-page">
+                <div class="checkmark">✓</div>
+                <h2>Success!</h2>
+                <p>Your personalized meal plan is being prepared.</p>
+                <p>Redirecting to your dashboard...</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ageInput = document.getElementById('age');
+            const errorMessage = document.getElementById('error-message');
+            const getStartedBtn = document.getElementById('get-started-btn');
+            const formPage = document.getElementById('form-page');
+            const successPage = document.getElementById('success-page');
+            const container = document.getElementById('main-container');
+            
+            // Input validation
+            ageInput.addEventListener('input', function() {
+                const age = parseInt(ageInput.value);
+                
+                if (isNaN(age)) {
+                    errorMessage.textContent = "Please enter a valid number";
+                } else if (age < 4 || age > 100) {
+                    errorMessage.textContent = "Age must be between 4 and 100";
+                } else {
+                    errorMessage.textContent = "";
+                }
+            });
+            
+            getStartedBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const age = parseInt(ageInput.value);
+                
+                if (isNaN(age)) {
+                    errorMessage.textContent = "Please enter a valid age";
+                    errorMessage.classList.add('show');
+                    container.style.animation = 'shake 0.5s';
+                    setTimeout(() => {
+                        container.style.animation = '';
+                    }, 500);
+                    return;
+                }
+                
+                if (age < 4 || age > 100) {
+                    errorMessage.textContent = "Please enter an age between 4 and 100";
+                    errorMessage.classList.add('show');
+                    container.style.animation = 'shake 0.5s';
+                    setTimeout(() => {
+                        container.style.animation = '';
+                    }, 500);
+                    return;
+                }
+                
+                errorMessage.classList.remove('show');
+                
+               
+                getStartedBtn.innerHTML = 'Creating your plan...';
+                getStartedBtn.style.backgroundColor = '#388E3C';
+                
+               
+                setTimeout(() => {
+                    formPage.style.display = 'none';
+                    successPage.style.display = 'block';
+                    
+                    
+                    setTimeout(() => {
+                        window.location.href = "/home/rguktvalley/Desktop/dv/balanced_thali.html?age=" + age;
+                    }, 2000);
+                }, 1000);
+            });
+            
+            // Add shake animation
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                    20%, 40%, 60%, 80% { transform: translateX(5px); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>

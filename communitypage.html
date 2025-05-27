@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Balanced Plate - Community</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #00996D;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-icon {
+            font-size: 1.6rem;
+        }
+        
+        .brand {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .design-btn {
+            background: white;
+            color: #008054;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-left: 1rem;
+        }
+        
+        .design-btn:hover {
+            background-color: #e8f5e9;
+            transform: translateY(-1px);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
+        
+        .nav-item {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav-item:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .nav-item.active {
+            background-color: white;
+            color: #005d42;
+            font-weight: 600;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 6rem 2rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .page-header h1 {
+            font-size: 2.1rem;
+            color: #111827;
+            margin-bottom: 0.1rem;
+        }
+        
+        .page-header .subtitle {
+            color: #6b7280;
+            font-size: 1rem;
+            padding:0.1rem;
+        }
+        
+        /* Share Box */
+        .share-box {
+            background-color: #059669;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
+        }
+        
+        .share-text h2 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .upload-btn {
+            background-color: #d1fae5;
+            color: #047857;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .upload-btn:hover {
+            background-color: #a7f3d0;
+            transform: translateY(-2px);
+        }
+        
+        /* Tabs Section */
+        .tabs-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem auto 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .tab-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            background-color: #f3f4f6;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active, .tab-btn:hover {
+            background-color: #d1fae5;
+            border-color: #059669;
+            color: #059669;
+        }
+        
+        .find-friends-btn {
+            padding: 0.6rem 1.2rem;
+            background-color: white;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .find-friends-btn:hover {
+            background-color: #f3f4f6;
+        }
+        
+        /* Post Card */
+        .tab-content {
+            display: none;
+            max-width:900px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .post-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width:900px;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+        }
+        
+        .post-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .post-user {
+            flex: 1;
+        }
+        
+        .post-user strong {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 0.1rem;
+        }
+        
+        .post-user span {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+        
+        .post-content {
+            margin: 0.5rem 0;
+            line-height: 1.5;
+        }
+        
+        .tags {
+            color: #059669;
+            font-size: 0.85rem;
+            margin: 0.5rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .image-container {
+            position: relative;
+            margin: 1rem 0;
+        }
+        
+        .post-image {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            max-height: 400px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .image-action-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255,255,255,0.9);
+            color: #065f46;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .image-action-btn:hover {
+            background-color: white;
+            transform: translateY(-1px);
+        }
+        
+        .bookmark-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: #ccc;
+            transition: all 0.3s;
+        }
+        
+        .bookmark-btn.filled {
+            color: #FFD700;
+        }
+        
+        .bookmark-btn:hover {
+            transform: scale(1.2);
+        }
+        
+        /* Toast Notifications */
+        .toast {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-left: 6px solid #059669;
+            max-width: 300px;
+            font-size: 0.9rem;
+            z-index: 1000;
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+        
+        .toast.show {
+            display: block;
+        }
+        
+        .toast-close {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-left: 10px;
+            float: right;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .nav-links {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+            
+            .main-content {
+                padding: 6rem 1rem 1rem;
+            }
+            
+            .share-box {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .upload-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .tabs-section {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .tab-buttons {
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+            
+            .find-friends-btn {
+                width: 100%;
+                justify-content: center;
+                margin-top: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .post-card {
+                padding: 1rem;
+            }
+            
+            .bookmark-btn {
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .image-action-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .toast {
+                right: 1rem;
+                bottom: 1rem;
+                max-width: calc(100% - 2rem);
+            }
+        }
+        
+       
+       
+    </style>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-icon">🥗</span>
+                <span class="brand">The Balanced Plate</span>
+                <button class="design-btn">Design your own plate</button>
+            </div>
+            <ul class="nav-links">
+        <li><a href="/home/rguktvalley/Desktop/dv/web1.html" class="nav-item">Home</a></li>
+        <li><a href="/home/rguktvalley/Desktop/dv/balanced_plate.html" class="nav-item">Balance Plate</a></li>
+        <li><a href="#" class="nav-item active">&#128101;Community</a></li>
+        <li><a href="/home/rguktvalley/Desktop/dv/my_plates.html" class="nav-item">My Plates</a></li>
+        <li><a href="/home/rguktvalley/Desktop/dv/bookmarks.html" class="nav-item"> &#128278;Bookmarks</a></li>
+      </ul>
+        </nav>
+    </header>
+    
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Balance Plate Community</h1>
+            <p class="subtitle">See what others are eating, get inspired, and share your own balanced plates</p>
+        </div>
+        
+        <section class="share-box">
+            <div class="share-text">
+                <h2>Share Your Balanced Plate</h2>
+                <p>Inspire the community with your nutritious creations</p>
+            </div>
+            <button class="upload-btn" onclick="showToast()">⬆️ Upload</button>
+        </section>
+        
+        <div id="toast" class="toast">
+            <strong>Upload coming soon!</strong>
+            <button class="toast-close" onclick="hideToast()">×</button>
+            <br/>
+            You'll be able to share your own balanced plates in the next update.
+        </div>
+        
+        <section class="tabs-section">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="showTab('trending')">Trending</button>
+                <button class="tab-btn" onclick="showTab('recent')">Recent</button>
+                <button class="tab-btn" onclick="showTab('following')">Following</button>
+            </div>
+            <button class="find-friends-btn" onclick="showTab('friends')">👥 Find Friends</button>
+        </section>
+        
+        <section id="trending" class="tab-content active">
+            <div class="post-card">
+                <button class="bookmark-btn" onclick="toggleBookmark(this)">☆</button>
+                
+                <div class="post-header">
+                    <img src="https://i.pravatar.cc/50?img=12" class="avatar" alt="Priya Sharma" />
+                    <div class="post-user">
+                        <strong>Priya Sharma</strong>
+                        <span>@priyasharma • 2 hours ago</span>
+                    </div>
+                </div>
+                
+                <div class="post-content">
+                    <p>My balanced plate for a busy workday! Brown rice with dal tadka and mixed vegetables.</p>
+                    <p class="tags">#balancedmeal #workday #healthyeating</p>
+                </div>
+                
+                <div class="image-container">
+                    <img class="post-image" src="https://images.unsplash.com/photo-1551218808-94e220e084d2" alt="Balanced plate" />
+                    <button class="image-action-btn" onclick="showAddToast()">
+                        <span>Add To My Plate</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <section id="recent" class="tab-content">
+            <div class="post-card">
+                <p>Recent posts will appear here soon!</p>
+            </div>
+        </section>
+        
+        <section id="following" class="tab-content">
+            <div class="post-card">
+                <p>Posts from people you follow will appear here.</p>
+            </div>
+        </section>
+        
+        <section id="friends" class="tab-content">
+            <div class="post-card">
+                <p>Find and connect with food enthusiasts near you!</p>
+            </div>
+        </section>
+        
+        <!-- Toast for Add To My Plate -->
+        <div id="add-toast" class="toast">
+            <strong>Plate selected!</strong>
+            <button class="toast-close" onclick="hideAddToast()">×</button>
+            <br/>
+            This balanced meal has been added to your plate
+        </div>
+        
+        
+        
+        
+    
+        
+        
+    </main>
+
+    <script>
+        // Tab functionality
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Add active class to clicked button
+            const clickedBtn = [...document.querySelectorAll('.tab-btn')].find(btn => 
+                btn.textContent.toLowerCase().includes(tabId)
+            );
+            if (clickedBtn) clickedBtn.classList.add('active');
+        }
+        
+        // Toast notifications
+        function showToast() {
+            const toast = document.getElementById("toast");
+            toast.classList.add("show");
+            
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 4000);
+        }
+        
+        function hideToast() {
+            document.getElementById("toast").classList.remove("show");
+        }
+        
+        function showAddToast() {
+            const toast = document.getElementById("add-toast");
+            toast.classList.add("show");
+            
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 4000);
+        }
+        
+        function hideAddToast() {
+            document.getElementById("add-toast").classList.remove("show");
+        }
+        
+        // Bookmark functionality
+        function toggleBookmark(btn) {
+            btn.classList.toggle('filled');
+            btn.textContent = btn.classList.contains('filled') ? '★' : '☆';
+            
+            // Save to localStorage
+            const card = btn.closest(".post-card");
+            const postId = card.dataset.id || Math.random().toString(36).substr(2, 9);
+            
+            let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || {};
+            if (btn.classList.contains('filled')) {
+                bookmarks[postId] = true;
+                showToastMessage('Post bookmarked!');
+            } else {
+                delete bookmarks[postId];
+                showToastMessage('Bookmark removed');
+            }
+            localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+        }
+        
+        // Initialize bookmarks on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || {};
+            document.querySelectorAll('.post-card').forEach(card => {
+                const postId = card.dataset.id || Object.keys(bookmarks)[0];
+                if (bookmarks[postId]) {
+                    const btn = card.querySelector('.bookmark-btn');
+                    if (btn) {
+                        btn.classList.add('filled');
+                        btn.textContent = '★';
+                    }
+                }
+            });
+        });
+        
+        // Helper function to show temporary messages
+        function showToastMessage(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.style.position = 'fixed';
+            toast.style.bottom = '20px';
+            toast.style.left = '50%';
+            toast.style.transform = 'translateX(-50%)';
+            toast.style.backgroundColor = '#333';
+            toast.style.color = 'white';
+            toast.style.padding = '12px 24px';
+            toast.style.borderRadius = '4px';
+            toast.style.zIndex = '1000';
+            toast.style.animation = 'fadeIn 0.3s';
+            toast.textContent = message;
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.animation = 'fadeOut 0.3s';
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 2000);
+        }
+        
+        
+      
+    </script>
+</body>
+</html>

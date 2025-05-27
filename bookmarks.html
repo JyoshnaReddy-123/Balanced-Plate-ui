@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance Plate for Professionals</title>
+    <style>
+	    * {
+	  margin: 0;
+	  padding: 0;
+	  box-sizing: border-box;
+	}
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #00996D; /* Same background as your current nav */
+  z-index: 999;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+/* Navbar */
+.navbar {
+  background-color: #008054;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo-icon {
+  font-size: 1.6rem;
+  margin-right: 0.5rem;
+}
+.brand {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+.design-btn {
+  background: #ffffff;
+  color: #008054;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.design-btn:hover {
+  background-color: #E8F5E9;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.nav-item {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+.nav-item:hover {
+  background-color:#66BB6A;
+  color:black;
+}
+.nav-item.active {
+  background-color: white;
+  color: #005d42;
+  font-weight: bold;
+}
+
+ h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #008054;
+    }
+
+    .post-container {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .post-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .bookmark-btn {
+      float: right;
+      font-size: 1.2rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    .bookmark-btn.filled {
+      color: gold;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</style>
+	</head>
+	<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <span class="logo-icon">🥗</span>
+        <span class="brand">The Balanced Plate</span>
+        <button class="design-btn">Design your own plate</button>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/home/rguktvalley/Desktop/dv/web1.html" class="nav-item">Home</a></li>
+        <li><a href="/home/rguktvalley/Desktop/dv/balanced_plate.html" class="nav-item">Balance Plate</a></li>
+        <li><a href="/home/rguktvalley/Desktop/dv/communitypage.html" class="nav-item">&#128101;Community</a></li>
+        <li><a href="/home/rguktvalley/Desktop/dv/my_plates.html" class="nav-item">My Plates</a></li>
+        <li><a href="#" class="nav-item active"> &#128278;Bookmarks</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+   <h1>My Bookmarked Plates</h1>
+  <div class="post-container" id="bookmarkContainer"></div>
+
+  <script>
+    function loadBookmarks() {
+      const container = document.getElementById("bookmarkContainer");
+      const saved = localStorage.getItem("bookmarks");
+      const posts = saved ? JSON.parse(saved) : [];
+
+      if (posts.length === 0) {
+        container.innerHTML = "<p style='text-align:center;'>No bookmarks yet!</p>";
+        return;
+      }
+
+      posts.forEach(postHTML => {
+        const wrapper = document.createElement("div");
+        wrapper.innerHTML = postHTML;
+
+        // Ensure the bookmark button works here too
+        const btn = wrapper.querySelector(".bookmark-btn");
+        if (btn) {
+          btn.innerText = "★";
+          btn.classList.add("filled");
+          btn.onclick = function () {
+            removeBookmark(postHTML);
+            wrapper.remove();
+          };
+        }
+
+        container.appendChild(wrapper);
+      });
+    }
+
+    function removeBookmark(content) {
+      let saved = localStorage.getItem("bookmarks");
+      saved = saved ? JSON.parse(saved) : [];
+
+      const index = saved.indexOf(content);
+      if (index !== -1) {
+        saved.splice(index, 1);
+        localStorage.setItem("bookmarks", JSON.stringify(saved));
+      }
+    }
+
+    window.onload = loadBookmarks;
+  </script>
+  
+  
+  
+  
+</body>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </body>
+</html>
