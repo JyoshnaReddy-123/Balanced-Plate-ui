@@ -217,7 +217,7 @@
       align-items: center;
       transition: all 0.3s ease;
       background-color: white;
-      color: #3B7A57;
+      color:#006e50 ;
       font-size: 22px;
     }
 
@@ -487,7 +487,7 @@
       top: 6rem;
       animation: fadeIn 0.8s ease-out;
       z-index: 10;
-      color:#00996D;
+      color:#006e50 ;
     }
     
     .thali-box:hover {
@@ -620,7 +620,8 @@
     }
     
     .selected-item-name {
-      font-weight: 500;
+      font-weight: 300;
+      color:black;
     }
     
     .selected-item-details {
@@ -635,8 +636,8 @@
     }
     
     .selected-item-price {
-      font-weight: 600;
-      color: var(--primary);
+      font-weight: 300;
+      color:#9400D3;
     }
     
     
@@ -647,6 +648,7 @@
       padding-top: 1rem;
       border-top: 1px solid var(--gray-medium);
       font-weight: 600;
+      color:#9400D3;
     }
     
     
@@ -657,7 +659,7 @@
     
     .nutrition-summary h4 {
       margin-bottom: 0.75rem;
-      color: var(--primary-dark);
+      color:#006e50;
     }
     
     .nutrition-item {
@@ -665,6 +667,7 @@
       justify-content: space-between;
       margin-bottom: 0.5rem;
       font-size: 0.9rem;
+      color:black;
     }
     
     
@@ -675,11 +678,12 @@
     
     .nutritional-target h4 {
       margin-bottom: 0.75rem;
-      color: var(--primary-dark);
+      color: #006e50;
     }
     
     .target-item {
       margin-bottom: 0.75rem;
+      color:black;
     }
     
     .target-label {
@@ -727,30 +731,33 @@
       display: none;
       background: white;
       border-radius: 8px;
-      padding: 1rem;
+      padding: 0.7rem;
       border: 1px solid var(--gray-medium);
     }
     
     .meal-balance h4 {
-      margin-bottom: 0.75rem;
-      color: var(--primary-dark);
+      margin-bottom: 0.3rem;
+      color:#006e50;
+      font-size:15px;
     }
     
     .balance-rating {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      color:black;
+      font-size:11px;
     }
     
     .rating-label {
-      font-weight: 600;
+      font-weight: 200;
     }
     
     .rating-value {
-      font-weight: 700;
-      padding: 0.3rem 0.8rem;
+      font-weight: 400;
+      padding: 0.3rem 0.7rem;
       border-radius: 999px;
-      font-size: 0.9rem;
+      font-size: 0.7rem;
     }
     
     .rating-excellent {
@@ -772,12 +779,7 @@
       background-color: rgba(245, 124, 0, 0.1);
       color: var(--poor);
     }
-    
-    .rating-bad {
-      background-color: rgba(211, 47, 47, 0.1);
-      color: var(--bad);
-    }
-    
+   
     
     .order-btn {
       display: none;
@@ -802,26 +804,31 @@
       display: none;
       background: white;
       border-radius: 8px;
-      padding: 1.5rem;
+      padding: 1rem;
       margin-top: 1.5rem;
       text-align: center;
-      border: 2px solid var(--primary);
+      border: 1px solid black;
       animation: fadeIn 0.5s ease-out;
     }
     
     .order-confirmation h3 {
-      color: var(--primary);
+      color:#006e50;
       margin-bottom: 0.5rem;
+      font-size:20px;
     }
     
     .order-confirmation p {
       margin-bottom: 0.5rem;
+      color:black;
+      font-weight:400;
+      font-size:12px;
     }
     
     .order-confirmation .total {
-      font-weight: 600;
-      font-size: 1.1rem;
+      font-weight: 500;
+      font-size: 1rem;
       margin-top: 0.5rem;
+      color:#006e50
     }
     
     /* Tip Box */
@@ -1111,7 +1118,7 @@
       </div>
 
       <!-- Row 2 - New Items Added -->
-      <div class="food-card" data-category="base" data-name="Quinoa" data-calories="160" data-carbs="32g" data-protein="6g" data-fat="2.8g" data-fiber="5.2g" data-price="120">
+      <div class="food-card" data-category="base" data-name="Quinoa Bowl" data-calories="160" data-carbs="32g" data-protein="6g" data-fat="2.8g" data-fiber="5.2g" data-price="120">
         <div class="food-card-header">
           <div class="food-card-title">Quinoa Bowl</div>
           <div class="food-card-badge">
@@ -1257,7 +1264,7 @@
           <span class="food-card-price">₹50</span>
         </div>
       </div>
-       <div class="food-card" data-category="base" data-name="MUltigrain" data-calories="165" data-carbs="30g" data-protein="7g" data-fat="2.5g" data-fiber="6g" data-price="65">
+       <div class="food-card" data-category="base" data-name="Multigrain Bowl" data-calories="165" data-carbs="30g" data-protein="7g" data-fat="2.5g" data-fiber="6g" data-price="65">
         <div class="food-card-header">
           <div class="food-card-title">Multigrain Bowl</div>
           <div class="food-card-badge">
@@ -1306,7 +1313,7 @@
         </div>
       </div>
 
-      <div class="food-card" data-category="base" data-name="Lettuce" data-calories="50" data-carbs="5g" data-protein="1g" data-fat="0.5g" data-fiber="3g" data-price="70">
+      <div class="food-card" data-category="base" data-name="Lettuce Wraps" data-calories="50" data-carbs="5g" data-protein="1g" data-fat="0.5g" data-fiber="3g" data-price="70">
         <div class="food-card-header">
           <div class="food-card-title">Lettuce Wraps</div>
           <div class="food-card-badge">
@@ -1355,7 +1362,7 @@
         </div>
       </div>
 
-      <div class="food-card" data-category="base" data-name="Polenta" data-calories="160" data-carbs="32g" data-protein="3.5g" data-fat="1g" data-fiber="2.5g" data-price="75">
+      <div class="food-card" data-category="base" data-name="Polenta Base" data-calories="160" data-carbs="32g" data-protein="3.5g" data-fat="1g" data-fiber="2.5g" data-price="75">
         <div class="food-card-header">
           <div class="food-card-title">Polenta Base</div>
           <div class="food-card-badge">
@@ -2037,7 +2044,7 @@
                 <span class="food-card-price">₹120</span>
               </div>
             </div>
-                     <div class="food-card" data-category="dessert" data-name="FRuit Salad" data-calories="120" data-carbs="28g" data-protein="1g" data-fat="0.5g" data-fiber="5g" data-price="130">
+                     <div class="food-card" data-category="dessert" data-name="Fruit Salad" data-calories="120" data-carbs="28g" data-protein="1g" data-fat="0.5g" data-fiber="5g" data-price="130">
               <div class="food-card-header">
                 <div class="food-card-title">Fresh Fruit Salad</div>
                 <div class="food-card-badge veg-badge">
@@ -2135,7 +2142,7 @@
               </div>
             </div>
             
-            <div class="food-card" data-category="dessert" data-name="Chia" data-calories="130" data-carbs="15g" data-protein="4g" data-fat="7g" data-fiber="6g" data-price="40">
+            <div class="food-card" data-category="dessert" data-name="Chia seed pudding" data-calories="130" data-carbs="15g" data-protein="4g" data-fat="7g" data-fiber="6g" data-price="40">
               <div class="food-card-header">
                 <div class="food-card-title">Chia Seed Pudding</div>
                 <div class="food-card-badge veg-badge">
@@ -2232,7 +2239,7 @@
               </div>
             </div>
             
-            <div class="food-card" data-category="dessert" data-name="Dates" data-calories="90" data-carbs="20g" data-protein="15g" data-fat="2g" data-fiber="3.5g" data-price="190">
+            <div class="food-card" data-category="dessert" data-name="Dates and nuts" data-calories="90" data-carbs="20g" data-protein="15g" data-fat="2g" data-fiber="3.5g" data-price="190">
               <div class="food-card-header">
                 <div class="food-card-title">Dates and Nuts</div>
                 <div class="food-card-badge veg-badge">
@@ -2281,7 +2288,7 @@
               </div>
             </div>
             
-            <div class="food-card" data-category="dessert" data-name="Vegan" data-calories="180" data-carbs="24g" data-protein="3g" data-fat="9g" data-fiber="2.5g" data-price="160">
+            <div class="food-card" data-category="dessert" data-name="Vegan Brownie" data-calories="180" data-carbs="24g" data-protein="3g" data-fat="9g" data-fiber="2.5g" data-price="160">
               <div class="food-card-header">
                 <div class="food-card-title">Vegan Brownie</div>
                 <div class="food-card-badge veg-badge">
@@ -2390,7 +2397,7 @@
               </div>
             </div>
             
-            <div class="food-card" data-category="beverage" data-name="Masala Chai" data-calories="60" data-carbs="10g" data-protein="2g" data-fat="1g" data-fiber="0g" data-price="20">
+            <div class="food-card" data-category="beverage" data-name="BUtter Milk" data-calories="60" data-carbs="10g" data-protein="2g" data-fat="1g" data-fiber="0g" data-price="20">
               <div class="food-card-header">
                 <div class="food-card-title">Buttermilk</div>
                 <div class="food-card-badge">
@@ -2439,7 +2446,7 @@
               </div>
             </div>
             
-            <div class="food-card" data-category="beverage" data-name="Jaljeera" data-calories="30" data-carbs="7g" data-protein="1g" data-fat="0g" data-fiber="1g" data-price="25">
+            <div class="food-card" data-category="beverage" data-name="Fresh Lime" data-calories="30" data-carbs="7g" data-protein="1g" data-fat="0g" data-fiber="1g" data-price="25">
               <div class="food-card-header">
                 <div class="food-card-title">Fresh Lime</div>
                 <div class="food-card-badge">
@@ -2487,7 +2494,7 @@
                 <span class="food-card-price">₹25</span>
               </div>
             </div>
-          <div class="food-card" data-category="beverage" data-name="Lassi" data-calories="160" data-carbs="20g" data-protein="8g" data-fat="5g" data-fiber="0g" data-price="50">
+          <div class="food-card" data-category="beverage" data-name="Green Tea" data-calories="160" data-carbs="20g" data-protein="8g" data-fat="5g" data-fiber="0g" data-price="50">
               <div class="food-card-header">
                 <div class="food-card-title">Green Tea</div>
                 <div class="food-card-badge veg-badge">
@@ -2536,7 +2543,7 @@
               </div>
             </div>
             
-            <div class="food-card" data-category="beverage" data-name="Masala Chai" data-calories="60" data-carbs="10g" data-protein="2g" data-fat="1g" data-fiber="0g" data-price="20">
+            <div class="food-card" data-category="beverage" data-name="Herbal Tea" data-calories="60" data-carbs="10g" data-protein="2g" data-fat="1g" data-fiber="0g" data-price="20">
               <div class="food-card-header">
                 <div class="food-card-title">Herbal Tea</div>
                 <div class="food-card-badge">
@@ -2585,9 +2592,9 @@
               </div>
             </div>
             
-            <div class="food-card" data-category="beverage" data-name="Jaljeera" data-calories="30" data-carbs="7g" data-protein="1g" data-fat="0g" data-fiber="1g" data-price="25">
+            <div class="food-card" data-category="beverage" data-name="Ginger Tea" data-calories="30" data-carbs="7g" data-protein="1g" data-fat="0g" data-fiber="1g" data-price="25">
               <div class="food-card-header">
-                <div class="food-card-title">Ginger</div>
+                <div class="food-card-title">Ginger Tea</div>
                 <div class="food-card-badge">
                   <i class="fas fa-seedling"></i>
                   Vegan
@@ -2633,7 +2640,7 @@
                 <span class="food-card-price">₹25</span>
               </div>
             </div>
-          <div class="food-card" data-category="beverage" data-name="Lassi" data-calories="160" data-carbs="20g" data-protein="8g" data-fat="5g" data-fiber="0g" data-price="50">
+          <div class="food-card" data-category="beverage" data-name="Mango" data-calories="160" data-carbs="20g" data-protein="8g" data-fat="5g" data-fiber="0g" data-price="50">
               <div class="food-card-header">
                 <div class="food-card-title">Mango</div>
                 <div class="food-card-badge veg-badge">
@@ -2682,7 +2689,7 @@
               </div>
             </div>
             
-            <div class="food-card" data-category="beverage" data-name="Masala Chai" data-calories="60" data-carbs="10g" data-protein="2g" data-fat="1g" data-fiber="0g" data-price="20">
+            <div class="food-card" data-category="beverage" data-name="WAtermelon" data-calories="60" data-carbs="10g" data-protein="2g" data-fat="1g" data-fiber="0g" data-price="20">
               <div class="food-card-header">
                 <div class="food-card-title">Watermelon</div>
                 <div class="food-card-badge">
@@ -2731,7 +2738,7 @@
               </div>
             </div>
             
-            <div class="food-card" data-category="beverage" data-name="Jaljeera" data-calories="30" data-carbs="7g" data-protein="1g" data-fat="0g" data-fiber="1g" data-price="25">
+            <div class="food-card" data-category="beverage" data-name="kombucha" data-calories="30" data-carbs="7g" data-protein="1g" data-fat="0g" data-fiber="1g" data-price="25">
               <div class="food-card-header">
                 <div class="food-card-title">Kombucha</div>
                 <div class="food-card-badge">
@@ -2789,6 +2796,7 @@
       <div class="thali-box">
         <h3>Your Balance Thali <button class="close-btn">×</button></h3>
         <p class="subtitle">The perfect balance of taste and nutrition</p>
+       
         
         
         <div class="thali-empty" id="empty-thali">
@@ -3133,12 +3141,9 @@
         } else if (avgPercent >= 50) {
           rating = "Fair";
           ratingClass = "rating-fair";
-        } else if (avgPercent >= 25) {
+        }else {
           rating = "Poor";
           ratingClass = "rating-poor";
-        } else {
-          rating = "Bad";
-          ratingClass = "rating-bad";
         }
         
         
