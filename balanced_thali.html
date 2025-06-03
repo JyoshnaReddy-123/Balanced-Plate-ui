@@ -945,12 +945,12 @@
     </nav>
   </header>
   
-  <section class="hero">
-    <button class="guidelines">NIN Certified Guidelines</button>
-    <h1>Build Your Balance Thali</h1>
-    <p>Based on Children nutritional guidelines (1800 calories recommended)</p>
-    <p>Specially curated for Indian professionals of all ages</p>
-  </section>
+<section class="hero">
+        <button class="guidelines">NIN Certified Guidelines</button>
+        <h1>Build Your Balance Thali</h1>
+        <p>Based on <span id="age-group">Children</span> nutritional guidelines (<span id="calories-recommendation">1800</span> calories recommended)</p>
+        <p>Specially curated for Indian professionals of all ages</p>
+    </section>
 
   <main class="container">
     <section class="accordion-section">
@@ -2938,6 +2938,51 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+    
+    
+     // Get age from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const age = parseInt(urlParams.get('age')) || 0;
+      
+      // Set age group and calorie recommendation based on age
+      let ageGroup = "Children";
+      let calorieRecommendation = 1800;
+      
+      if (age >= 4 && age <= 6) {
+                ageGroup = "Pre-school Children";
+                calorieRecommendation = 1350;
+            } else if (age >= 7 && age <= 9) {
+                ageGroup = "School Children";
+                calorieRecommendation = 1690;
+            } else if (age >= 10 && age <= 12) {
+                ageGroup = "Pre-teens";
+                calorieRecommendation = 2010;
+            } else if (age >= 13 && age <= 15) {
+                ageGroup = "Teen Boys";
+                calorieRecommendation = 2450;
+            } else if (age >= 16 && age <= 17) {
+                ageGroup = "Late Teens";
+                calorieRecommendation = 2640;
+            } else if (age >= 18 && age <= 29) {
+                ageGroup = "Young Adults";
+                calorieRecommendation = 2400;
+            } else if (age >= 30 && age <= 59) {
+                ageGroup = "Adults";
+                calorieRecommendation = 2320;
+            } else if (age >= 60) {
+                ageGroup = "Seniors";
+                calorieRecommendation = 1900;
+            } else {
+                ageGroup = "Children";
+                calorieRecommendation = 1800;
+            }
+      
+      // Update the hero section
+      document.getElementById('age-group').textContent = ageGroup;
+      document.getElementById('calories-recommendation').textContent = calorieRecommendation;
+      
+      // Store the calorie recommendation for use in calculations
+      const targetCalories = calorieRecommendation;
     
         
       // Accordion functionality
