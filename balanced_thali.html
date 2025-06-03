@@ -1,103 +1,938 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Balanced Thali for Professionals</title>
-    <style>
-	    * {
-	  margin: 0;
-	  padding: 0;
-	  box-sizing: border-box;
-	}
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        
-        nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #00996D; /* Same background as your current nav */
-  z-index: 999;
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Balanced Plate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* General Styles*/
+    :root {
+      --green: #00996D;
+      --dark-green: #008054;
+      --light-green: #E8F5E9;
+      --text-dark: #333333;
+      --text-medium: #555555;
+      --text-light: #777777;
+      --primary: #00996D;
+      --primary-light: #E8F5E9;
+      --primary-dark: #005d42;
+      --secondary: #FFF8E1;
+      --secondary-border: #FFE0B2;
+      --secondary-text: #5D4037;
+      --gray-light: #f5f5f5;
+      --gray-medium: #e0e0e0;
+      --gray-dark: #424242;
+      --veg-color: #4CAF50; 
+      --nonveg-color: #F44336; 
+      --veg-dark: #2E7D32;
+      --nonveg-dark: #C62828;
+      --carbs-color: #FFA000;
+      --protein-color: #2196F3;
+      --fat-color: #F44336;
+      --fiber-color: #4CAF50;
+      --excellent: #2E7D32;
+      --good: #689F38;
+      --fair: #FBC02D;
+      --poor: #F57C00;
+      --bad: #D32F2F;
+    }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+      padding-top: 70px;
+    }
+    
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #00996D;
+      z-index: 999;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      height: 70px;
+    }
 
-/* Navbar */
-.navbar {
-  background-color: #008054;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.logo {
-  display: flex;
-  align-items: center;
-}
-.logo-icon {
-  font-size: 1.6rem;
-  margin-right: 0.5rem;
-}
-.brand {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-right: 1rem;
-}
-.design-btn {
-  background: #ffffff;
-  color: #008054;
-  border: none;
-  padding: 0.3rem 0.8rem;
-  font-size: 0.85rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-.design-btn:hover {
-  background-color: #E8F5E9;
-}
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-.nav-item {
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  text-decoration: none;
-  color: white;
-  transition: all 0.3s ease;
-}
-.nav-item:hover {
-  background-color:#66BB6A;
-  color:black;
-}
-.nav-item.active {
-  background-color: white;
-  color: #005d42;
-  font-weight: bold;
-}
-	</style>
-	</head>
-	<body>
-  <header>
+    .navbar {
+      background-color: #008054;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-icon {
+      font-size: 1.6rem;
+      margin-right: 0.5rem;
+    }
+    
+    .brand {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-right: 1rem;
+    }
+    
+    .design-btn {
+      background: #ffffff;
+      color: #008054;
+      border: none;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.85rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .design-btn:hover {
+      background-color: #E8F5E9;
+    }
+    
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .nav-item {
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-item:hover {
+      background-color:#66BB6A;
+      color:black;
+    }
+    
+    .nav-item.active {
+      background-color: white;
+      color: #005d42;
+      font-weight: bold;
+    }
+
+    
+    .hero {
+      background-color: var(--green);
+      color: white;
+      padding: 2rem 1rem;
+      border-radius: 8px;
+      max-width: 1250px;
+      margin: 1rem auto;
+      position: relative;
+      text-align: center;
+      margin: 30px auto;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    .hero p {
+      margin: 0.5rem 0 0;
+    }
+
+    .guidelines {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: white;
+      color: var(--green);
+      font-weight: 600;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      border: none;
+      cursor: pointer;
+    }
+    
+    
+    .container {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+      max-width: 1300px;
+      margin: auto;
+      gap: 2rem;
+    }
+    
+    @media (min-width: 1024px) {
+      .container {
+        flex-direction: row;
+      }
+    }
+    
+    
+    .accordion-section {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .accordion-item {
+      background: #ffffff;
+      border-left: 4px solid var(--primary);
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .accordion-item:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .accordion-header {
+      padding: 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+      background-color: white;
+      color: #3B7A57;
+      font-size: 22px;
+    }
+
+    .accordion-header:hover {
+      background-color: var(--primary-light);
+    }
+    
+    .accordion-header i {
+      transition: transform 0.3s ease;
+      font-size: 12px;
+    }
+    
+    .accordion-item.open .accordion-header i {
+      transform: rotate(180deg);
+    }
+    
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding: 0;
+    }
+
+    .accordion-item.open .accordion-content {
+      max-height: 5000px;
+      padding: 0;
+      margin-top: 1rem;
+    }
+
+    
+    .curry-tabs-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      background: white;
+      padding: 0.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .curry-tabs {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .curry-tab {
+      padding: 0.75rem 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border-radius: 6px;
+      flex: 1;
+      max-width: 48%;
+    }
+
+    .curry-tab.veg {
+      color: var(--veg-dark);
+      background: rgba(76, 175, 80, 0.1);
+      margin-right: 4%; 
+    }
+
+    .curry-tab.nonveg {
+      color: var(--nonveg-dark);
+      background: rgba(244, 67, 54, 0.1);
+      margin-left: 4%; 
+    }
+
+    .curry-tab.veg.active {
+      background: var(--veg-color);
+      color: white;
+    }
+
+    .curry-tab.nonveg.active {
+      background: var(--nonveg-color);
+      color: white;
+    }
+    
+
+    .curry-content {
+      display: none;
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      animation: fadeIn 0.5s ease-out;
+    }
+    
+    .curry-content.active {
+      display: block;
+    }
+    
+    
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      padding: 0.5rem;
+    }
+    
+    @media (max-width: 1024px) {
+      .food-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .food-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .food-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      animation: slideUp 0.4s ease-out;
+      will-change: transform;
+    }
+    
+    .food-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    }
+    
+    .food-card.selected {
+      box-shadow: 0 0 0 2px var(--primary);
+      animation: pulseBorder 2s infinite;
+    }
+    
+    @keyframes pulseBorder {
+      0% { box-shadow: 0 0 0 2px var(--primary); }
+      50% { box-shadow: 0 0 0 4px rgba(0, 135, 90, 0.5); }
+      100% { box-shadow: 0 0 0 2px var(--primary); }
+    }
+    
+    .food-card-header {
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .food-card-title {
+      font-size: 1.1rem;
+      color:black;
+      font-weight: 600;
+    }
+    
+    .food-card-badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 999px;
+      background-color: var(--primary-light);
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    
+    .veg-badge {
+      background-color: rgba(76, 175, 80, 0.1);
+      color: var(--veg-color);
+    }
+    
+    .nonveg-badge {
+      background-color: rgba(244, 67, 54, 0.1);
+      color: var(--nonveg-color);
+    }
+    
+    .food-card-image-container {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+    }
+    
+    .food-card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .food-card:hover .food-card-image {
+      transform: scale(1.05);
+    }
+    
+    .food-card-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .food-card:hover .food-card-overlay {
+      opacity: 1;
+    }
+    
+    .nutrition-facts {
+      font-size: 0.85rem;
+    }
+    
+    .nutrition-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    
+    .food-card-footer {
+      padding: 0.75rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--gray-dark);
+    }
+    
+    .food-card-calories {
+      font-weight: 600;
+    }
+    
+    .food-card-rating {
+      color: #ffb400;
+    }
+    
+    .food-card-price {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    
+    .info-boxes {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    @media (min-width: 1024px) {
+      .info-boxes {
+        width: 350px;
+      }
+    }
+    
+    .thali-box {
+      background:white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      position: sticky;
+      top: 6rem;
+      animation: fadeIn 0.8s ease-out;
+      z-index: 10;
+      color:#00996D;
+    }
+    
+    .thali-box:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+    
+    .thali-box h3 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .thali-box h3 .close-btn {
+      background: none;
+      border: none;
+      color: var(--text-light);
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    
+    .subtitle {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: var(--primary-dark);
+      opacity: 0.8;
+    }
+    
+  
+    .plate-visualization {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      margin: 1rem auto;
+      border-radius: 50%;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .plate-circle {
+      position: absolute;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      font-size: 0.8rem;
+      text-align: center;
+      transition: all 0.5s ease;
+    }
+    
+    .plate-center {
+      width: 80px;
+      height: 80px;
+      background: var(--primary);
+      z-index: 3;
+    }
+    
+    .plate-segment {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 50%);
+      transform-origin: 50% 50%;
+      background: var(--primary-light);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .plate-segment.active {
+      opacity: 1;
+    }
+    
+    .plate-segment.base {
+      background: #FFA000;
+    }
+    
+    .plate-segment.curry {
+      background: #2196F3;
+    }
+    
+    .plate-segment.dessert {
+      background: #F44336;
+    }
+    
+    .plate-segment.beverage {
+      background: #4CAF50;
+    }
+    
+  
+    .thali-empty {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 1rem;
+      text-align: center;
+      border: 2px dashed var(--gray-medium);
+      color: var(--gray-dark);
+      transition: all 0.3s ease;
+    }
+    
+    .thali-empty:hover {
+      border-color: var(--primary);
+    }
+    
+   
+    .selected-items {
+      margin-top: 1.5rem;
+      display: none;
+    }
+    
+    .selected-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--gray-medium);
+    }
+    
+    .selected-item:last-child {
+      border-bottom: none;
+    }
+    
+    .selected-item-name {
+      font-weight: 500;
+    }
+    
+    .selected-item-details {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .selected-item-calories {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+    
+    .selected-item-price {
+      font-weight: 600;
+      color: var(--primary);
+    }
+    
+    
+    .total-price {
+      display: none;
+      justify-content: space-between;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--gray-medium);
+      font-weight: 600;
+    }
+    
+    
+    .nutrition-summary {
+      margin-top: 1.5rem;
+      display: none;
+    }
+    
+    .nutrition-summary h4 {
+      margin-bottom: 0.75rem;
+      color: var(--primary-dark);
+    }
+    
+    .nutrition-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    
+    .nutritional-target {
+      margin-top: 1.5rem;
+      display: none;
+    }
+    
+    .nutritional-target h4 {
+      margin-bottom: 0.75rem;
+      color: var(--primary-dark);
+    }
+    
+    .target-item {
+      margin-bottom: 0.75rem;
+    }
+    
+    .target-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.25rem;
+      font-size: 0.85rem;
+    }
+    
+    .target-bar {
+      height: 8px;
+      background: var(--gray-light);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    .target-progress {
+      height: 100%;
+      border-radius: 4px;
+    }
+    
+    .target-calories .target-progress {
+      background: var(--primary);
+    }
+    
+    .target-protein .target-progress {
+      background: var(--protein-color);
+    }
+    
+    .target-carbs .target-progress {
+      background: var(--carbs-color);
+    }
+    
+    .target-fat .target-progress {
+      background: var(--fat-color);
+    }
+    
+    .target-fiber .target-progress {
+      background: var(--fiber-color);
+    }
+    
+    
+    .meal-balance {
+      margin-top: 1.5rem;
+      display: none;
+      background: white;
+      border-radius: 8px;
+      padding: 1rem;
+      border: 1px solid var(--gray-medium);
+    }
+    
+    .meal-balance h4 {
+      margin-bottom: 0.75rem;
+      color: var(--primary-dark);
+    }
+    
+    .balance-rating {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .rating-label {
+      font-weight: 600;
+    }
+    
+    .rating-value {
+      font-weight: 700;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+    }
+    
+    .rating-excellent {
+      background-color: rgba(46, 125, 50, 0.1);
+      color: var(--excellent);
+    }
+    
+    .rating-good {
+      background-color: rgba(104, 159, 56, 0.1);
+      color: var(--good);
+    }
+    
+    .rating-fair {
+      background-color: rgba(251, 192, 45, 0.1);
+      color: var(--fair);
+    }
+    
+    .rating-poor {
+      background-color: rgba(245, 124, 0, 0.1);
+      color: var(--poor);
+    }
+    
+    .rating-bad {
+      background-color: rgba(211, 47, 47, 0.1);
+      color: var(--bad);
+    }
+    
+    
+    .order-btn {
+      display: none;
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .order-btn:hover {
+      background: var(--primary-dark);
+    }
+    
+   
+    .order-confirmation {
+      display: none;
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      text-align: center;
+      border: 2px solid var(--primary);
+      animation: fadeIn 0.5s ease-out;
+    }
+    
+    .order-confirmation h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .order-confirmation p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .order-confirmation .total {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+    
+    /* Tip Box */
+    .tip-box {
+      background: var(--secondary);
+      border: 1px solid var(--secondary-border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--secondary-text);
+      transition: all 0.3s ease;
+      animation: fadeIn 0.8s ease-out 0.2s both;
+    }
+    
+    .tip-box:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    
+    .tip-box strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    
+    .footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--gray-dark);
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--gray-medium);
+      margin-top: 2rem;
+    }
+    
+    
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      
+      .nav-links {
+        width: 100%;
+        justify-content: space-around;
+      }
+      
+      .container {
+        padding: 1rem;
+      }
+      
+      .food-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .thali-box {
+        position: relative;
+        top: 0;
+      }
+      
+      .plate-visualization {
+        width: 200px;
+        height: 200px;
+      }
+    }
+    
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-5px); }
+      40%, 80% { transform: translateX(5px); }
+    }
+    
+    @keyframes confetti {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+    
+  
+  </style>
+</head>
+<body>
+<header>
     <nav class="navbar">
       <div class="logo">
-        <span class="logo-icon">🥗</span>
-        <span class="brand">The Balanced Plate</span>
+        <a href="/home/rguktvalley/Desktop/dv/web1.html" style="text-decoration: none; color: inherit;">
+          <span class="logo-icon">🥗</span>
+          <span class="brand">The Balanced Plate</span>
+        </a>
         <button class="design-btn">Design your own plate</button>
       </div>
       <ul class="nav-links">
@@ -110,19 +945,2332 @@
     </nav>
   </header>
   
-  <h1>hey jyoshna reddy</h1>
-  <p>Hloo jyoshna reddy this is me jyoshna i hope you are doing well</p>
+  <section class="hero">
+    <button class="guidelines">NIN Certified Guidelines</button>
+    <h1>Build Your Balance Thali</h1>
+    <p>Based on Children nutritional guidelines (1800 calories recommended)</p>
+    <p>Specially curated for Indian professionals of all ages</p>
+  </section>
+
+  <main class="container">
+    <section class="accordion-section">
+      <!-- Base Selection -->
+      <div class="accordion-item">
+  <div class="accordion-header">
+    <span>1 Select Base</span>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+  <div class="accordion-content">
+    <div class="food-grid">
+      <!-- Row 1 -->
+      <div class="food-card" data-category="base" data-name="Brown Rice" data-calories="190" data-carbs="40g" data-protein="4.5g" data-fat="1.5g" data-fiber="3.5g" data-price="45">
+        <div class="food-card-header">
+          <div class="food-card-title">Brown Rice</div>
+          <div class="food-card-badge">
+            <i class="fas fa-seedling"></i>
+            Vegan
+          </div>
+        </div>
+        <div class="food-card-image-container">
+          <img src="https://media.istockphoto.com/id/495200096/photo/cooked-brown-rice-side-view.jpg?s=612x612&w=0&k=20&c=EjJ-iuFbB6habC_jPryNGzXa5ILVBIDwsR9ZJfFvt0g=" alt="Brown Rice" class="food-card-image">
+          <div class="food-card-overlay">
+            <h3 class="nutrition-title">Nutrition Facts</h3>
+            <div class="nutrition-facts">
+              <div class="nutrition-row">
+                <span>Calories:</span>
+                <span>190</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Carbs:</span>
+                <span>40g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Protein:</span>
+                <span>4.5g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Fat:</span>
+                <span>1.5g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Fiber:</span>
+                <span>3.5g</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="food-card-footer">
+          <span class="food-card-calories">190 cal</span>
+          <span class="food-card-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <i class="far fa-star"></i>
+          </span>
+          <span class="food-card-price">₹45</span>
+        </div>
+      </div>
+      
+      <div class="food-card" data-category="base" data-name="White Rice" data-calories="200" data-carbs="45g" data-protein="4g" data-fat="0.5g" data-fiber="0.6g" data-price="40">
+        <div class="food-card-header">
+          <div class="food-card-title">White Rice</div>
+          <div class="food-card-badge">
+            <i class="fas fa-seedling"></i>
+            Vegan
+          </div>
+        </div>
+        <div class="food-card-image-container">
+          <img src="https://media.istockphoto.com/id/1432313031/photo/rice.jpg?s=612x612&w=0&k=20&c=pDA33hkz15MPkYn_4rk7POSpSVUZRXel75g0bxVOt4k=" alt="White Rice" class="food-card-image">
+          <div class="food-card-overlay">
+            <h3 class="nutrition-title">Nutrition Facts</h3>
+            <div class="nutrition-facts">
+              <div class="nutrition-row">
+                <span>Calories:</span>
+                <span>205</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Carbs:</span>
+                <span>45g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Protein:</span>
+                <span>4g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Fat:</span>
+                <span>0.5g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Fiber:</span>
+                <span>0.6g</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="food-card-footer">
+          <span class="food-card-calories">205 cal</span>
+          <span class="food-card-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </span>
+          <span class="food-card-price">₹40</span>
+        </div>
+      </div>
+      
+      <div class="food-card" data-category="base" data-name="Roti" data-calories="70" data-carbs="15g" data-protein="3g" data-fat="0.5g" data-fiber="2g" data-price="10">
+        <div class="food-card-header">
+          <div class="food-card-title">Roti</div>
+          <div class="food-card-badge">
+            <i class="fas fa-seedling"></i>
+            Vegan
+          </div>
+        </div>
+        <div class="food-card-image-container">
+          <img src="https://media.istockphoto.com/id/1296798642/photo/roti-parata-or-roti-canai-with-lamb-curry-sauce-popular-malaysian-breakfast.jpg?s=612x612&w=0&k=20&c=fF4AYfw8w7fxZNDKW-xenP8O7KIs7xQTf0KuCuFGIj8=" alt="Roti" class="food-card-image">
+          <div class="food-card-overlay">
+            <h3 class="nutrition-title">Nutrition Facts</h3>
+            <div class="nutrition-facts">
+              <div class="nutrition-row">
+                <span>Calories:</span>
+                <span>70</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Carbs:</span>
+                <span>15g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Protein:</span>
+                <span>3g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Fat:</span>
+                <span>0.5g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Fiber:</span>
+                <span>2g</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="food-card-footer">
+          <span class="food-card-calories">70 cal</span>
+          <span class="food-card-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </span>
+          <span class="food-card-price">₹10</span>
+        </div>
+      </div>
+
+      <!-- Row 2 - New Items Added -->
+      <div class="food-card" data-category="base" data-name="Quinoa" data-calories="160" data-carbs="32g" data-protein="6g" data-fat="2.8g" data-fiber="5.2g" data-price="120">
+        <div class="food-card-header">
+          <div class="food-card-title">Quinoa Bowl</div>
+          <div class="food-card-badge">
+            <i class="fas fa-seedling"></i>
+            Vegan
+          </div>
+        </div>
+        <div class="food-card-image-container">
+          <img src="https://media.istockphoto.com/id/955998758/photo/nourishing-buddha-bowl-with-tofu-quinoa-and-vegetables.jpg?s=612x612&w=0&k=20&c=NRRRt9FWRJh_1ezyPkuHz5Hx-s02p6Dl3xcw5GxzIjA=" alt="Quinoa" class="food-card-image">
+          <div class="food-card-overlay">
+            <h3 class="nutrition-title">Nutrition Facts</h3>
+            <div class="nutrition-facts">
+              <div class="nutrition-row">
+                <span>Calories:</span>
+                <span>222</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Carbs:</span>
+                <span>39g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Protein:</span>
+                <span>8g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Fat:</span>
+                <span>4g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Fiber:</span>
+                <span>5g</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="food-card-footer">
+          <span class="food-card-calories">160 cal</span>
+          <span class="food-card-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </span>
+          <span class="food-card-price">₹80</span>
+        </div>
+      </div>
+
+      <div class="food-card" data-category="base" data-name="Millet" data-calories="207" data-carbs="41g" data-protein="6g" data-fat="2g" data-fiber="4g" data-price="80">
+        <div class="food-card-header">
+          <div class="food-card-title">Millet</div>
+          <div class="food-card-badge">
+            <i class="fas fa-seedling"></i>
+            Vegan
+          </div>
+        </div>
+        <div class="food-card-image-container">
+          <img src="https://media.istockphoto.com/id/908182132/photo/organic-chia-and-quinoa-porridge.jpg?s=612x612&w=0&k=20&c=w3JQ_D5Gkfl4Q4ckkiUTFqmOvCA3JNrKRmCjka6H--s=" alt="Millet" class="food-card-image">
+          <div class="food-card-overlay">
+            <h3 class="nutrition-title">Nutrition Facts</h3>
+            <div class="nutrition-facts">
+              <div class="nutrition-row">
+                <span>Calories:</span>
+                <span>207</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Carbs:</span>
+                <span>41g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Protein:</span>
+                <span>6g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Fat:</span>
+                <span>2g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Fiber:</span>
+                <span>4g</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="food-card-footer">
+          <span class="food-card-calories">207 cal</span>
+          <span class="food-card-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <i class="far fa-star"></i>
+          </span>
+          <span class="food-card-price">₹80</span>
+        </div>
+      </div>
+
+      <div class="food-card" data-category="base" data-name="Ragi" data-calories="170" data-carbs="37g" data-protein="5.5g" data-fat="1.5g" data-fiber="7g" data-price="50">
+        <div class="food-card-header">
+          <div class="food-card-title">Ragi</div>
+          <div class="food-card-badge">
+            <i class="fas fa-seedling"></i>
+            Vegan
+          </div>
+        </div>
+        <div class="food-card-image-container">
+          <img src="https://media.istockphoto.com/id/1454186647/photo/foxtail-millet-idli-recipe-is-a-healthier-version-of-idli-made-with-foxtail-millets-and-urad.jpg?s=612x612&w=0&k=20&c=NHEEzLUgzZ_-WghfQhlc9G5H3MR2a_vu3vgGcUF2yB8=" alt="Whole Wheat Bread" class="food-card-image">
+          <div class="food-card-overlay">
+            <h3 class="nutrition-title">Nutrition Facts</h3>
+            <div class="nutrition-facts">
+              <div class="nutrition-row">
+                <span>Calories:</span>
+                <span>160</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Carbs:</span>
+                <span>30g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Protein:</span>
+                <span>8g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Fat:</span>
+                <span>2g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Fiber:</span>
+                <span>4g</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="food-card-footer">
+          <span class="food-card-calories">170 cal</span>
+          <span class="food-card-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </span>
+          <span class="food-card-price">₹50</span>
+        </div>
+      </div>
+       <div class="food-card" data-category="base" data-name="MUltigrain" data-calories="165" data-carbs="30g" data-protein="7g" data-fat="2.5g" data-fiber="6g" data-price="65">
+        <div class="food-card-header">
+          <div class="food-card-title">Multigrain Bowl</div>
+          <div class="food-card-badge">
+            <i class="fas fa-seedling"></i>
+            Vegan
+          </div>
+        </div>
+        <div class="food-card-image-container">
+          <img src="https://media.istockphoto.com/id/1187836824/photo/homemade-freshly-baked-crackers-with-flax-and-sesame-seeds.jpg?s=612x612&w=0&k=20&c=TkFwHKtxtYDPf0HQ7mCYC1rAG90kNAvUKMluzDxVg8c=" alt="Multigrain" class="food-card-image">
+          <div class="food-card-overlay">
+            <h3 class="nutrition-title">Nutrition Facts</h3>
+            <div class="nutrition-facts">
+              <div class="nutrition-row">
+                <span>Calories:</span>
+                <span>222</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Carbs:</span>
+                <span>39g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Protein:</span>
+                <span>8g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Fat:</span>
+                <span>4g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Fiber:</span>
+                <span>5g</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="food-card-footer">
+          <span class="food-card-calories">165 cal</span>
+          <span class="food-card-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </span>
+          <span class="food-card-price">₹65</span>
+        </div>
+      </div>
+
+      <div class="food-card" data-category="base" data-name="Lettuce" data-calories="50" data-carbs="5g" data-protein="1g" data-fat="0.5g" data-fiber="3g" data-price="70">
+        <div class="food-card-header">
+          <div class="food-card-title">Lettuce Wraps</div>
+          <div class="food-card-badge">
+            <i class="fas fa-seedling"></i>
+            Vegan
+          </div>
+        </div>
+        <div class="food-card-image-container">
+          <img src="https://media.istockphoto.com/id/936899360/photo/lettuce-wraps-with-chicken-carrot-peanuts-and-scallion-stuffed-iceberg-lettuce-leaves-with.jpg?s=612x612&w=0&k=20&c=cQZ7e8sE9iBqixrh19-4TvHYW-6Zfr5b54UlXI6K1lc=" alt="Lettuce" class="food-card-image">
+          <div class="food-card-overlay">
+            <h3 class="nutrition-title">Nutrition Facts</h3>
+            <div class="nutrition-facts">
+              <div class="nutrition-row">
+                <span>Calories:</span>
+                <span>207</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Carbs:</span>
+                <span>41g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Protein:</span>
+                <span>6g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Fat:</span>
+                <span>2g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Fiber:</span>
+                <span>4g</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="food-card-footer">
+          <span class="food-card-calories">50 cal</span>
+          <span class="food-card-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <i class="far fa-star"></i>
+          </span>
+          <span class="food-card-price">₹70</span>
+        </div>
+      </div>
+
+      <div class="food-card" data-category="base" data-name="Polenta" data-calories="160" data-carbs="32g" data-protein="3.5g" data-fat="1g" data-fiber="2.5g" data-price="75">
+        <div class="food-card-header">
+          <div class="food-card-title">Polenta Base</div>
+          <div class="food-card-badge">
+            <i class="fas fa-seedling"></i>
+            Vegan
+          </div>
+        </div>
+        <div class="food-card-image-container">
+          <img src="https://media.istockphoto.com/id/1315118395/photo/creamy-polenta-with-fried-mushrooms.jpg?s=612x612&w=0&k=20&c=NGscoeODAFORdvsZAn7UIFpoh7Zd2yShEWoFrCBE85c=" alt="Polenta" class="food-card-image">
+          <div class="food-card-overlay">
+            <h3 class="nutrition-title">Nutrition Facts</h3>
+            <div class="nutrition-facts">
+              <div class="nutrition-row">
+                <span>Calories:</span>
+                <span>160</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Carbs:</span>
+                <span>30g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Protein:</span>
+                <span>8g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Fat:</span>
+                <span>2g</span>
+              </div>
+              <div class="nutrition-row">
+                <span>Fiber:</span>
+                <span>4g</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="food-card-footer">
+          <span class="food-card-calories">160 cal</span>
+          <span class="food-card-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </span>
+          <span class="food-card-price">₹75</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+      <!-- Enhanced Curry Selection with Animated Tabs -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>2 Select Curry</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content">
+          <div class="curry-tabs-container">
+            <div class="curry-tabs">
+              <div class="curry-tab veg active" data-tab="veg">
+                <span>Vegetarian</span>
+              </div>
+              <div class="curry-tab nonveg" data-tab="nonveg">
+                <span>Non-Vegetarian</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Vegetarian Content-->
+        <div class="food-content">
+            <div class="food-grid veg-content active" id="veg-content">
+            
+              <div class="food-card" data-category="curry" data-name="Dal Tadka" data-calories="220" data-carbs="28g" data-protein="15g" data-fat="6g" data-fiber="8g" data-price="90">
+                <div class="food-card-header">
+                  <div class="food-card-title">Dal Tadka</div>
+                  <div class="food-card-badge veg-badge">
+                    <i class="fas fa-leaf"></i>
+                    Vegetarian
+                  </div>
+                </div>
+                <div class="food-card-image-container">
+                  <img src="https://media.istockphoto.com/id/495455834/photo/red-lentil-indian-soup-with-flat-bread-masoor-dal.jpg?s=612x612&w=0&k=20&c=QwPf-DOMBMoWYf3mXyqQvXrbpcn_-Zq1A3RtPMW2Ep0=" alt="Dal Tadka" class="food-card-image">
+                  <div class="food-card-overlay">
+                    <h3 class="nutrition-title">Nutrition Facts</h3>
+                    <div class="nutrition-facts">
+                      <div class="nutrition-row">
+                        <span>Calories:</span>
+                        <span>180</span>
+                      </div>
+                      <div class="nutrition-row">
+                        <span>Carbs:</span>
+                        <span>25g</span>
+                      </div>
+                      <div class="nutrition-row">
+                        <span>Protein:</span>
+                        <span>10g</span>
+                      </div>
+                      <div class="nutrition-row">
+                        <span>Fat:</span>
+                        <span>5g</span>
+                      </div>
+                      <div class="nutrition-row">
+                        <span>Fiber:</span>
+                        <span>8g</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="food-card-footer">
+                  <span class="food-card-calories">220 cal</span>
+                  <span class="food-card-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </span>
+                  <span class="food-card-price">₹90</span>
+                </div>
+              </div>
+                    
+                    
+                    <div class="food-card" data-category="curry" data-name="Palak Paneer" data-calories="250" data-carbs="8g" data-protein="14g" data-fat="18g" data-fiber="5g" data-price="130">
+                      <div class="food-card-header">
+                        <div class="food-card-title">Palak Paneer</div>
+                        <div class="food-card-badge veg-badge">
+                          <i class="fas fa-leaf"></i>
+                          Vegetarian
+                        </div>
+                      </div>
+                      <div class="food-card-image-container">
+                        <img src="https://media.istockphoto.com/id/1145882634/photo/palak-paneer-curry-made-up-of-spinach-and-cottage-cheese.jpg?s=612x612&w=0&k=20&c=6IFeXHqyHcoE7KQAqDq-63UkBjNVzchfP_fM4pLeQSg=" alt="Palak Paneer" class="food-card-image">
+                        <div class="food-card-overlay">
+                          <h3 class="nutrition-title">Nutrition Facts</h3>
+                          <div class="nutrition-facts">
+                            <div class="nutrition-row">
+                              <span>Calories:</span>
+                              <span>250</span>
+                            </div>
+                            <div class="nutrition-row">
+                              <span>Carbs:</span>
+                              <span>15g</span>
+                            </div>
+                            <div class="nutrition-row">
+                              <span>Protein:</span>
+                              <span>15g</span>
+                            </div>
+                            <div class="nutrition-row">
+                              <span>Fat:</span>
+                              <span>18g</span>
+                            </div>
+                            <div class="nutrition-row">
+                              <span>Fiber:</span>
+                              <span>4g</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="food-card-footer">
+                        <span class="food-card-calories">250 cal</span>
+                        <span class="food-card-rating">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star-half-alt"></i>
+                        </span>
+                        <span class="food-card-price">₹130</span>
+                      </div>
+                    </div>
+                    
+                    <!-- Chana Masala -->
+                    <div class="food-card" data-category="curry" data-name="Chana Masala" data-calories="220" data-carbs="30g" data-protein="12g" data-fat="8g" data-fiber="10g" data-price="80">
+                      <div class="food-card-header">
+                        <div class="food-card-title">Chana Masala</div>
+                        <div class="food-card-badge veg-badge">
+                          <i class="fas fa-leaf"></i>
+                          Vegetarian
+                        </div>
+                      </div>
+                      <div class="food-card-image-container">
+                        <img src="https://media.istockphoto.com/id/497509280/photo/spicy-channa-masala-with-chickpeas.jpg?s=612x612&w=0&k=20&c=MuvXy-sG3W8u2bKddMb-tbHfrWJm91JdRpd_UBdnz68=" alt="Chana Masala" class="food-card-image">
+                        <div class="food-card-overlay">
+                          <h3 class="nutrition-title">Nutrition Facts</h3>
+                          <div class="nutrition-facts">
+                            <div class="nutrition-row">
+                              <span>Calories:</span>
+                              <span>220</span>
+                            </div>
+                            <div class="nutrition-row">
+                              <span>Carbs:</span>
+                              <span>30g</span>
+                            </div>
+                            <div class="nutrition-row">
+                              <span>Protein:</span>
+                              <span>12g</span>
+                            </div>
+                            <div class="nutrition-row">
+                              <span>Fat:</span>
+                              <span>8g</span>
+                            </div>
+                            <div class="nutrition-row">
+                              <span>Fiber:</span>
+                              <span>10g</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="food-card-footer">
+                        <span class="food-card-calories">220 cal</span>
+                        <span class="food-card-rating">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="far fa-star"></i>
+                        </span>
+                        <span class="food-card-price">₹80</span>
+                      </div>
+		</div>
+		
+<div class="food-card" data-category="rice" data-name="Vegetable Biryani" data-calories="180" data-carbs="20g" data-protein="6g" data-fat="8g" data-fiber="7g" data-price="100">
+  <div class="food-card-header">
+    <div class="food-card-title">Vegetable Biryani</div>
+    <div class="food-card-badge veg-badge">
+      <i class="fas fa-leaf"></i>
+      Vegetarian
+    </div>
+  </div>
+  <div class="food-card-image-container">
+    <img src="https://media.istockphoto.com/id/179085494/photo/indian-biryani.jpg?s=612x612&w=0&k=20&c=VJAUfiuavFYB7PXwisvUhLqWFJ20-9m087-czUJp9Fs=" alt="Vegetable Biryani" class="food-card-image">
+    <div class="food-card-overlay">
+      <h3 class="nutrition-title">Nutrition Facts</h3>
+      <div class="nutrition-facts">
+        <div class="nutrition-row">
+          <span>Calories:</span>
+          <span>320</span>
+        </div>
+        <div class="nutrition-row">
+          <span>Carbs:</span>
+          <span>55g</span>
+        </div>
+        <div class="nutrition-row">
+          <span>Protein:</span>
+          <span>8g</span>
+        </div>
+        <div class="nutrition-row">
+          <span>Fat:</span>
+          <span>10g</span>
+        </div>
+        <div class="nutrition-row">
+          <span>Fiber:</span>
+          <span>6g</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="food-card-footer">
+    <span class="food-card-calories">180 cal</span>
+    <span class="food-card-rating">
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star-half-alt"></i>
+    </span>
+    <span class="food-card-price">₹100</span>
+  </div>
+</div>
+
+<div class="food-card" data-category="curry" data-name="Aloo Gobi" data-calories="170" data-carbs="24g" data-protein="4g" data-fat="8g" data-fiber="5g" data-price="170">
+  <div class="food-card-header">
+    <div class="food-card-title">Aloo Gobi</div>
+    <div class="food-card-badge veg-badge">
+      <i class="fas fa-leaf"></i>
+      Vegetarian
+    </div>
+  </div>
+  <div class="food-card-image-container">
+    <img src="https://media.istockphoto.com/id/1317737079/photo/curry-roasted-cauliflower-vegetarian-vegetable-dish-selective-focus-copy-space.jpg?s=612x612&w=0&k=20&c=aTrp3vS8KyF8YvlZMvUm-2lXmQqdGsBiD4gsH3j0LsE=" alt="Aloo Gobi" class="food-card-image">
+    <div class="food-card-overlay">
+      <h3 class="nutrition-title">Nutrition Facts</h3>
+      <div class="nutrition-facts">
+        <div class="nutrition-row">
+          <span>Calories:</span>
+          <span>180</span>
+        </div>
+        <div class="nutrition-row">
+          <span>Carbs:</span>
+          <span>25g</span>
+        </div>
+        <div class="nutrition-row">
+          <span>Protein:</span>
+          <span>5g</span>
+        </div>
+        <div class="nutrition-row">
+          <span>Fat:</span>
+          <span>7g</span>
+        </div>
+        <div class="nutrition-row">
+          <span>Fiber:</span>
+          <span>5g</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="food-card-footer">
+    <span class="food-card-calories">170 cal</span>
+    <span class="food-card-rating">
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="far fa-star"></i>
+    </span>
+    <span class="food-card-price">₹170</span>
+  </div>
+</div>
+
+<div class="food-card" data-category="curry" data-name="Mushroom Masala" data-calories="190" data-carbs="12g" data-protein="6g" data-fat="14g" data-fiber="4g" data-price="160">
+  <div class="food-card-header">
+    <div class="food-card-title">Mushroom Masala</div>
+    <div class="food-card-badge veg-badge">
+      <i class="fas fa-leaf"></i>
+      Vegetarian
+    </div>
+  </div>
+  <div class="food-card-image-container">
+    <img src="https://media.istockphoto.com/id/1195402110/photo/mushroom-paneer-curry-or-sabzi-served-in-a-bowl-selective-focus.jpg?s=612x612&w=0&k=20&c=nOVdfscciMSd-yur8lv3cbxYL5dUj0XFAhuu3wf9e14=" alt="Mushroom masala" class="food-card-image">
+    <div class="food-card-overlay">
+      <h3 class="nutrition-title">Nutrition Facts</h3>
+      <div class="nutrition-facts">
+        <div class="nutrition-row">
+          <span>Calories:</span>
+          <span>280</span>
+        </div>
+        <div class="nutrition-row">
+          <span>Carbs:</span>
+          <span>20g</span>
+        </div>
+        <div class="nutrition-row">
+          <span>Protein:</span>
+          <span>16g</span>
+        </div>
+        <div class="nutrition-row">
+          <span>Fat:</span>
+          <span>18g</span>
+        </div>
+        <div class="nutrition-row">
+          <span>Fiber:</span>
+          <span>6g</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="food-card-footer">
+    <span class="food-card-calories">190 cal</span>
+    <span class="food-card-rating">
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+    </span>
+    <span class="food-card-price">₹160</span>
+  </div>
+</div>
+	</div>
+</div>
+          
+          <!-- Non-Vegetarian-->
+          <div class="food-grid nonveg-content" id="nonveg-content" style="display: none;">
+            
+            <div class="food-card" data-category="curry" data-name="Butter Chicken" data-calories="350" data-carbs="9g" data-protein="28g" data-fat="22g" data-fiber="2g" data-price="190">
+              <div class="food-card-header">
+                <div class="food-card-title">Butter Chicken</div>
+                <div class="food-card-badge nonveg-badge">
+                  Non-Veg
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/639389404/photo/authentic-indian-food.jpg?s=612x612&w=0&k=20&c=gbfAu17L1gtHmuo5biByhfCefAtYUtGQpyxMmi9_Mus=" alt="Butter Chicken" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>320</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>12g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>25g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>20g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>2g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">350 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+                <span class="food-card-price">₹190</span>
+              </div>
+            </div>
+                 
+                  <div class="food-card" data-category="curry" data-name="Chicken Curry" data-calories="310" data-carbs="8g" data-protein="25g" data-fat="19g" data-fiber="3g" data-price="200">
+                    <div class="food-card-header">
+                      <div class="food-card-title">Chicken Curry</div>
+                      <div class="food-card-badge nonveg-badge">
+                        
+                        Non-Veg
+                      </div>
+                    </div>
+                    <div class="food-card-image-container">
+                      <img src="https://media.istockphoto.com/id/1254799367/photo/chicken-curry_masala.jpg?s=612x612&w=0&k=20&c=hFWrWTHyb8bYPgkoT-ghknG86icey8btuih0JBaXIBQ=" alt="Chicken Curry" class="food-card-image">
+                      <div class="food-card-overlay">
+                        <h3 class="nutrition-title">Nutrition Facts</h3>
+                        <div class="nutrition-facts">
+                          <div class="nutrition-row">
+                            <span>Calories:</span>
+                            <span>280</span>
+                          </div>
+                          <div class="nutrition-row">
+                            <span>Carbs:</span>
+                            <span>8g</span>
+                          </div>
+                          <div class="nutrition-row">
+                            <span>Protein:</span>
+                            <span>30g</span>
+                          </div>
+                          <div class="nutrition-row">
+                            <span>Fat:</span>
+                            <span>15g</span>
+                          </div>
+                          <div class="nutrition-row">
+                            <span>Fiber:</span>
+                            <span>3g</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="food-card-footer">
+                      <span class="food-card-calories">310 cal</span>
+                      <span class="food-card-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                      </span>
+                      <span class="food-card-price">₹200</span>
+                    </div>
+                  </div>
+                  
+                  
+                  <div class="food-card" data-category="curry" data-name="Chicken Tikka Masala" data-calories="330" data-carbs="12g" data-protein="26g" data-fat="20g" data-fiber="3g" data-price="210">
+                    <div class="food-card-header">
+                      <div class="food-card-title">Chicken Tikka Masala</div>
+                      <div class="food-card-badge nonveg-badge">
+                      
+                        Non-Veg
+                      </div>
+                    </div>
+                    <div class="food-card-image-container">
+                      <img src="https://media.istockphoto.com/id/1093661590/photo/traditional-indian-dish-chicken-tikka-masala-with-spicy-curry-meat-in-bowl-basmati-rice-bread.jpg?s=612x612&w=0&k=20&c=DCwxqEciOTaN14A13ym6F4p2UnprhNarn7OwIaOLNNo=" alt="Chicken Tikka Masala" class="food-card-image">
+                      <div class="food-card-overlay">
+                        <h3 class="nutrition-title">Nutrition Facts</h3>
+                        <div class="nutrition-facts">
+                          <div class="nutrition-row">
+                            <span>Calories:</span>
+                            <span>300</span>
+                          </div>
+                          <div class="nutrition-row">
+                            <span>Carbs:</span>
+                            <span>10g</span>
+                          </div>
+                          <div class="nutrition-row">
+                            <span>Protein:</span>
+                            <span>28g</span>
+                          </div>
+                          <div class="nutrition-row">
+                            <span>Fat:</span>
+                            <span>18g</span>
+                          </div>
+                          <div class="nutrition-row">
+                            <span>Fiber:</span>
+                            <span>2g</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="food-card-footer">
+                      <span class="food-card-calories">330 cal</span>
+                      <span class="food-card-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                      </span>
+                      <span class="food-card-price">₹210</span>
+                    </div>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+      <!-- Dessert Selection -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>3 Select Dessert</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content">
+          <div class="food-grid">
+            <div class="food-card" data-category="dessert" data-name="Gulab Jamun" data-calories="200" data-carbs="30g" data-protein="3g" data-fat="8g" data-fiber="1g" data-price="100">
+              <div class="food-card-header">
+                <div class="food-card-title">Gulab Jamun</div>
+                <div class="food-card-badge veg-badge">
+                  <i class="fas fa-leaf"></i>
+                  Vegetarian
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/1424509973/photo/gulab-jamun-an-indian-dessert.jpg?s=612x612&w=0&k=20&c=nNXYGIMY7z4bBq6sRBlgoHbAJN5p75GhW0hVZ8uWhAM=" alt="Gulab Jamun" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>150</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>25g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>3g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>5g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>0g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">200 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+                <span class="food-card-price">₹100</span>
+              </div>
+            </div>
+            
+            <div class="food-card" data-category="dessert" data-name="Rasgulla" data-calories="180" data-carbs="32g" data-protein="4g" data-fat="5g" data-fiber="0g" data-price="110">
+              <div class="food-card-header">
+                <div class="food-card-title">Rasgulla</div>
+                <div class="food-card-badge veg-badge">
+                  <i class="fas fa-leaf"></i>
+                  Vegetarian
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/502958269/photo/chum-chum.jpg?s=612x612&w=0&k=20&c=TSOOqeapaisQgMCMF9KdzxK3_XlPeF9juAjdzKdlHHw=" alt="Rasgulla" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>120</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>20g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>5g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>2g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>0g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">180 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </span>
+                <span class="food-card-price">₹110</span>
+              </div>
+            </div>
+            
+            <div class="food-card" data-category="dessert" data-name="Kheer" data-calories="220" data-carbs="35g" data-protein="5g" data-fat="7g" data-fiber="1g" data-price="120">
+              <div class="food-card-header">
+                <div class="food-card-title">Kheer</div>
+                <div class="food-card-badge veg-badge">
+                  <i class="fas fa-leaf"></i>
+                  Vegetarian
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/1453999382/photo/jhangore-ki-kheer.jpg?s=612x612&w=0&k=20&c=AxGYedan3PMDvHbvilfvpJsvJ5UDwC7n44SQvxXhzvg=" alt="Kheer" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>200</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>30g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>6g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>7g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>1g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">220 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </span>
+                <span class="food-card-price">₹120</span>
+              </div>
+            </div>
+                     <div class="food-card" data-category="dessert" data-name="FRuit Salad" data-calories="120" data-carbs="28g" data-protein="1g" data-fat="0.5g" data-fiber="5g" data-price="130">
+              <div class="food-card-header">
+                <div class="food-card-title">Fresh Fruit Salad</div>
+                <div class="food-card-badge veg-badge">
+                  <i class="fas fa-leaf"></i>
+                  Vegetarian
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/1419839146/photo/fresh-mixed-fruit-salad.jpg?s=612x612&w=0&k=20&c=iclGnr-fnWbZRBVXJpcAePIe_Aty5YHDq7OuvQWU2CY=" alt="Fruit Salad" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>150</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>25g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>3g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>5g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>0g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">120 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+                <span class="food-card-price">₹130</span>
+              </div>
+            </div>
+            
+            <div class="food-card" data-category="dessert" data-name="Yogurt" data-calories="150" data-carbs="20g" data-protein="12g" data-fat="3g" data-fiber="3g" data-price="140">
+              <div class="food-card-header">
+                <div class="food-card-title">Greek Yogurt Parfait</div>
+                <div class="food-card-badge veg-badge">
+                  <i class="fas fa-leaf"></i>
+                  Vegetarian
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/639376412/photo/blueberry-raspberry-parfaits-in-mason-jars-still-life-against-wood.jpg?s=612x612&w=0&k=20&c=3eBFSWTyRnAsa0MPlsLbjaZAQQZJIao8zmc_9oKy-po=" alt="Yogurt" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>120</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>20g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>5g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>2g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>0g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">150 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </span>
+                <span class="food-card-price">₹140</span>
+              </div>
+            </div>
+            
+            <div class="food-card" data-category="dessert" data-name="Chia" data-calories="130" data-carbs="15g" data-protein="4g" data-fat="7g" data-fiber="6g" data-price="40">
+              <div class="food-card-header">
+                <div class="food-card-title">Chia Seed Pudding</div>
+                <div class="food-card-badge veg-badge">
+                  <i class="fas fa-leaf"></i>
+                  Vegetarian
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/1226582613/photo/chia-seed-pudding-with-fruit-healthy-breakfast.jpg?s=612x612&w=0&k=20&c=qsYl6h7KmNDVS2ihcyO6BPo-5dUSNOYFy6a5dITARPU=" alt="Chia seed Pudding" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>200</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>30g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>6g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>7g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>1g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">130 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </span>
+                <span class="food-card-price">₹170</span>
+              </div>
+            </div>
+                    <div class="food-card" data-category="dessert" data-name="coconut Laddoo" data-calories="150" data-carbs="15g" data-protein="2g" data-fat="10g" data-fiber="3g" data-price="180">
+              <div class="food-card-header">
+                <div class="food-card-title">Coconut Laddoo</div>
+                <div class="food-card-badge veg-badge">
+                  <i class="fas fa-leaf"></i>
+                  Vegetarian
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/598054528/photo/coconut-water.jpg?s=612x612&w=0&k=20&c=OsQPEcMsp_ArkTYyZOTokN3mTfYdR4FJw2oAni7Mzlo=" alt="Coconut" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>150</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>25g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>3g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>5g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>0g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">150 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+                <span class="food-card-price">₹180</span>
+              </div>
+            </div>
+            
+            <div class="food-card" data-category="dessert" data-name="Dates" data-calories="90" data-carbs="20g" data-protein="15g" data-fat="2g" data-fiber="3.5g" data-price="190">
+              <div class="food-card-header">
+                <div class="food-card-title">Dates and Nuts</div>
+                <div class="food-card-badge veg-badge">
+                  <i class="fas fa-leaf"></i>
+                  Vegetarian
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/1370738891/photo/assorted-candied-berries-dried-fruits-nuts-and-seeds-top-view-healthy-food-background.jpg?s=612x612&w=0&k=20&c=VY4GvhwYkz5wTX-FW8SjaESP4Xiup7tDbxIZjGOB3GU=" alt="Rasgulla" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>120</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>20g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>5g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>2g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>0g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">90 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </span>
+                <span class="food-card-price">₹190</span>
+              </div>
+            </div>
+            
+            <div class="food-card" data-category="dessert" data-name="Vegan" data-calories="180" data-carbs="24g" data-protein="3g" data-fat="9g" data-fiber="2.5g" data-price="160">
+              <div class="food-card-header">
+                <div class="food-card-title">Vegan Brownie</div>
+                <div class="food-card-badge veg-badge">
+                  <i class="fas fa-leaf"></i>
+                  Vegetarian
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/1433432507/photo/healthy-eating-plate-with-vegan-or-vegetarian-food-in-woman-hands-healthy-plant-based-diet.jpg?s=612x612&w=0&k=20&c=kQBPg4xNIiDMZ-Uu2r37OHZDQSaRroZlxo_YLioh5tA=" alt="Kheer" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>200</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>30g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>6g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>7g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>1g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">180 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </span>
+                <span class="food-card-price">₹160</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Beverage Selection -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>4 Select Beverage</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content">
+          <div class="food-grid">
+            <div class="food-card" data-category="beverage" data-name="Lassi" data-calories="160" data-carbs="20g" data-protein="8g" data-fat="5g" data-fiber="0g" data-price="50">
+              <div class="food-card-header">
+                <div class="food-card-title">Lassi</div>
+                <div class="food-card-badge veg-badge">
+                 <i class="fas fa-seedling"></i>
+                  Vegan
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/908734588/photo/mango-lassi-in-glasses.jpg?s=612x612&w=0&k=20&c=zQWH-2o1eB19K5ziBb0vNMnpbUYUXhnuitAIsVOwBGE=" alt="Lassi" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>160</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>20g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>8g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>5g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>0g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">160 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </span>
+                <span class="food-card-price">₹50</span>
+              </div>
+            </div>
+            
+            <div class="food-card" data-category="beverage" data-name="Masala Chai" data-calories="60" data-carbs="10g" data-protein="2g" data-fat="1g" data-fiber="0g" data-price="20">
+              <div class="food-card-header">
+                <div class="food-card-title">Buttermilk</div>
+                <div class="food-card-badge">
+                  <i class="fas fa-seedling"></i>
+                  Vegan
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/1147734167/photo/spiced-buttermilk-indian-traditional-summer-drink.jpg?s=612x612&w=0&k=20&c=Wu0hhQ6BwQ9UDK9H_BoB38CYsOceb5-0TyE9_oEeN9M=" alt="Masala Chai" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>60</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>10g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>2g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>1g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>0g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">60 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+                <span class="food-card-price">₹20</span>
+              </div>
+            </div>
+            
+            <div class="food-card" data-category="beverage" data-name="Jaljeera" data-calories="30" data-carbs="7g" data-protein="1g" data-fat="0g" data-fiber="1g" data-price="25">
+              <div class="food-card-header">
+                <div class="food-card-title">Fresh Lime</div>
+                <div class="food-card-badge">
+                  <i class="fas fa-seedling"></i>
+                  Vegan
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/544468096/photo/lemonade-with-lemon-mint-and-ice.jpg?s=612x612&w=0&k=20&c=XkJqJVWwovEKvCJM7fY59hL_rj7WgH9v_0ZBjflugKA=" alt="Jaljeera" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>30</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>7g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>1g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>0g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>1g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">30 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <i class="far fa-star"></i>
+                </span>
+                <span class="food-card-price">₹25</span>
+              </div>
+            </div>
+          <div class="food-card" data-category="beverage" data-name="Lassi" data-calories="160" data-carbs="20g" data-protein="8g" data-fat="5g" data-fiber="0g" data-price="50">
+              <div class="food-card-header">
+                <div class="food-card-title">Green Tea</div>
+                <div class="food-card-badge veg-badge">
+                  <i class="fas fa-leaf"></i>
+                  Vegetarian
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/1323291231/photo/green-mint-tea.jpg?s=612x612&w=0&k=20&c=on-ZARmnq1GkLXzabHS4KdU9VlcRjYbBmAwftOqBIBU=" alt="Lassi" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>160</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>20g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>8g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>5g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>0g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">160 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </span>
+                <span class="food-card-price">₹50</span>
+              </div>
+            </div>
+            
+            <div class="food-card" data-category="beverage" data-name="Masala Chai" data-calories="60" data-carbs="10g" data-protein="2g" data-fat="1g" data-fiber="0g" data-price="20">
+              <div class="food-card-header">
+                <div class="food-card-title">Herbal Tea</div>
+                <div class="food-card-badge">
+                  <i class="fas fa-seedling"></i>
+                  Vegan
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/1192722029/photo/white-cup-of-healthy-hibiscus-tea-pouring-from-the-teapot-with-dried-hibiscus-flowers-on.jpg?s=612x612&w=0&k=20&c=Ls2B_HMMo2CsIP0Ce1KcQY26k2oNRbjswCywnvSpunY=" alt="Masala Chai" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>60</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>10g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>2g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>1g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>0g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">60 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+                <span class="food-card-price">₹20</span>
+              </div>
+            </div>
+            
+            <div class="food-card" data-category="beverage" data-name="Jaljeera" data-calories="30" data-carbs="7g" data-protein="1g" data-fat="0g" data-fiber="1g" data-price="25">
+              <div class="food-card-header">
+                <div class="food-card-title">Ginger</div>
+                <div class="food-card-badge">
+                  <i class="fas fa-seedling"></i>
+                  Vegan
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/1188952028/photo/ginger-tea-with-lemon-and-mint.jpg?s=612x612&w=0&k=20&c=htajS9zPT24RZafLrPVZ-D4fV1E9NvqvPXxn5QVlpfc=" alt="Jaljeera" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>30</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>7g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>1g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>0g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>1g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">30 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <i class="far fa-star"></i>
+                </span>
+                <span class="food-card-price">₹25</span>
+              </div>
+            </div>
+          <div class="food-card" data-category="beverage" data-name="Lassi" data-calories="160" data-carbs="20g" data-protein="8g" data-fat="5g" data-fiber="0g" data-price="50">
+              <div class="food-card-header">
+                <div class="food-card-title">Mango</div>
+                <div class="food-card-badge veg-badge">
+                  <i class="fas fa-leaf"></i>
+                  Vegetarian
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/904617420/photo/fresh-mango-smoothie-in-the-glass.jpg?s=612x612&w=0&k=20&c=ogIRn5AfahJNU4W8UmQIZ-mJqL9tgOm9yH_-5WJmkSQ=" alt="Lassi" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>160</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>20g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>8g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>5g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>0g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">160 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </span>
+                <span class="food-card-price">₹50</span>
+              </div>
+            </div>
+            
+            <div class="food-card" data-category="beverage" data-name="Masala Chai" data-calories="60" data-carbs="10g" data-protein="2g" data-fat="1g" data-fiber="0g" data-price="20">
+              <div class="food-card-header">
+                <div class="food-card-title">Watermelon</div>
+                <div class="food-card-badge">
+                  <i class="fas fa-seedling"></i>
+                  Vegan
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/838270506/photo/summer-refreshing-detox-smoothie-of-watermelon-and-mint-on-a-white-wooden-background-rustic.jpg?s=612x612&w=0&k=20&c=e4q8qUVUZOc3gA5kwCk7iFFwoV9ET9_wwUF_HE4w7G8=" alt="Masala Chai" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>60</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>10g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>2g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>1g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>0g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">60 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+                <span class="food-card-price">₹20</span>
+              </div>
+            </div>
+            
+            <div class="food-card" data-category="beverage" data-name="Jaljeera" data-calories="30" data-carbs="7g" data-protein="1g" data-fat="0g" data-fiber="1g" data-price="25">
+              <div class="food-card-header">
+                <div class="food-card-title">Kombucha</div>
+                <div class="food-card-badge">
+                  <i class="fas fa-seedling"></i>
+                  Vegan
+                </div>
+              </div>
+              <div class="food-card-image-container">
+                <img src="https://media.istockphoto.com/id/1204371840/photo/kombucha-or-cider-fermented-drink-cold-tea-beverage-with-beneficial-bacteria-cinnamon-lemon.jpg?s=612x612&w=0&k=20&c=CuD2x_P5XET_1aoy6enQfpTHDHYozFvdwjObMbKvyTI=" alt="Jaljeera" class="food-card-image">
+                <div class="food-card-overlay">
+                  <h3 class="nutrition-title">Nutrition Facts</h3>
+                  <div class="nutrition-facts">
+                    <div class="nutrition-row">
+                      <span>Calories:</span>
+                      <span>30</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Carbs:</span>
+                      <span>7g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Protein:</span>
+                      <span>1g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fat:</span>
+                      <span>0g</span>
+                    </div>
+                    <div class="nutrition-row">
+                      <span>Fiber:</span>
+                      <span>1g</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="food-card-footer">
+                <span class="food-card-calories">30 cal</span>
+                <span class="food-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <i class="far fa-star"></i>
+                </span>
+                <span class="food-card-price">₹25</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <aside class="info-boxes">
+      <div class="thali-box">
+        <h3>Your Balance Thali <button class="close-btn">×</button></h3>
+        <p class="subtitle">The perfect balance of taste and nutrition</p>
+        
+        
+        <div class="thali-empty" id="empty-thali">
+          <p>Your thali is empty</p>
+          <small>Select items to create your balanced thali</small>
+        </div>
+        
+        
+        <div class="plate-visualization" style="display: none;">
+          <div class="plate-circle plate-center">
+            <div id="plate-center-text">Select items</div>
+          </div>
+          
+          
+          <div class="plate-segment base" data-category="base" style="transform: rotate(0deg);"></div>
+          <div class="plate-segment curry" data-category="curry" style="transform: rotate(90deg);"></div>
+          <div class="plate-segment dessert" data-category="dessert" style="transform: rotate(180deg);"></div>
+          <div class="plate-segment beverage" data-category="beverage" style="transform: rotate(270deg);"></div>
+        </div>
+        
+        
+        <div class="selected-items" id="selected-items">
+       
+        </div>
+        
+        <!-- Total Price - hidden by default -->
+        <div class="total-price" id="total-price">
+          <span>Total Price:</span>
+          <span id="total-price-value">₹0</span>
+        </div>
+        
+        
+        <div class="nutrition-summary">
+          <h4>Total Nutrition:</h4>
+          <div class="nutrition-item">
+            <span>Calories:</span>
+            <span id="total-calories">0</span>
+          </div>
+          <div class="nutrition-item">
+            <span>Protein:</span>
+            <span id="total-protein">0g</span>
+          </div>
+          <div class="nutrition-item">
+            <span>Carbs:</span>
+            <span id="total-carbs">0g</span>
+          </div>
+          <div class="nutrition-item">
+            <span>Fat:</span>
+            <span id="total-fat">0g</span>
+          </div>
+          <div class="nutrition-item">
+            <span>Fiber:</span>
+            <span id="total-fiber">0g</span>
+          </div>
+        </div>
+        
+       
+        <div class="nutritional-target">
+          <h4>Nutritional Target:</h4>
+          
+          <div class="target-item target-calories">
+            <div class="target-label">
+              <span>Calories</span>
+              <span id="calories-percent">0%</span>
+            </div>
+            <div class="target-bar">
+              <div class="target-progress" style="width: 0%"></div>
+            </div>
+          </div>
+          
+          <div class="target-item target-protein">
+            <div class="target-label">
+              <span>Protein</span>
+              <span id="protein-percent">0%</span>
+            </div>
+            <div class="target-bar">
+              <div class="target-progress" style="width: 0%"></div>
+            </div>
+          </div>
+          
+          <div class="target-item target-carbs">
+            <div class="target-label">
+              <span>Carbs</span>
+              <span id="carbs-percent">0%</span>
+            </div>
+            <div class="target-bar">
+              <div class="target-progress" style="width: 0%"></div>
+            </div>
+          </div>
+          
+          <div class="target-item target-fat">
+            <div class="target-label">
+              <span>Fat</span>
+              <span id="fat-percent">0%</span>
+            </div>
+            <div class="target-bar">
+              <div class="target-progress" style="width: 0%"></div>
+            </div>
+          </div>
+          
+          <div class="target-item target-fiber">
+            <div class="target-label">
+              <span>Fiber</span>
+              <span id="fiber-percent">0%</span>
+            </div>
+            <div class="target-bar">
+              <div class="target-progress" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="meal-balance">
+          <h4>Meal Balance</h4>
+          <div class="balance-rating">
+            <span class="rating-label">Based on NIN guidelines for your age group</span>
+            <span class="rating-value" id="balance-rating-value">Fair</span>
+          </div>
+        </div>
+        
+        <!-- Order Button - hidden by default -->
+        <button class="order-btn">Order Thali (₹<span id="order-price">0</span>)</button>
+        
+        
+        <div class="order-confirmation">
+          <h3>Order Placed Successfully!</h3>
+          <p>Your nutritionally balanced thall will be delivered soon.</p>
+          <p class="total">Total: ₹<span id="confirmation-price">0</span></p>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <strong>Did you know?</strong>
+        <p>
+          The traditional Indian thali perfectly exemplifies balanced nutrition principles with its
+          variety of nutrient-rich components, which is why Indian cuisine aligns naturally with NIN guidelines.
+        </p>
+      </div>
+    </aside>
+  </main>
 
   
-  
-  
+  <footer class="footer">
+     <p>Nutritional data based on Indian National Institute of Nutrition (NIN) guidelines</p>
+        <p class="copyright">© 2025 Balance Plate - Personalized Nutrition for Healthy Living</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
     
-  
-  
-  
-  
-  
-  
-  
-  </body>
+        
+      // Accordion functionality
+      const accordionHeaders = document.querySelectorAll('.accordion-header');
+      
+      accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const item = header.parentElement;
+          const isOpen = item.classList.contains('open');
+          
+          document.querySelectorAll('.accordion-item').forEach(accordion => {
+            accordion.classList.remove('open');
+          });
+          
+          
+          if (!isOpen) {
+            item.classList.add('open');
+          }
+        });
+      });
+     
+      // Enhanced Curry tab functionality
+      const curryTabs = document.querySelectorAll('.curry-tab');
+
+      curryTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const tabType = tab.dataset.tab;
+          
+       
+          curryTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          
+          
+          document.querySelectorAll('.food-grid').forEach(content => {
+            if (content.id === 'veg-content' || content.id === 'nonveg-content') {
+              content.style.display = 'none';
+            }
+          });
+          
+      
+          document.getElementById(`${tabType}-content`).style.display = 'grid';
+        });
+      });
+      
+      // Food selection functionality
+      const foodCards = document.querySelectorAll('.food-card');
+      let selectedItems = {
+        base: null,
+        curry: null,
+        dessert: null,
+        beverage: null
+      };
+      let totalCalories = 0;
+      let totalPrice = 0;
+      let totalProtein = 0;
+      let totalCarbs = 0;
+      let totalFat = 0;
+      let totalFiber = 0;
+      
+      foodCards.forEach(card => {
+        card.addEventListener('click', function() {
+          const category = this.dataset.category;
+          const name = this.dataset.name;
+          const calories = parseInt(this.dataset.calories);
+          const price = parseInt(this.dataset.price);
+          const protein = parseFloat(this.dataset.protein);
+          const carbs = parseFloat(this.dataset.carbs);
+          const fat = parseFloat(this.dataset.fat);
+          const fiber = parseFloat(this.dataset.fiber);
+          
+        
+          if (selectedItems[category]) {
+            const prevCard = document.querySelector(`.food-card[data-name="${selectedItems[category].name}"]`);
+            if (prevCard) prevCard.classList.remove('selected');
+            totalCalories -= selectedItems[category].calories;
+            totalPrice -= selectedItems[category].price;
+            totalProtein -= selectedItems[category].protein;
+            totalCarbs -= selectedItems[category].carbs;
+            totalFat -= selectedItems[category].fat;
+            totalFiber -= selectedItems[category].fiber;
+          }
+          
+         
+          this.classList.add('selected');
+          selectedItems[category] = { 
+            name, 
+            calories,
+            price,
+            protein,
+            carbs,
+            fat,
+            fiber
+          };
+          totalCalories += calories;
+          totalPrice += price;
+          totalProtein += protein;
+          totalCarbs += carbs;
+          totalFat += fat;
+          totalFiber += fiber;
+          
+         
+          updateThaliDisplay();
+          
+          
+          document.querySelector('.plate-visualization').style.display = 'flex';
+          document.getElementById('empty-thali').style.display = 'none';
+          
+          
+          document.querySelector('.selected-items').style.display = 'block';
+          document.querySelector('.total-price').style.display = 'flex';
+          document.querySelector('.nutrition-summary').style.display = 'block';
+          document.querySelector('.nutritional-target').style.display = 'block';
+          document.querySelector('.meal-balance').style.display = 'block';
+          document.querySelector('.order-btn').style.display = 'block';
+          
+          
+          document.querySelector('.order-confirmation').style.display = 'none';
+          
+          
+          this.classList.add('bounce');
+          setTimeout(() => {
+            this.classList.remove('bounce');
+          }, 500);
+        });
+      });
+      
+      // Function to calculate meal balance rating
+      function calculateMealBalance() {
+       
+        const caloriesPercent = Math.min(Math.round((totalCalories / 1800) * 100), 100);
+        const proteinPercent = Math.min(Math.round((totalProtein / 50) * 100), 100);
+        const carbsPercent = Math.min(Math.round((totalCarbs / 300) * 100), 100);
+        const fatPercent = Math.min(Math.round((totalFat / 70) * 100), 100);
+        const fiberPercent = Math.min(Math.round((totalFiber / 25) * 100), 100);
+        
+        
+        const avgPercent = (caloriesPercent * 0.4) + (proteinPercent * 0.2) + 
+                          (carbsPercent * 0.2) + (fatPercent * 0.1) + (fiberPercent * 0.1);
+        
+        
+        let rating, ratingClass;
+        if (avgPercent >= 90) {
+          rating = "Excellent";
+          ratingClass = "rating-excellent";
+        } else if (avgPercent >= 75) {
+          rating = "Good";
+          ratingClass = "rating-good";
+        } else if (avgPercent >= 50) {
+          rating = "Fair";
+          ratingClass = "rating-fair";
+        } else if (avgPercent >= 25) {
+          rating = "Poor";
+          ratingClass = "rating-poor";
+        } else {
+          rating = "Bad";
+          ratingClass = "rating-bad";
+        }
+        
+        
+        const ratingElement = document.getElementById('balance-rating-value');
+        ratingElement.textContent = rating;
+        ratingElement.className = 'rating-value ' + ratingClass;
+      }
+      
+      // Function to update the thali display
+      function updateThaliDisplay() {
+        const selectedItemsContainer = document.getElementById('selected-items');
+        const plateCenterText = document.getElementById('plate-center-text');
+        const totalCaloriesElement = document.getElementById('total-calories');
+        const totalPriceElement = document.getElementById('total-price-value');
+        const orderPriceElement = document.getElementById('order-price');
+        const confirmationPriceElement = document.getElementById('confirmation-price');
+        const totalProteinElement = document.getElementById('total-protein');
+        const totalCarbsElement = document.getElementById('total-carbs');
+        const totalFatElement = document.getElementById('total-fat');
+        const totalFiberElement = document.getElementById('total-fiber');
+        
+        
+        selectedItemsContainer.innerHTML = '';
+        
+       
+        const hasItems = Object.values(selectedItems).some(item => item !== null);
+        
+        if (hasItems) {
+         
+          plateCenterText.textContent = `${totalCalories} cal`;
+          
+          
+          document.querySelectorAll('.plate-segment').forEach(segment => {
+            const category = segment.dataset.category;
+            if (selectedItems[category]) {
+              segment.classList.add('active');
+            } else {
+              segment.classList.remove('active');
+            }
+          });
+          
+          
+          for (const [category, item] of Object.entries(selectedItems)) {
+            if (item) {
+              const itemElement = document.createElement('div');
+              itemElement.className = 'selected-item';
+              itemElement.innerHTML = `
+                <span class="selected-item-name">${item.name}</span>
+                <div class="selected-item-details">
+                  <span class="selected-item-calories">${item.calories} cal</span>
+                  <span class="selected-item-price">₹${item.price}</span>
+                </div>
+              `;
+              selectedItemsContainer.appendChild(itemElement);
+            }
+          }
+          
+          
+          totalCaloriesElement.textContent = totalCalories;
+          totalPriceElement.textContent = `₹${totalPrice}`;
+          orderPriceElement.textContent = totalPrice;
+          confirmationPriceElement.textContent = totalPrice;
+          totalProteinElement.textContent = `${totalProtein}g`;
+          totalCarbsElement.textContent = `${totalCarbs}g`;
+          totalFatElement.textContent = `${totalFat}g`;
+          totalFiberElement.textContent = `${totalFiber}g`;
+          
+          
+          const caloriesPercent = Math.min(Math.round((totalCalories / 1800) * 100), 100);
+          const proteinPercent = Math.min(Math.round((totalProtein / 50) * 100), 100); // 50g protein target
+          const carbsPercent = Math.min(Math.round((totalCarbs / 300) * 100), 100); // 300g carbs target
+          const fatPercent = Math.min(Math.round((totalFat / 70) * 100), 100); // 70g fat target
+          const fiberPercent = Math.min(Math.round((totalFiber / 25) * 100), 100); // 25g fiber target
+          
+          document.getElementById('calories-percent').textContent = `${caloriesPercent}%`;
+          document.getElementById('protein-percent').textContent = `${proteinPercent}%`;
+          document.getElementById('carbs-percent').textContent = `${carbsPercent}%`;
+          document.getElementById('fat-percent').textContent = `${fatPercent}%`;
+          document.getElementById('fiber-percent').textContent = `${fiberPercent}%`;
+          
+          document.querySelector('.target-calories .target-progress').style.width = `${caloriesPercent}%`;
+          document.querySelector('.target-protein .target-progress').style.width = `${proteinPercent}%`;
+          document.querySelector('.target-carbs .target-progress').style.width = `${carbsPercent}%`;
+          document.querySelector('.target-fat .target-progress').style.width = `${fatPercent}%`;
+          document.querySelector('.target-fiber .target-progress').style.width = `${fiberPercent}%`;
+          
+          
+          calculateMealBalance();
+        }
+      }
+      
+      // Close button functionality
+      document.querySelector('.close-btn').addEventListener('click', function() {
+        
+        document.querySelectorAll('.food-card').forEach(card => {
+          card.classList.remove('selected');
+        });
+        
+        selectedItems = {
+          base: null,
+          curry: null,
+          dessert: null,
+          beverage: null
+        };
+        
+        totalCalories = 0;
+        totalPrice = 0;
+        totalProtein = 0;
+        totalCarbs = 0;
+        totalFat = 0;
+        totalFiber = 0;
+        
+        
+        document.querySelector('.plate-visualization').style.display = 'none';
+        document.getElementById('empty-thali').style.display = 'block';
+        
+        
+        document.querySelector('.selected-items').style.display = 'none';
+        document.querySelector('.total-price').style.display = 'none';
+        document.querySelector('.nutrition-summary').style.display = 'none';
+        document.querySelector('.nutritional-target').style.display = 'none';
+        document.querySelector('.meal-balance').style.display = 'none';
+        document.querySelector('.order-btn').style.display = 'none';
+        document.querySelector('.order-confirmation').style.display = 'none';
+        
+        
+        updateThaliDisplay();
+      });
+      
+      
+      document.querySelector('.order-btn').addEventListener('click', function() {
+        if (totalPrice > 0) {
+          
+          document.querySelector('.order-btn').style.display = 'none';
+          const confirmation = document.querySelector('.order-confirmation');
+          confirmation.style.display = 'block';
+          
+         
+          createConfetti();
+          
+          
+          confirmation.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          alert('Please select at least one item to place an order.');
+        }
+      });
+      
+      
+      function createConfetti() {
+        const colors = ['#00996D', '#4CAF50', '#2196F3', '#FFA000', '#F44336'];
+        const container = document.querySelector('.thali-box');
+        
+        for (let i = 0; i < 50; i++) {
+          const confetti = document.createElement('div');
+          confetti.style.position = 'absolute';
+          confetti.style.width = '8px';
+          confetti.style.height = '8px';
+          confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+          confetti.style.borderRadius = '50%';
+          confetti.style.left = Math.random() * 100 + '%';
+          confetti.style.top = '-10px';
+          confetti.style.opacity = '0';
+          confetti.style.animation = `confetti ${Math.random() * 3 + 2}s ease-out forwards`;
+          confetti.style.animationDelay = Math.random() * 0.5 + 's';
+          
+          container.appendChild(confetti);
+          
+          
+          setTimeout(() => {
+            confetti.remove();
+          }, 5000);
+        }
+      }
+      
+      // Open first accordion by default
+      document.querySelector('.accordion-item').classList.add('open');
+    });
+  </script>
+</body>
 </html>
