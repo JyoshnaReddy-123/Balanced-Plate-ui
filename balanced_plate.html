@@ -251,7 +251,7 @@
 </head>
 <body>
   <header>
-    <nav class="navbar">
+     <nav class="navbar">
       <div class="logo">
         <a href="/home/rguktvalley/Desktop/dv/web1.html" style="text-decoration: none; color: inherit;">
           <span class="logo-icon">🥗</span>
@@ -262,9 +262,9 @@
       <ul class="nav-links">
         <li><a href="/home/rguktvalley/Desktop/dv/web1.html" class="nav-item">Home</a></li>
         <li><a href="#" class="nav-item active">Balance Plate</a></li>
-        <li><a href="/home/rguktvalley/Desktop/dv/communitypage.html" class="nav-item">👥 Community</a></li>
-        <li><a href="/home/rguktvalley/Desktop/dv/my_plates.html" class="nav-item">My Plates</a></li>
-        <li><a href="/home/rguktvalley/Desktop/dv/bookmarks.html" class="nav-item">&#128278; Bookmarks</a></li>
+        <li><a href="/home/rguktvalley/Desktop/dv/communitypage.html" class="nav-item">&#128101;Community</a></li>
+        <li><a href="home/rguktvalley/Desktop/dv/my_plates.html" class="nav-item active">My Plates</a></li>
+        <li><a href="/home/rguktvalley/Desktop/dv/bookmarks.html" class="nav-item"> &#128278;Bookmarks</a></li>
       </ul>
     </nav>
   </header>
@@ -293,7 +293,9 @@
     </div>
   </main>
 
-  <script>
+
+
+<script>
     document.addEventListener('DOMContentLoaded', function () {
       const ageInput = document.getElementById('age');
       const errorMessage = document.getElementById('error-message');
@@ -319,20 +321,28 @@
         }
       }
 
- // added function
-getStartedBtn.addEventListener('click', function (e) {
-  e.preventDefault();
+      getStartedBtn.addEventListener('click', function (e) {
+        e.preventDefault();
 
-  if (!validateAge()) {
-    container.style.animation = 'shake 0.5s';
-    setTimeout(() => {
-      container.style.animation = '';
-    }, 500);
-  } else {
-    const age = parseInt(ageInput.value);
-    window.location.href = "balanced_thali.html?age="+age;
-  }
-});
-  </script>
+        if (!validateAge()) {
+          container.style.animation = 'shake 0.5s';
+          setTimeout(() => {
+            container.style.animation = '';
+          }, 500);
+        } else {
+          const age = parseInt(ageInput.value);
+          // Store the age in localStorage
+          localStorage.setItem('userAge', age);
+          // Set flag that profile is complete
+          localStorage.setItem('profileSet', 'true');
+          // Redirect to balanced_thali.html
+          window.location.href = "balanced_thali.html?age=" + age;
+        }
+      });
+    });
+</script>
+
+
+
 </body>
 </html>
