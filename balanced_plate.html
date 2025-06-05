@@ -247,7 +247,16 @@
         gap: 0.5rem;
       }
     }
+    
   </style>
+  
+    <script>
+    // Check for stored age immediately when page starts loading
+    const userAge = sessionStorage.getItem('userAge');
+    if (userAge && performance.navigation.type !== 1) {
+      window.location.href = "balanced_thali.html?age=" + userAge;
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -261,7 +270,7 @@
       </div>
       <ul class="nav-links">
         <li><a href="/home/rguktvalley/Videos/project/web1.html" class="nav-item">Home</a></li>
-        <li><a href="#" class="nav-item active">Balance Plate</a></li>
+        <li><a href="balanced_thali.html" class="nav-item active">Balance Plate</a></li>
         <li><a href="/home/rguktvalley/Videos/project/communitypage.html" class="nav-item">&#128101;Community</a></li>
         <li><a href="/home/rguktvalley/Videos/project/my_plates.html" class="nav-item">My Plates</a></li>
         <li><a href="/home/rguktvalley/Videos/project/bookmarks.html" class="nav-item"> &#128278;Bookmarks</a></li>
@@ -295,8 +304,9 @@
 
 
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
+ <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Only run this code if we didn't redirect above
       const ageInput = document.getElementById('age');
       const errorMessage = document.getElementById('error-message');
       const getStartedBtn = document.getElementById('get-started-btn');
@@ -321,7 +331,7 @@
         }
       }
 
-      getStartedBtn.addEventListener('click', function (e) {
+      getStartedBtn.addEventListener('click', function(e) {
         e.preventDefault();
 
         if (!validateAge()) {
@@ -331,17 +341,12 @@
           }, 500);
         } else {
           const age = parseInt(ageInput.value);
-          // Store the age in localStorage
-          localStorage.setItem('userAge', age);
-          // Set flag that profile is complete
-          localStorage.setItem('profileSet', 'true');
-          // Redirect to balanced_thali.html
+          sessionStorage.setItem('userAge', age);
           window.location.href = "balanced_thali.html?age=" + age;
         }
       });
     });
-</script>
-
+  </script>
 
 
 </body>
