@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Balance Plate for Professionals</title>
+    <title>My Plates | The Balanced Plate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-	    * {
-	  margin: 0;
-	  padding: 0;
-	  box-sizing: border-box;
-	}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -20,79 +21,81 @@
         }
         
         nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #00996D; /* Same background as your current nav */
-  z-index: 999;
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #00996D;
+            z-index: 999;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
+        /* Navbar */
+        .navbar {
+            background-color: #008054;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo-icon {
+            font-size: 1.6rem;
+            margin-right: 0.5rem;
+        }
+        .brand {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        .design-btn {
+            background: #ffffff;
+            color: #008054;
+            border: none;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .design-btn:hover {
+            background-color: #E8F5E9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+        .nav-item {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .nav-item:hover {
+            background-color:#66BB6A;
+            color:black;
+            transform: translateY(-2px);
+        }
+        .nav-item.active {
+            background-color: white;
+            color: #005d42;
+            font-weight: bold;
+        }
 
-/* Navbar */
-.navbar {
-  background-color: #008054;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.logo {
-  display: flex;
-  align-items: center;
-}
-.logo-icon {
-  font-size: 1.6rem;
-  margin-right: 0.5rem;
-}
-.brand {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-right: 1rem;
-}
-.design-btn {
-  background: #ffffff;
-  color: #008054;
-  border: none;
-  padding: 0.3rem 0.8rem;
-  font-size: 0.85rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-.design-btn:hover {
-  background-color: #E8F5E9;
-}
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-.nav-item {
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  text-decoration: none;
-  color: white;
-  transition: all 0.3s ease;
-}
-.nav-item:hover {
-  background-color:#66BB6A;
-  color:black;
-}
-.nav-item.active {
-  background-color: white;
-  color: #005d42;
-  font-weight: bold;
-}
-
-
-.profile-setup {
+        .profile-setup {
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -100,7 +103,8 @@
             align-items: center;
             padding: 3rem;
             text-align: center;
-            margin-top: 60px; /* To account for fixed navbar */
+            margin-top: 60px;
+            animation: fadeIn 0.5s ease-out;
         }
         
         .profile-setup h1 {
@@ -130,61 +134,364 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
             margin-top: 9px;
+            position: relative;
+            overflow: hidden;
         }
         
         .btn:hover {
-            background-color: #00996D;
+            background-color: #007a5a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
+        /* Profile Section Styles */
+.profile-section {
+    max-width: 900px;
+    margin: 6rem auto 1rem;
+    text-align: left;
+}
 
-       
-        
-        .empty-page {
-            margin-top: 60px;
-            height: calc(100vh - 60px);
-            display: none; /* Will be shown if profile is set */
-        }
-    </style>
+.profile-header h2 {
+    color: #333;
+    font-size: 1.9rem;
+    margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+
+.profile-header h2 i {
+    color: #00996D;
+    font-size: 1.5rem;
+}
+
+.profile-header p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Save Plate Box */
+.save-plate-box {
+    max-width: 900px;
+    margin: 2rem auto;
+    background-color: #00996D;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    animation: slideUp 0.5s ease-out;
+}
+
+.save-plate-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.save-plate-box h2 {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    text-align:left;
+}
+
+.save-input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.plate-input {
+    padding: 0.8rem 1.2rem;
+    flex: 1;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.plate-input:focus {
+    outline: none;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.2), 0 0 0 2px rgba(0, 195, 137, 0.3);
+}
+
+.save-btn {
+    background-color: #00C389;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.save-btn:hover {
+    background-color: #00a56e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 195, 137, 0.3);
+}
+
+.save-btn i {
+    font-size: 1.1rem;
+}
+
+
+/* Toast Message */
+.toast-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background:#fefefe;
+    border-left: 5px solid #008054 ;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    padding: 0.7rem 1.5rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color:black;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 1000;
+    transform: translateX(120%);
+    transition: transform 0.3s ease;
+}
+
+.toast-message.show {
+    transform: translateX(0);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .save-input-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .plate-input {
+        width: 100%;
+    }
+    
+    .save-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .action-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+.empty-saved-plates {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease-in-out;
+    animation: fadeInUp 0.6s ease;
+}
+
+.empty-saved-plates:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    background-color: #C8F8E4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: bounce 1.2s infinite;
+}
+
+.icon-wrapper i {
+    color: #00996D;
+    font-size: 1.8rem;
+}
+
+.empty-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #222;
+}
+
+.empty-content p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.build-btn {
+    background-color: #00C389;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.8rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.build-btn:hover {
+    background-color: #00a876;
+    box-shadow: 0 6px 16px rgba(0, 195, 137, 0.4);
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .empty-saved-plates {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+}
+
+
+</style>
+
 </head>
 <body>
-  <header>
-     <nav class="navbar">
-      <div class="logo">
-        <a href="/home/rguktvalley/Videos/project/web1.html" style="text-decoration: none; color: inherit;">
-          <span class="logo-icon">🥗</span>
-          <span class="brand">The Balanced Plate</span>
-        </a>
-        <button class="design-btn">Design your own plate</button>
-      </div>
-      <ul class="nav-links">
-        <li><a href="/home/rguktvalley/Videos/project/web1.html" class="nav-item">Home</a></li>
-        <li><a href="/home/rguktvalley/Videos/project/balanced_plate.html" class="nav-item">Balance Plate</a></li>
-        <li><a href="/home/rguktvalley/Videos/project/communitypage.html" class="nav-item">&#128101;Community</a></li>
-        <li><a href="#" class="nav-item active">My Plates</a></li>
-        <li><a href="/home/rguktvalley/Videos/project/bookmarks.html" class="nav-item"> &#128278;Bookmarks</a></li>
-      </ul>
-    </nav>
-  </header>
-  
-  
-     <main class="profile-setup" id="profileSetup">
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/home/rguktvalley/Videos/project/web1.html" style="text-decoration: none; color: inherit;">
+                    <span class="logo-icon">🥗</span>
+                    <span class="brand">The Balanced Plate</span>
+                </a>
+                <button class="design-btn">Design your own plate</button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/home/rguktvalley/Videos/project/web1.html" class="nav-item">Home</a></li>
+                <li><a href="/home/rguktvalley/Videos/project/balanced_plate.html" class="nav-item">Balance Plate</a></li>
+                <li><a href="/home/rguktvalley/Videos/project/communitypage.html" class="nav-item">&#128101;Community</a></li>
+                <li><a href="#" class="nav-item active">My Plates</a></li>
+                <li><a href="/home/rguktvalley/Videos/project/bookmarks.html" class="nav-item"> &#128278;Bookmarks</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+   <main>
+    <!-- Profile Setup Section (shown when profile not set) -->
+    <div class="profile-setup" id="profileSetup">
         <h1>Set Up Your Profile</h1>
         <p>Please set your age first to get personalized nutritional recommendations.</p>
         <div class="divider"></div>
-        
         <button class="btn" id="setupProfileBtn">Set Up Your Profile</button>
+    </div>
+    
+    <div class="empty-page" id="emptyPage">
+    
+    
+    <div class="profile-section">
+    <div class="profile-header">
+        <h2><i class="fas fa-user-circle"></i> Your Profile</h2>
+        <p>Save and manage your favourite meal plates for easy access</p>
+    </div>
+</div>
         
-        
-        
-        <div class="empty-page" id="emptyPage"></div>
-    </main>
- 
+        <section class="save-plate-box">
+            <h2><i class="fas fa-bookmark"></i> Save Your Current Plate</h2>
+            <div class="save-input-group">
+                <input type="text" placeholder="Give your plate a name..." class="plate-input" id="plateNameInput">
+                <button class="save-btn" id="savePlateBtn">
+                    <i class="fas fa-bookmark"></i> Save Plate
+                </button>
+            </div>
+        </section>
    
-    <script>
+
+   
+   
+   	<!-- Empty Plate Message UI -->
+<section class="empty-saved-plates">
+    <div class="empty-content animated">
+        <div class="icon-wrapper">
+            <i class="fas fa-bookmark"></i>
+        </div>
+        <h3>No saved plates yet</h3>
+        <p>Create and save your favorite meal combinations for quick access in the future.</p>
+        <button class="btn build-btn" onclick="window.location.href='balanced_plate.html'">
+            🍽️ Build a New Plate
+        </button>
+    </div>
+</section>
+
+    <div class="toast-message" id="toastMessage">
+        <i class="fas fa-info-circle"></i>
+        <span id="toastText">Please build a plate before saving</span>
+    </div>
+</main>  
+    
+<script>
         document.addEventListener('DOMContentLoaded', function() {
             const profileSetup = document.getElementById('profileSetup');
             const emptyPage = document.getElementById('emptyPage');
+            const savePlateBtn = document.getElementById('savePlateBtn');
+            const plateNameInput = document.getElementById('plateNameInput');
+            const toastMessage = document.getElementById('toastMessage');
+            const toastText = document.getElementById('toastText');
+            const createPlateBtn = document.getElementById('createPlateBtn');
+            const exploreBtn = document.getElementById('exploreBtn');
             
             // Check if profile is already set
             if (sessionStorage.getItem('profileSet') === 'true') {
@@ -195,9 +502,36 @@
                 emptyPage.style.display = 'none';
                 
                 document.getElementById('setupProfileBtn').addEventListener('click', function() {
+                    sessionStorage.setItem('profileSet', 'true');
                     window.location.href = 'balanced_plate.html';
                 });
             }
+            
+            // Save plate functionality
+            savePlateBtn.addEventListener('click', function() {
+                if (plateNameInput.value.trim() === '') {
+                    showToast('Please enter a plate name');
+                    plateNameInput.focus();
+                    return;
+                }
+                
+                // Here you would typically save to database
+                // For demo, we'll just show a success message
+                showToast('Plate "' + plateNameInput.value + '" saved successfully!');
+                plateNameInput.value = '';
+            });
+            
+            
+            // Show toast message
+            function showToast(message) {
+                toastText.textContent = message;
+                toastMessage.classList.add('show');
+                
+                setTimeout(function() {
+                    toastMessage.classList.remove('show');
+                }, 3000);
+            }
+   
         });
     </script>
 </body>
