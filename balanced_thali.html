@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* General Styles*/
+    
     :root {
       --green: #00996D;
       --dark-green: #008054;
@@ -217,7 +217,7 @@
       align-items: center;
       transition: all 0.3s ease;
       background-color: white;
-      color: #3B7A57;
+      color:#006e50 ;
       font-size: 22px;
     }
 
@@ -487,7 +487,7 @@
       top: 6rem;
       animation: fadeIn 0.8s ease-out;
       z-index: 10;
-      color:#00996D;
+      color:#006e50 ;
     }
     
     .thali-box:hover {
@@ -620,7 +620,8 @@
     }
     
     .selected-item-name {
-      font-weight: 500;
+      font-weight: 300;
+      color:black;
     }
     
     .selected-item-details {
@@ -635,8 +636,8 @@
     }
     
     .selected-item-price {
-      font-weight: 600;
-      color: var(--primary);
+      font-weight: 300;
+      color:#9400D3;
     }
     
     
@@ -647,6 +648,7 @@
       padding-top: 1rem;
       border-top: 1px solid var(--gray-medium);
       font-weight: 600;
+      color:#9400D3;
     }
     
     
@@ -657,7 +659,7 @@
     
     .nutrition-summary h4 {
       margin-bottom: 0.75rem;
-      color: var(--primary-dark);
+      color:#006e50;
     }
     
     .nutrition-item {
@@ -665,6 +667,7 @@
       justify-content: space-between;
       margin-bottom: 0.5rem;
       font-size: 0.9rem;
+      color:black;
     }
     
     
@@ -675,11 +678,12 @@
     
     .nutritional-target h4 {
       margin-bottom: 0.75rem;
-      color: var(--primary-dark);
+      color: #006e50;
     }
     
     .target-item {
       margin-bottom: 0.75rem;
+      color:black;
     }
     
     .target-label {
@@ -727,30 +731,33 @@
       display: none;
       background: white;
       border-radius: 8px;
-      padding: 1rem;
+      padding: 0.7rem;
       border: 1px solid var(--gray-medium);
     }
     
     .meal-balance h4 {
-      margin-bottom: 0.75rem;
-      color: var(--primary-dark);
+      margin-bottom: 0.3rem;
+      color:#006e50;
+      font-size:15px;
     }
     
     .balance-rating {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      color:black;
+      font-size:11px;
     }
     
     .rating-label {
-      font-weight: 600;
+      font-weight: 200;
     }
     
     .rating-value {
-      font-weight: 700;
-      padding: 0.3rem 0.8rem;
+      font-weight: 400;
+      padding: 0.3rem 0.7rem;
       border-radius: 999px;
-      font-size: 0.9rem;
+      font-size: 0.7rem;
     }
     
     .rating-excellent {
@@ -772,12 +779,7 @@
       background-color: rgba(245, 124, 0, 0.1);
       color: var(--poor);
     }
-    
-    .rating-bad {
-      background-color: rgba(211, 47, 47, 0.1);
-      color: var(--bad);
-    }
-    
+   
     
     .order-btn {
       display: none;
@@ -802,26 +804,31 @@
       display: none;
       background: white;
       border-radius: 8px;
-      padding: 1.5rem;
+      padding: 1rem;
       margin-top: 1.5rem;
       text-align: center;
-      border: 2px solid var(--primary);
+      border: 1px solid black;
       animation: fadeIn 0.5s ease-out;
     }
     
     .order-confirmation h3 {
-      color: var(--primary);
+      color:#006e50;
       margin-bottom: 0.5rem;
+      font-size:20px;
     }
     
     .order-confirmation p {
       margin-bottom: 0.5rem;
+      color:black;
+      font-weight:400;
+      font-size:12px;
     }
     
     .order-confirmation .total {
-      font-weight: 600;
-      font-size: 1.1rem;
+      font-weight: 500;
+      font-size: 1rem;
       margin-top: 0.5rem;
+      color:#006e50
     }
     
     /* Tip Box */
@@ -922,6 +929,27 @@
       100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
     }
     
+    
+    
+     .caution-box {
+      display: flex;
+      align-items:left;
+      background-color: #FFF3E0; /* light background */
+      border: 1px #A0522D; /* brown border */
+      color: #8B4513; /* brown text */
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin:0;
+      font-size:13px;
+    }
+
+    .caution-icon {
+      font-size: 13px;
+      margin-right: 10px;
+    }
+    
   
   </style>
 </head>
@@ -929,28 +957,28 @@
 <header>
     <nav class="navbar">
       <div class="logo">
-        <a href="/home/rguktvalley/Desktop/dv/web1.html" style="text-decoration: none; color: inherit;">
+        <a href="/home/rguktvalley/Videos/project/web1.html" style="text-decoration: none; color: inherit;">
           <span class="logo-icon">🥗</span>
           <span class="brand">The Balanced Plate</span>
         </a>
         <button class="design-btn">Design your own plate</button>
       </div>
       <ul class="nav-links">
-        <li><a href="/home/rguktvalley/Desktop/dv/web1.html" class="nav-item">Home</a></li>
-        <li><a href="/home/rguktvalley/Desktop/dv/balanced_plate.html" class="nav-item active">Balance Plate</a></li>
-        <li><a href="/home/rguktvalley/Desktop/dv/communitypage.html" class="nav-item">&#128101;Community</a></li>
-        <li><a href="home/rguktvalley/Desktop/dv/my_plates.html" class="nav-item">My Plates</a></li>
-        <li><a href="/home/rguktvalley/Desktop/dv/bookmarks.html" class="nav-item"> &#128278;Bookmarks</a></li>
+        <li><a href="/home/rguktvalley/Videos/project/web1.html" class="nav-item">Home</a></li>
+        <li><a href="/home/rguktvalley/Videos/project/balanced_plate.html" class="nav-item active">Balance Plate</a></li>
+        <li><a href="/home/rguktvalley/Videos/project/communitypage.html" class="nav-item">&#128101;Community</a></li>
+        <li><a href="/home/rguktvalley/Videos/project/my_plates.html" class="nav-item">My Plates</a></li>
+        <li><a href="/home/rguktvalley/Videos/project/bookmarks.html" class="nav-item"> &#128278;Bookmarks</a></li>
       </ul>
     </nav>
   </header>
   
-  <section class="hero">
-    <button class="guidelines">NIN Certified Guidelines</button>
-    <h1>Build Your Balance Thali</h1>
-    <p>Based on Children nutritional guidelines (1800 calories recommended)</p>
-    <p>Specially curated for Indian professionals of all ages</p>
-  </section>
+<section class="hero">
+        <button class="guidelines">NIN Certified Guidelines</button>
+        <h1>Build Your Balance Thali</h1>
+        <p>Based on <span id="age-group">Children</span> nutritional guidelines (<span id="calories-recommendation">1800</span> calories recommended)</p>
+        <p>Specially curated for Indian professionals of all ages</p>
+    </section>
 
   <main class="container">
     <section class="accordion-section">
@@ -1111,7 +1139,7 @@
       </div>
 
       <!-- Row 2 - New Items Added -->
-      <div class="food-card" data-category="base" data-name="Quinoa" data-calories="160" data-carbs="32g" data-protein="6g" data-fat="2.8g" data-fiber="5.2g" data-price="120">
+      <div class="food-card" data-category="base" data-name="Quinoa Bowl" data-calories="160" data-carbs="32g" data-protein="6g" data-fat="2.8g" data-fiber="5.2g" data-price="120">
         <div class="food-card-header">
           <div class="food-card-title">Quinoa Bowl</div>
           <div class="food-card-badge">
@@ -1257,7 +1285,7 @@
           <span class="food-card-price">₹50</span>
         </div>
       </div>
-       <div class="food-card" data-category="base" data-name="MUltigrain" data-calories="165" data-carbs="30g" data-protein="7g" data-fat="2.5g" data-fiber="6g" data-price="65">
+       <div class="food-card" data-category="base" data-name="Multigrain Bowl" data-calories="165" data-carbs="30g" data-protein="7g" data-fat="2.5g" data-fiber="6g" data-price="65">
         <div class="food-card-header">
           <div class="food-card-title">Multigrain Bowl</div>
           <div class="food-card-badge">
@@ -1306,7 +1334,7 @@
         </div>
       </div>
 
-      <div class="food-card" data-category="base" data-name="Lettuce" data-calories="50" data-carbs="5g" data-protein="1g" data-fat="0.5g" data-fiber="3g" data-price="70">
+      <div class="food-card" data-category="base" data-name="Lettuce Wraps" data-calories="50" data-carbs="5g" data-protein="1g" data-fat="0.5g" data-fiber="3g" data-price="70">
         <div class="food-card-header">
           <div class="food-card-title">Lettuce Wraps</div>
           <div class="food-card-badge">
@@ -1355,7 +1383,7 @@
         </div>
       </div>
 
-      <div class="food-card" data-category="base" data-name="Polenta" data-calories="160" data-carbs="32g" data-protein="3.5g" data-fat="1g" data-fiber="2.5g" data-price="75">
+      <div class="food-card" data-category="base" data-name="Polenta Base" data-calories="160" data-carbs="32g" data-protein="3.5g" data-fat="1g" data-fiber="2.5g" data-price="75">
         <div class="food-card-header">
           <div class="food-card-title">Polenta Base</div>
           <div class="food-card-badge">
@@ -2037,7 +2065,7 @@
                 <span class="food-card-price">₹120</span>
               </div>
             </div>
-                     <div class="food-card" data-category="dessert" data-name="FRuit Salad" data-calories="120" data-carbs="28g" data-protein="1g" data-fat="0.5g" data-fiber="5g" data-price="130">
+                     <div class="food-card" data-category="dessert" data-name="Fruit Salad" data-calories="120" data-carbs="28g" data-protein="1g" data-fat="0.5g" data-fiber="5g" data-price="130">
               <div class="food-card-header">
                 <div class="food-card-title">Fresh Fruit Salad</div>
                 <div class="food-card-badge veg-badge">
@@ -2135,7 +2163,7 @@
               </div>
             </div>
             
-            <div class="food-card" data-category="dessert" data-name="Chia" data-calories="130" data-carbs="15g" data-protein="4g" data-fat="7g" data-fiber="6g" data-price="40">
+            <div class="food-card" data-category="dessert" data-name="Chia seed pudding" data-calories="130" data-carbs="15g" data-protein="4g" data-fat="7g" data-fiber="6g" data-price="40">
               <div class="food-card-header">
                 <div class="food-card-title">Chia Seed Pudding</div>
                 <div class="food-card-badge veg-badge">
@@ -2232,7 +2260,7 @@
               </div>
             </div>
             
-            <div class="food-card" data-category="dessert" data-name="Dates" data-calories="90" data-carbs="20g" data-protein="15g" data-fat="2g" data-fiber="3.5g" data-price="190">
+            <div class="food-card" data-category="dessert" data-name="Dates and nuts" data-calories="90" data-carbs="20g" data-protein="15g" data-fat="2g" data-fiber="3.5g" data-price="190">
               <div class="food-card-header">
                 <div class="food-card-title">Dates and Nuts</div>
                 <div class="food-card-badge veg-badge">
@@ -2281,7 +2309,7 @@
               </div>
             </div>
             
-            <div class="food-card" data-category="dessert" data-name="Vegan" data-calories="180" data-carbs="24g" data-protein="3g" data-fat="9g" data-fiber="2.5g" data-price="160">
+            <div class="food-card" data-category="dessert" data-name="Vegan Brownie" data-calories="180" data-carbs="24g" data-protein="3g" data-fat="9g" data-fiber="2.5g" data-price="160">
               <div class="food-card-header">
                 <div class="food-card-title">Vegan Brownie</div>
                 <div class="food-card-badge veg-badge">
@@ -2390,7 +2418,7 @@
               </div>
             </div>
             
-            <div class="food-card" data-category="beverage" data-name="Masala Chai" data-calories="60" data-carbs="10g" data-protein="2g" data-fat="1g" data-fiber="0g" data-price="20">
+            <div class="food-card" data-category="beverage" data-name="BUtter Milk" data-calories="60" data-carbs="10g" data-protein="2g" data-fat="1g" data-fiber="0g" data-price="20">
               <div class="food-card-header">
                 <div class="food-card-title">Buttermilk</div>
                 <div class="food-card-badge">
@@ -2439,7 +2467,7 @@
               </div>
             </div>
             
-            <div class="food-card" data-category="beverage" data-name="Jaljeera" data-calories="30" data-carbs="7g" data-protein="1g" data-fat="0g" data-fiber="1g" data-price="25">
+            <div class="food-card" data-category="beverage" data-name="Fresh Lime" data-calories="30" data-carbs="7g" data-protein="1g" data-fat="0g" data-fiber="1g" data-price="25">
               <div class="food-card-header">
                 <div class="food-card-title">Fresh Lime</div>
                 <div class="food-card-badge">
@@ -2487,7 +2515,7 @@
                 <span class="food-card-price">₹25</span>
               </div>
             </div>
-          <div class="food-card" data-category="beverage" data-name="Lassi" data-calories="160" data-carbs="20g" data-protein="8g" data-fat="5g" data-fiber="0g" data-price="50">
+          <div class="food-card" data-category="beverage" data-name="Green Tea" data-calories="160" data-carbs="20g" data-protein="8g" data-fat="5g" data-fiber="0g" data-price="50">
               <div class="food-card-header">
                 <div class="food-card-title">Green Tea</div>
                 <div class="food-card-badge veg-badge">
@@ -2536,7 +2564,7 @@
               </div>
             </div>
             
-            <div class="food-card" data-category="beverage" data-name="Masala Chai" data-calories="60" data-carbs="10g" data-protein="2g" data-fat="1g" data-fiber="0g" data-price="20">
+            <div class="food-card" data-category="beverage" data-name="Herbal Tea" data-calories="60" data-carbs="10g" data-protein="2g" data-fat="1g" data-fiber="0g" data-price="20">
               <div class="food-card-header">
                 <div class="food-card-title">Herbal Tea</div>
                 <div class="food-card-badge">
@@ -2585,9 +2613,9 @@
               </div>
             </div>
             
-            <div class="food-card" data-category="beverage" data-name="Jaljeera" data-calories="30" data-carbs="7g" data-protein="1g" data-fat="0g" data-fiber="1g" data-price="25">
+            <div class="food-card" data-category="beverage" data-name="Ginger Tea" data-calories="30" data-carbs="7g" data-protein="1g" data-fat="0g" data-fiber="1g" data-price="25">
               <div class="food-card-header">
-                <div class="food-card-title">Ginger</div>
+                <div class="food-card-title">Ginger Tea</div>
                 <div class="food-card-badge">
                   <i class="fas fa-seedling"></i>
                   Vegan
@@ -2633,7 +2661,7 @@
                 <span class="food-card-price">₹25</span>
               </div>
             </div>
-          <div class="food-card" data-category="beverage" data-name="Lassi" data-calories="160" data-carbs="20g" data-protein="8g" data-fat="5g" data-fiber="0g" data-price="50">
+          <div class="food-card" data-category="beverage" data-name="Mango" data-calories="160" data-carbs="20g" data-protein="8g" data-fat="5g" data-fiber="0g" data-price="50">
               <div class="food-card-header">
                 <div class="food-card-title">Mango</div>
                 <div class="food-card-badge veg-badge">
@@ -2682,7 +2710,7 @@
               </div>
             </div>
             
-            <div class="food-card" data-category="beverage" data-name="Masala Chai" data-calories="60" data-carbs="10g" data-protein="2g" data-fat="1g" data-fiber="0g" data-price="20">
+            <div class="food-card" data-category="beverage" data-name="WAtermelon" data-calories="60" data-carbs="10g" data-protein="2g" data-fat="1g" data-fiber="0g" data-price="20">
               <div class="food-card-header">
                 <div class="food-card-title">Watermelon</div>
                 <div class="food-card-badge">
@@ -2731,7 +2759,7 @@
               </div>
             </div>
             
-            <div class="food-card" data-category="beverage" data-name="Jaljeera" data-calories="30" data-carbs="7g" data-protein="1g" data-fat="0g" data-fiber="1g" data-price="25">
+            <div class="food-card" data-category="beverage" data-name="kombucha" data-calories="30" data-carbs="7g" data-protein="1g" data-fat="0g" data-fiber="1g" data-price="25">
               <div class="food-card-header">
                 <div class="food-card-title">Kombucha</div>
                 <div class="food-card-badge">
@@ -2789,6 +2817,7 @@
       <div class="thali-box">
         <h3>Your Balance Thali <button class="close-btn">×</button></h3>
         <p class="subtitle">The perfect balance of taste and nutrition</p>
+       
         
         
         <div class="thali-empty" id="empty-thali">
@@ -2898,6 +2927,13 @@
               <div class="target-progress" style="width: 0%"></div>
             </div>
           </div>
+          
+              <div class="caution-box">
+    <span class="caution-icon">⚠️</span>Select items from all sections for complete thali
+  </div>
+  
+          
+          
         </div>
         
         
@@ -2907,7 +2943,10 @@
             <span class="rating-label">Based on NIN guidelines for your age group</span>
             <span class="rating-value" id="balance-rating-value">Fair</span>
           </div>
+          
         </div>
+        
+
         
         <!-- Order Button - hidden by default -->
         <button class="order-btn">Order Thali (₹<span id="order-price">0</span>)</button>
@@ -2935,14 +2974,53 @@
      <p>Nutritional data based on Indian National Institute of Nutrition (NIN) guidelines</p>
         <p class="copyright">© 2025 Balance Plate - Personalized Nutrition for Healthy Living</p>
   </footer>
-  
-  
 
-
-  <script>
+<script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Get age from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const age = parseInt(urlParams.get('age')) || 0;
+      
+      // Set age group and calorie recommendation based on age
+      let ageGroup = "Children";
+      let calorieRecommendation = 1800;
+      
+      if (age >= 4 && age <= 6) {
+        ageGroup = "Pre-school Children";
+        calorieRecommendation = 1350;
+      } else if (age >= 7 && age <= 9) {
+        ageGroup = "School Children";
+        calorieRecommendation = 1690;
+      } else if (age >= 10 && age <= 12) {
+        ageGroup = "Pre-teens";
+        calorieRecommendation = 2010;
+      } else if (age >= 13 && age <= 15) {
+        ageGroup = "Teen Boys";
+        calorieRecommendation = 2450;
+      } else if (age >= 16 && age <= 17) {
+        ageGroup = "Late Teens";
+        calorieRecommendation = 2640;
+      } else if (age >= 18 && age <= 29) {
+        ageGroup = "Young Adults";
+        calorieRecommendation = 2400;
+      } else if (age >= 30 && age <= 59) {
+        ageGroup = "Adults";
+        calorieRecommendation = 2320;
+      } else if (age >= 60) {
+        ageGroup = "Seniors";
+        calorieRecommendation = 1900;
+      } else {
+        ageGroup = "Children";
+        calorieRecommendation = 1800;
+      }
+      
+      // Update the hero section
+      document.getElementById('age-group').textContent = ageGroup;
+      document.getElementById('calories-recommendation').textContent = calorieRecommendation;
+      
+      // Store the calorie recommendation for use in calculations
+      const targetCalories = calorieRecommendation;
     
-        
       // Accordion functionality
       const accordionHeaders = document.querySelectorAll('.accordion-header');
       
@@ -2954,7 +3032,6 @@
           document.querySelectorAll('.accordion-item').forEach(accordion => {
             accordion.classList.remove('open');
           });
-          
           
           if (!isOpen) {
             item.classList.add('open');
@@ -2969,10 +3046,8 @@
         tab.addEventListener('click', () => {
           const tabType = tab.dataset.tab;
           
-       
           curryTabs.forEach(t => t.classList.remove('active'));
           tab.classList.add('active');
-          
           
           document.querySelectorAll('.food-grid').forEach(content => {
             if (content.id === 'veg-content' || content.id === 'nonveg-content') {
@@ -2980,7 +3055,6 @@
             }
           });
           
-      
           document.getElementById(`${tabType}-content`).style.display = 'grid';
         });
       });
@@ -3000,6 +3074,27 @@
       let totalFat = 0;
       let totalFiber = 0;
       
+      // Function to check if all sections are filled
+      function checkAllSectionsFilled() {
+        return selectedItems.base && selectedItems.curry && selectedItems.dessert && selectedItems.beverage;
+      }
+      
+      // Function to update order button state
+      function updateOrderButtonState() {
+        const orderBtn = document.querySelector('.order-btn');
+        if (checkAllSectionsFilled()) {
+          orderBtn.disabled = false;
+          orderBtn.style.opacity = '1';
+          orderBtn.style.cursor = 'pointer';
+          document.querySelector('.caution-box').style.display = 'none';
+        } else {
+          orderBtn.disabled = true;
+          orderBtn.style.opacity = '0.6';
+          orderBtn.style.cursor = 'not-allowed';
+          document.querySelector('.caution-box').style.display = 'flex';
+        }
+      }
+      
       foodCards.forEach(card => {
         card.addEventListener('click', function() {
           const category = this.dataset.category;
@@ -3011,7 +3106,6 @@
           const fat = parseFloat(this.dataset.fat);
           const fiber = parseFloat(this.dataset.fiber);
           
-        
           if (selectedItems[category]) {
             const prevCard = document.querySelector(`.food-card[data-name="${selectedItems[category].name}"]`);
             if (prevCard) prevCard.classList.remove('selected');
@@ -3023,7 +3117,6 @@
             totalFiber -= selectedItems[category].fiber;
           }
           
-         
           this.classList.add('selected');
           selectedItems[category] = { 
             name, 
@@ -3041,13 +3134,10 @@
           totalFat += fat;
           totalFiber += fiber;
           
-         
           updateThaliDisplay();
-          
           
           document.querySelector('.plate-visualization').style.display = 'flex';
           document.getElementById('empty-thali').style.display = 'none';
-          
           
           document.querySelector('.selected-items').style.display = 'block';
           document.querySelector('.total-price').style.display = 'flex';
@@ -3056,30 +3146,27 @@
           document.querySelector('.meal-balance').style.display = 'block';
           document.querySelector('.order-btn').style.display = 'block';
           
-          
           document.querySelector('.order-confirmation').style.display = 'none';
-          
           
           this.classList.add('bounce');
           setTimeout(() => {
             this.classList.remove('bounce');
           }, 500);
+          
+          updateOrderButtonState();
         });
       });
       
       // Function to calculate meal balance rating
       function calculateMealBalance() {
-       
         const caloriesPercent = Math.min(Math.round((totalCalories / 1800) * 100), 100);
         const proteinPercent = Math.min(Math.round((totalProtein / 50) * 100), 100);
         const carbsPercent = Math.min(Math.round((totalCarbs / 300) * 100), 100);
         const fatPercent = Math.min(Math.round((totalFat / 70) * 100), 100);
         const fiberPercent = Math.min(Math.round((totalFiber / 25) * 100), 100);
         
-        
         const avgPercent = (caloriesPercent * 0.4) + (proteinPercent * 0.2) + 
                           (carbsPercent * 0.2) + (fatPercent * 0.1) + (fiberPercent * 0.1);
-        
         
         let rating, ratingClass;
         if (avgPercent >= 90) {
@@ -3091,14 +3178,10 @@
         } else if (avgPercent >= 50) {
           rating = "Fair";
           ratingClass = "rating-fair";
-        } else if (avgPercent >= 25) {
+        } else {
           rating = "Poor";
           ratingClass = "rating-poor";
-        } else {
-          rating = "Bad";
-          ratingClass = "rating-bad";
         }
-        
         
         const ratingElement = document.getElementById('balance-rating-value');
         ratingElement.textContent = rating;
@@ -3118,16 +3201,12 @@
         const totalFatElement = document.getElementById('total-fat');
         const totalFiberElement = document.getElementById('total-fiber');
         
-        
         selectedItemsContainer.innerHTML = '';
         
-       
         const hasItems = Object.values(selectedItems).some(item => item !== null);
         
         if (hasItems) {
-         
           plateCenterText.textContent = `${totalCalories} cal`;
-          
           
           document.querySelectorAll('.plate-segment').forEach(segment => {
             const category = segment.dataset.category;
@@ -3137,7 +3216,6 @@
               segment.classList.remove('active');
             }
           });
-          
           
           for (const [category, item] of Object.entries(selectedItems)) {
             if (item) {
@@ -3154,7 +3232,6 @@
             }
           }
           
-          
           totalCaloriesElement.textContent = totalCalories;
           totalPriceElement.textContent = `₹${totalPrice}`;
           orderPriceElement.textContent = totalPrice;
@@ -3164,12 +3241,11 @@
           totalFatElement.textContent = `${totalFat}g`;
           totalFiberElement.textContent = `${totalFiber}g`;
           
-          
           const caloriesPercent = Math.min(Math.round((totalCalories / 1800) * 100), 100);
-          const proteinPercent = Math.min(Math.round((totalProtein / 50) * 100), 100); // 50g protein target
-          const carbsPercent = Math.min(Math.round((totalCarbs / 300) * 100), 100); // 300g carbs target
-          const fatPercent = Math.min(Math.round((totalFat / 70) * 100), 100); // 70g fat target
-          const fiberPercent = Math.min(Math.round((totalFiber / 25) * 100), 100); // 25g fiber target
+          const proteinPercent = Math.min(Math.round((totalProtein / 50) * 100), 100);
+          const carbsPercent = Math.min(Math.round((totalCarbs / 300) * 100), 100);
+          const fatPercent = Math.min(Math.round((totalFat / 70) * 100), 100);
+          const fiberPercent = Math.min(Math.round((totalFiber / 25) * 100), 100);
           
           document.getElementById('calories-percent').textContent = `${caloriesPercent}%`;
           document.getElementById('protein-percent').textContent = `${proteinPercent}%`;
@@ -3183,14 +3259,14 @@
           document.querySelector('.target-fat .target-progress').style.width = `${fatPercent}%`;
           document.querySelector('.target-fiber .target-progress').style.width = `${fiberPercent}%`;
           
-          
           calculateMealBalance();
         }
+        
+        updateOrderButtonState();
       }
       
       // Close button functionality
       document.querySelector('.close-btn').addEventListener('click', function() {
-        
         document.querySelectorAll('.food-card').forEach(card => {
           card.classList.remove('selected');
         });
@@ -3209,10 +3285,8 @@
         totalFat = 0;
         totalFiber = 0;
         
-        
         document.querySelector('.plate-visualization').style.display = 'none';
         document.getElementById('empty-thali').style.display = 'block';
-        
         
         document.querySelector('.selected-items').style.display = 'none';
         document.querySelector('.total-price').style.display = 'none';
@@ -3222,29 +3296,28 @@
         document.querySelector('.order-btn').style.display = 'none';
         document.querySelector('.order-confirmation').style.display = 'none';
         
-        
         updateThaliDisplay();
       });
       
-      
+      // Order button functionality
       document.querySelector('.order-btn').addEventListener('click', function() {
+        if (!checkAllSectionsFilled()) {
+          alert('Please select items from all four sections to complete your thali.');
+          return;
+        }
+        
         if (totalPrice > 0) {
-          
           document.querySelector('.order-btn').style.display = 'none';
           const confirmation = document.querySelector('.order-confirmation');
           confirmation.style.display = 'block';
           
-         
           createConfetti();
           
-          
           confirmation.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          alert('Please select at least one item to place an order.');
         }
       });
       
-      
+      // Function to create confetti effect
       function createConfetti() {
         const colors = ['#00996D', '#4CAF50', '#2196F3', '#FFA000', '#F44336'];
         const container = document.querySelector('.thali-box');
@@ -3264,63 +3337,18 @@
           
           container.appendChild(confetti);
           
-          
           setTimeout(() => {
             confetti.remove();
           }, 5000);
         }
       }
       
+      // Initialize order button state
+      updateOrderButtonState();
+      
       // Open first accordion by default
       document.querySelector('.accordion-item').classList.add('open');
     });
-    
-    
-    
-    
-    
-      // Always show the form - no automatic redirects
-      const ageInput = document.getElementById('age');
-      const errorMessage = document.getElementById('error-message');
-      const getStartedBtn = document.getElementById('get-started-btn');
-      const container = document.getElementById('main-container');
-
-      function validateAge() {
-        const ageStr = ageInput.value.trim();
-        const age = Number(ageStr);
-
-        if (!ageStr || isNaN(age)) {
-          errorMessage.textContent = "Please enter a valid number";
-          errorMessage.classList.add('show');
-          return false;
-        } else if (age < 4) {
-          errorMessage.textContent = "Age must be 4 or higher";
-          errorMessage.classList.add('show');
-          return false;
-        } else {
-          errorMessage.textContent = "";
-          errorMessage.classList.remove('show');
-          return true;
-        }
-      }
-
-      getStartedBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        if (!validateAge()) {
-          container.style.animation = 'shake 0.5s';
-          setTimeout(() => {
-            container.style.animation = '';
-          }, 500);
-        } else {
-          const age = parseInt(ageInput.value);
-          // Use localStorage instead of sessionStorage for persistence
-          localStorage.setItem('userAge', age);
-          window.location.href = "balanced_thali.html?age=" + age;
-        }
-      });
-    });
-
-  </script>
+</script>
 </body>
 </html>
