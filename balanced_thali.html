@@ -3074,6 +3074,84 @@
       let totalFat = 0;
       let totalFiber = 0;
       
+      // Function to save selected items to localStorage
+      function saveSelectedItems() {
+        localStorage.setItem('balancedThaliSelection', JSON.stringify(selectedItems));
+        localStorage.setItem('balancedThaliTotals', JSON.stringify({
+          totalCalories,
+          totalPrice,
+          totalProtein,
+          totalCarbs,
+          totalFat,
+          totalFiber
+        }));
+      }
+      
+      // Function to load selected items from localStorage
+      function loadSelectedItems() {
+        const savedSelection = localStorage.getItem('balancedThaliSelection');
+        const savedTotals = localStorage.getItem('balancedThaliTotals');
+        
+        if (savedSelection) {
+          selectedItems = JSON.parse(savedSelection);
+          
+          // Update totals if available
+          if (savedTotals) {
+            const totals = JSON.parse(savedTotals);
+            totalCalories = totals.totalCalories;
+            totalPrice = totals.totalPrice;
+            totalProtein = totals.totalProtein;
+            totalCarbs = totals.totalCarbs;
+            totalFat = totals.totalFat;
+            totalFiber = totals.totalFiber;
+          } else {
+            // Calculate totals from selected items
+            totalCalories = 0;
+            totalPrice = 0;
+            totalProtein = 0;
+            totalCarbs = 0;
+            totalFat = 0;
+            totalFiber = 0;
+            
+            for (const [category, item] of Object.entries(selectedItems)) {
+              if (item) {
+                totalCalories += item.calories;
+                totalPrice += item.price;
+                totalProtein += item.protein;
+                totalCarbs += item.carbs;
+                totalFat += item.fat;
+                totalFiber += item.fiber;
+              }
+            }
+          }
+          
+          // Update UI
+          updateThaliDisplay();
+          
+          // Highlight selected cards in the UI
+          for (const [category, item] of Object.entries(selectedItems)) {
+            if (item) {
+              const card = document.querySelector(`.food-card[data-name="${item.name}"]`);
+              if (card) {
+                card.classList.add('selected');
+              }
+            }
+          }
+          
+          // Show the thali visualization if any items are selected
+          if (Object.values(selectedItems).some(item => item !== null)) {
+            document.querySelector('.plate-visualization').style.display = 'flex';
+            document.getElementById('empty-thali').style.display = 'none';
+            document.querySelector('.selected-items').style.display = 'block';
+            document.querySelector('.total-price').style.display = 'flex';
+            document.querySelector('.nutrition-summary').style.display = 'block';
+            document.querySelector('.nutritional-target').style.display = 'block';
+            document.querySelector('.meal-balance').style.display = 'block';
+            document.querySelector('.order-btn').style.display = 'block';
+          }
+        }
+      }
+      
       // Function to check if all sections are filled
       function checkAllSectionsFilled() {
         return selectedItems.base && selectedItems.curry && selectedItems.dessert && selectedItems.beverage;
@@ -3152,6 +3230,9 @@
           setTimeout(() => {
             this.classList.remove('bounce');
           }, 500);
+          
+          // Save the selection to localStorage
+          saveSelectedItems();
           
           updateOrderButtonState();
         });
@@ -3296,6 +3377,10 @@
         document.querySelector('.order-btn').style.display = 'none';
         document.querySelector('.order-confirmation').style.display = 'none';
         
+        // Clear localStorage
+        localStorage.removeItem('balancedThaliSelection');
+        localStorage.removeItem('balancedThaliTotals');
+        
         updateThaliDisplay();
       });
       
@@ -3348,6 +3433,9 @@
       
       // Open first accordion by default
       document.querySelector('.accordion-item').classList.add('open');
+      
+      // Load any previously saved selections
+      loadSelectedItems();
     });
 </script>
 </body>
