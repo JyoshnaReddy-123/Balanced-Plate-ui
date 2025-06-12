@@ -34,7 +34,7 @@
 }
 
 
-/* Navbar */
+
 .navbar {
   background-color: #008054;
   display: flex;
@@ -251,7 +251,7 @@
   </style>
   
     <script>
-    // Check for stored age immediately when page starts loading
+    
     const userAge = sessionStorage.getItem('userAge');
     if (userAge && performance.navigation.type !== 1) {
       window.location.href = "balanced_thali.html?age=" + userAge;
@@ -306,7 +306,7 @@
 
  <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Only run this code if we didn't redirect above
+     
       const ageInput = document.getElementById('age');
       const errorMessage = document.getElementById('error-message');
       const getStartedBtn = document.getElementById('get-started-btn');
