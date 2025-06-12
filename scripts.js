@@ -1,313 +1,120 @@
-
-        // Tab functionality
-        function showTab(tabId) {
-          
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
+ document.addEventListener('DOMContentLoaded', () => {
+            // Restore bookmark states on page load
+            document.querySelectorAll('.post-card').forEach(postCard => {
+                const postId = postCard.dataset.postId;
+                if (localStorage.getItem(`bookmarked_${postId}`) === 'true') {
+                    const bookmarkBtn = postCard.querySelector('.bookmark-btn');
+                    if (bookmarkBtn) {
+                        bookmarkBtn.classList.add('filled');
+                        bookmarkBtn.innerHTML = '★'; // Filled star
+                    }
+                }
             });
-            
-          
+        });
+
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Deactivate all tab buttons
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            
-            
+
+            // Show the selected tab content
             document.getElementById(tabId).classList.add('active');
-            
-           
-            const clickedBtn = [...document.querySelectorAll('.tab-btn')].find(btn => 
-                btn.textContent.toLowerCase().includes(tabId)
-            );
-            if (clickedBtn) clickedBtn.classList.add('active');
+
+            // Activate the clicked tab button
+            document.querySelector(`.tab-btn[onclick="showTab('${tabId}')"]`).classList.add('active');
         }
-        
-        // Toast notifications
 
-function showToast() {
-    const toast = document.getElementById("toast");
-    toast.style.display = "block";
-    setTimeout(() => {
-        toast.classList.add("show");
-    }, 10);
-    
-    setTimeout(() => {
-        hideToast();
-    }, 4000);
-}
-
-function hideToast() {
-    const toast = document.getElementById("toast");
-    toast.classList.remove("show");
-    setTimeout(() => {
-        toast.style.display = "none";
-    }, 300);
-}
-
-function showAddToast() {
-    const toast = document.getElementById("add-toast");
-    toast.style.display = "block";
-    setTimeout(() => {
-        toast.classList.add("show");
-    }, 10);
-    
-    setTimeout(() => {
-        hideAddToast();
-    }, 4000);
-}
-
-function hideAddToast() {
-    const toast = document.getElementById("add-toast");
-    toast.classList.remove("show");
-    setTimeout(() => {
-        toast.style.display = "none";
-    }, 300);
-}
-
-function showLikeToast() {
-    const toast = document.getElementById("like-toast");
-    toast.style.display = "block";
-    setTimeout(() => {
-        toast.classList.add("show");
-    }, 10);
-    
-    setTimeout(() => {
-        hideLikeToast();
-    }, 4000);
-}
-
-function hideLikeToast() {
-    const toast = document.getElementById("like-toast");
-    toast.classList.remove("show");
-    setTimeout(() => {
-        toast.style.display = "none";
-    }, 300);
-}
-
-function showCommentToast() {
-    const toast = document.getElementById("comment-toast");
-    toast.style.display = "block";
-    setTimeout(() => {
-        toast.classList.add("show");
-    }, 10);
-    
-    setTimeout(() => {
-        hideCommentToast();
-    }, 4000);
-}
-
-function hideCommentToast() {
-    const toast = document.getElementById("comment-toast");
-    toast.classList.remove("show");
-    setTimeout(() => {
-        toast.style.display = "none";
-    }, 300);
-}
-
-function showShareToast() {
-    const toast = document.getElementById("share-toast");
-    toast.style.display = "block";
-    setTimeout(() => {
-        toast.classList.add("show");
-    }, 10);
-    
-    setTimeout(() => {
-        hideShareToast();
-    }, 4000);
-}
-
-function hideShareToast() {
-    const toast = document.getElementById("share-toast");
-    toast.classList.remove("show");
-    setTimeout(() => {
-        toast.style.display = "none";
-    }, 300);
-}
-
-// Update your likePost function
-function likePost(el) {
-    const countSpan = el.querySelector(".like-count");
-    let current = parseInt(countSpan.textContent) || 0;
-    
-    if (el.classList.contains("liked")) {
-        countSpan.textContent = current - 1;
-        el.classList.remove("liked");
-        el.innerHTML = '♡ <span class="like-count">' + (current - 1) + '</span>';
-    } else {
-        countSpan.textContent = current + 1;
-        el.classList.add("liked");
-        el.innerHTML = '♥ <span class="like-count">' + (current + 1) + '</span>';
-        showLikeToast();
-    }
-}
-
-
-function commentFeature() {
-    showCommentToast();
-}
-
-function sharePost() {
-    showShareToast();
-}
-
-        // Bookmark functionality
-       // Bookmark functionality
-function toggleBookmark(btn) {
-    btn.classList.toggle('filled');
-    btn.textContent = btn.classList.contains('filled') ? '★' : '☆';
-    
-   
-    const card = btn.closest(".post-card");
-    
-    
-    if (!card.id) {
-        card.id = 'post-' + Math.random().toString(36).substr(2, 9);
-    }
-    
-    
-    const postData = {
-        id: card.id,
-        user: card.querySelector(".post-user strong").textContent,
-        username: card.querySelector(".post-user span").textContent,
-        content: card.querySelector(".post-content p").textContent,
-        tags: card.querySelector(".post-content .tags").textContent,
-        imageSrc: card.querySelector(".post-image").src,
-        ingredients: card.querySelector(".ingredients").innerHTML,
-        likes: card.querySelector(".like-count").textContent,
-        comments: card.querySelector(".comment-count").textContent
-    };
-    
-    
-    let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || {};
-    
-    if (btn.classList.contains('filled')) {
-        
-        bookmarks[card.id] = postData;
-        showToastMessage('Post bookmarked!');
-    } else {
-       
-        delete bookmarks[card.id];
-        showToastMessage('Bookmark removed');
-    }
-    
-    
-    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-}
-        
-      
-        // Helper function to show temporary messages
-        function showToastMessage(message) {
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.style.position = 'fixed';
-            toast.style.bottom = '20px';
-            toast.style.left = '50%';
-            toast.style.transform = 'translateX(-50%)';
-            toast.style.backgroundColor = '#333';
-            toast.style.color = 'white';
-            toast.style.padding = '12px 24px';
-            toast.style.borderRadius = '4px';
-            toast.style.zIndex = '1000';
-            toast.style.animation = 'fadeIn 0.3s';
-            toast.textContent = message;
-            
-            document.body.appendChild(toast);
-            
+        // --- Toast functions ---
+        function showToast(title, message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-title').innerText = title;
+            document.getElementById('toast-message').innerText = message;
+            toast.classList.add('show');
             setTimeout(() => {
-                toast.style.animation = 'fadeOut 0.3s';
-                setTimeout(() => {
-                    document.body.removeChild(toast);
-                }, 300);
-            }, 2000);
+                toast.classList.remove('show');
+            }, 3000); // Hide after 3 seconds
         }
-        
 
+        function hideToast() {
+            document.getElementById('toast').classList.remove('show');
+        }
 
-// Toast notification system
-function showToast(title, message) {
-    const toast = document.getElementById("toast");
-    const toastTitle = document.getElementById("toast-title");
-    const toastMessage = document.getElementById("toast-message");
-    
-    toastTitle.textContent = title;
-    toastMessage.textContent = message;
-    
-    toast.style.display = "block";
-    setTimeout(() => {
-        toast.classList.add("show");
-    }, 10);
-    
-    setTimeout(() => {
-        hideToast();
-    }, 4000);
-}
+        function showUploadToast() {
+            showToast('Upload Feature', 'The upload feature will be available soon!');
+        }
 
-function hideToast() {
-    const toast = document.getElementById("toast");
-    toast.classList.remove("show");
-    setTimeout(() => {
-        toast.style.display = "none";
-    }, 300);
-}
+        function showAddToast() {
+            showToast('Plate Selected!', 'This balanced meal has been added to your plate.');
+        }
 
-function loadMorePosts() {
-   
-    const toast = document.createElement('div');
-    toast.className = 'toast show';
-    toast.innerHTML = `
-        <strong>Loading more posts</strong>
-        <button class="toast-close" onclick="this.parentElement.remove()">×</button>
-        <br/>
-        More community posts will be loaded in the next update
-    `;
-    document.body.appendChild(toast);
-    
-    // Remove toast after 3 seconds
-    setTimeout(() => {
-        toast.remove();
-    }, 3000);
-}
+        function commentFeature() {
+            showToast('Comments Feature', 'Comments will be available in the next update!');
+        }
 
-function showUploadToast() {
-    showToast("Upload coming soon!", "You'll be able to share your own balanced plates in the next update.");
-}
+        function sharePost() {
+            showToast('Sharing Post', "You're sharing this balanced plate with your friends!");
+        }
 
+        function likePost(button) {
+            const likeCountSpan = button.querySelector('.like-count');
+            const heartIcon = button.querySelector('.heart-icon'); // Get the heart icon element
+            let currentLikes = parseInt(likeCountSpan.innerText);
 
+            if (button.classList.contains('liked')) {
+                // Unlike
+                button.classList.remove('liked');
+                heartIcon.innerText = '♡'; // Change to empty heart
+                likeCountSpan.innerText = currentLikes - 1;
+                showToast('Unliked!', 'You have unliked this post.');
+            } else {
+                // Like
+                button.classList.add('liked');
+                heartIcon.innerText = '♥'; // Change to filled heart
+                likeCountSpan.innerText = currentLikes + 1;
+                showToast('Liked!', 'You have liked this post!');
+            }
+        }
 
-function showAddToast() {
-    showToast("Plate selected!", "This balanced meal has been added to your plate");
-}
+        function toggleBookmark(button) {
+            const postCard = button.closest('.post-card');
+            const postId = postCard.dataset.postId;
+            const postContent = {
+                id: postId,
+                avatarSrc: postCard.querySelector('.avatar').src,
+                userName: postCard.querySelector('.post-user strong').innerText,
+                userHandle: postCard.querySelector('.post-user span').innerText,
+                text: postCard.querySelector('.post-content p:first-of-type').innerText,
+                tags: postCard.querySelector('.tags').innerText,
+                imageSrc: postCard.querySelector('.post-image').src,
+                ingredients: Array.from(postCard.querySelectorAll('.ingredients .tag')).map(tag => tag.innerText),
+                likes: parseInt(postCard.querySelector('.like-count').innerText),
+                comments: parseInt(postCard.querySelector('.comment-count').innerText)
+            };
 
-function likePost(el) {
-    const countSpan = el.querySelector(".like-count");
-    let current = parseInt(countSpan.textContent) || 0;
-    
-    if (el.classList.contains("liked")) {
-        countSpan.textContent = current - 1;
-        el.classList.remove("liked");
-        el.innerHTML = '♡ <span class="like-count">' + (current - 1) + '</span>';
-    } else {
-        countSpan.textContent = current + 1;
-        el.classList.add("liked");
-        el.innerHTML = '♥ <span class="like-count">' + (current + 1) + '</span>';
-        showToast("Post liked!", "You've liked this community post");
-    }
-}
+            if (button.classList.contains('filled')) {
+                // Unbookmark
+                button.classList.remove('filled');
+                button.innerHTML = '☆'; // Empty star
+                localStorage.removeItem(`bookmarked_${postId}`);
+                showToast('Bookmark Removed', 'This post has been removed from your bookmarks.');
+            } else {
+                // Bookmark
+                button.classList.add('filled');
+                button.innerHTML = '★'; // Filled star
+                localStorage.setItem(`bookmarked_${postId}`, 'true');
+                localStorage.setItem(`post_${postId}`, JSON.stringify(postContent)); // Store the entire post data
+                showToast('Bookmarked!', 'This post has been added to your bookmarks.');
+            }
+        }
 
-
-function commentFeature() {
-    showToast("Comments feature", "Comments will be available in the next update!");
-}
-
-
-function sharePost() {
-    showToast("Sharing post", "You're sharing this balanced plate with your friends");
-}
-
-
-function loadMorePosts() {
-    showToast("Loading more posts", "More community posts will be loaded in the next update");
-}
-
-
-        
- 
+        function loadMorePosts() {
+            // In a real application, you'd fetch more posts from a server here.
+            // For this example, we'll just show a toast.
+            showToast('No More Posts', 'You have reached the end of the trending posts!');
+        }
