@@ -1,5 +1,5 @@
  document.addEventListener('DOMContentLoaded', () => {
-            // Restore bookmark states on page load
+           
             document.querySelectorAll('.post-card').forEach(postCard => {
                 const postId = postCard.dataset.postId;
                 if (localStorage.getItem(`bookmarked_${postId}`) === 'true') {
@@ -13,24 +13,24 @@
         });
 
         function showTab(tabId) {
-            // Hide all tab contents
+           
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
             });
 
-            // Deactivate all tab buttons
+            
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
 
-            // Show the selected tab content
+            
             document.getElementById(tabId).classList.add('active');
 
-            // Activate the clicked tab button
+            
             document.querySelector(`.tab-btn[onclick="showTab('${tabId}')"]`).classList.add('active');
         }
 
-        // --- Toast functions ---
+        
         function showToast(title, message) {
             const toast = document.getElementById('toast');
             document.getElementById('toast-title').innerText = title;
@@ -38,7 +38,7 @@
             toast.classList.add('show');
             setTimeout(() => {
                 toast.classList.remove('show');
-            }, 3000); // Hide after 3 seconds
+            }, 3000); 
         }
 
         function hideToast() {
@@ -63,17 +63,17 @@
 
         function likePost(button) {
             const likeCountSpan = button.querySelector('.like-count');
-            const heartIcon = button.querySelector('.heart-icon'); // Get the heart icon element
+            const heartIcon = button.querySelector('.heart-icon'); 
             let currentLikes = parseInt(likeCountSpan.innerText);
 
             if (button.classList.contains('liked')) {
-                // Unlike
+              
                 button.classList.remove('liked');
                 heartIcon.innerText = '♡'; // Change to empty heart
                 likeCountSpan.innerText = currentLikes - 1;
                 showToast('Unliked!', 'You have unliked this post.');
             } else {
-                // Like
+                
                 button.classList.add('liked');
                 heartIcon.innerText = '♥'; // Change to filled heart
                 likeCountSpan.innerText = currentLikes + 1;
@@ -98,15 +98,15 @@
             };
 
             if (button.classList.contains('filled')) {
-                // Unbookmark
+                
                 button.classList.remove('filled');
-                button.innerHTML = '☆'; // Empty star
+                button.innerHTML = '☆'; 
                 localStorage.removeItem(`bookmarked_${postId}`);
                 showToast('Bookmark Removed', 'This post has been removed from your bookmarks.');
             } else {
-                // Bookmark
+                
                 button.classList.add('filled');
-                button.innerHTML = '★'; // Filled star
+                button.innerHTML = '★'; 
                 localStorage.setItem(`bookmarked_${postId}`, 'true');
                 localStorage.setItem(`post_${postId}`, JSON.stringify(postContent)); // Store the entire post data
                 showToast('Bookmarked!', 'This post has been added to your bookmarks.');
@@ -114,7 +114,6 @@
         }
 
         function loadMorePosts() {
-            // In a real application, you'd fetch more posts from a server here.
-            // For this example, we'll just show a toast.
+          
             showToast('No More Posts', 'You have reached the end of the trending posts!');
         }
