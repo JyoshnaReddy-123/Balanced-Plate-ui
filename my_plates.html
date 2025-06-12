@@ -172,7 +172,7 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Save Plate Box */
+        
          .save-plate-box {
             max-width: 900px;
             margin: 2rem auto;
@@ -244,7 +244,7 @@
         }
 
 
-        /* Toast Message */
+        
         .toast-message {
             position: fixed;
             bottom: 20px;
@@ -268,7 +268,7 @@
             transform: translateX(0);
         }
 
-        /* Animations */
+        
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -377,7 +377,7 @@
             transform: scale(1.05);
         }
 
-        /* Animations */
+    
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -406,7 +406,7 @@
             }
         }
 
-        /* Saved Plates Container */
+        
         .saved-plates-container {
             max-width:900px;
             margin: 2rem auto;
@@ -523,7 +523,7 @@
             transform: scale(1.1);
         }
 
-        /* Info Box/Modal */
+        
         .info-box-overlay {
             position: fixed;
             top: 0;
@@ -702,19 +702,19 @@
             const emptySavedPlatesMessage = document.getElementById('emptySavedPlatesMessage');
             const savedPlatesContainer = document.getElementById('savedPlatesContainer');
 
-            // Function to show/hide sections based on profile setup and saved plates
+            
             function updatePageVisibility() {
                 if (sessionStorage.getItem('profileSet') === 'true') {
                     profileSetup.style.display = 'none';
                     emptyPage.style.display = 'block';
-                    loadSavedPlates(); // Load plates when the page is visible
+                    loadSavedPlates(); 
                 } else {
                     profileSetup.style.display = 'flex';
                     emptyPage.style.display = 'none';
                 }
             }
 
-            // Initial call to set up page visibility
+            
             updatePageVisibility();
 
             setupProfileBtn.addEventListener('click', function() {
@@ -722,7 +722,7 @@
                 window.location.href = 'balanced_plate.html';
             });
             
-            // Show toast message
+            
             function showToast(message) {
                 toastText.textContent = message;
                 toastMessage.classList.add('show');
@@ -732,7 +732,7 @@
                 }, 3000);
             }
 
-            // Save plate functionality
+            
             savePlateBtn.addEventListener('click', function() {
                 const plateName = plateNameInput.value.trim();
                 const currentPlate = JSON.parse(localStorage.getItem('currentBalancedThali'));
@@ -749,15 +749,15 @@
                     return;
                 }
 
-                // Save the plate immediately without confirmation
+                
                 savePlateToLocalStorage(plateName);
                 showToast(`Plate "${plateName}" saved successfully!`);
                 plateNameInput.value = '';
-                loadSavedPlates(); // Refresh the list of saved plates
+                loadSavedPlates(); 
                 localStorage.removeItem('currentBalancedThali'); // Clear current plate after saving
             });
 
-            // Function to save plate to local storage
+            
             function savePlateToLocalStorage(plateName) {
                 let savedPlates = JSON.parse(localStorage.getItem('savedBalancedThalis')) || [];
                 const currentPlate = JSON.parse(localStorage.getItem('currentBalancedThali'));
@@ -787,7 +787,7 @@
                 }
             }
 
-            // Function to load and display saved plates
+            
             function loadSavedPlates() {
                 const savedPlates = JSON.parse(localStorage.getItem('savedBalancedThalis')) || [];
                 savedPlatesContainer.innerHTML = ''; // Clear previous plates
@@ -835,7 +835,7 @@
                         savedPlatesContainer.appendChild(card);
                     });
 
-                    // Add event listeners for delete buttons - now immediately deletes without confirmation
+                    
                     document.querySelectorAll('.delete-btn').forEach(button => {
                         button.addEventListener('click', function() {
                             const plateId = parseInt(this.closest('.saved-plate-card').dataset.id);
@@ -844,7 +844,7 @@
                         });
                     });
 
-                    // Add event listeners for load buttons
+                    
                     document.querySelectorAll('.load-btn').forEach(button => {
                         button.addEventListener('click', function() {
                             const plateId = this.getAttribute('data-id');
@@ -854,13 +854,13 @@
                 }
             }
 
-            // Function to load a plate
+            
             function loadPlate(plateId) {
                 const savedPlates = JSON.parse(localStorage.getItem('savedBalancedThalis')) || [];
                 const plateToLoad = savedPlates.find(plate => plate.id === parseInt(plateId));
                 
                 if (plateToLoad) {
-                    // Create a structure that matches what balanced_plate.html expects
+                    
                     const plateData = {
                         selectedItems: plateToLoad.items,
                         totalCalories: plateToLoad.totals.calories,
@@ -872,7 +872,7 @@
                         targetCalories: plateToLoad.totals.targetCalories
                     };
                     
-                    // Store the plate to load in localStorage
+                
                     localStorage.setItem('currentBalancedThali', JSON.stringify(plateData));
                     // Redirect to balanced plate page
                     window.location.href = 'balanced_plate.html';
@@ -881,7 +881,7 @@
                 }
             }
 
-            // Function to delete a plate
+            
             function deletePlate(id) {
                 let savedPlates = JSON.parse(localStorage.getItem('savedBalancedThalis')) || [];
                 savedPlates = savedPlates.filter(plate => plate.id !== id);
@@ -889,7 +889,7 @@
                 loadSavedPlates(); // Refresh display
             }
 
-            // Event listener for the "Design your own plate" button
+            
             document.querySelector('.design-btn').addEventListener('click', function() {
                 window.location.href = 'balanced_plate.html';
             });
