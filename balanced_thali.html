@@ -2981,7 +2981,7 @@
     const urlParams = new URLSearchParams(window.location.search);
     const age = parseInt(urlParams.get('age')) || 0;
 
-    // Set age group and calorie recommendation based on age
+    
     let ageGroup = "Children";
     let calorieRecommendation = 1800;
 
@@ -3014,11 +3014,11 @@
         calorieRecommendation = 1800;
     }
 
-    // Update the hero section
+   
     document.getElementById('age-group').textContent = ageGroup;
     document.getElementById('calories-recommendation').textContent = calorieRecommendation;
 
-    // Store the calorie recommendation for use in calculations
+   
     const targetCalories = calorieRecommendation;
 
     // Accordion functionality
@@ -3039,7 +3039,7 @@
         });
     });
 
-    // Enhanced Curry tab functionality
+   
     const curryTabs = document.querySelectorAll('.curry-tab');
 
     curryTabs.forEach(tab => {
@@ -3076,7 +3076,7 @@
 
     // Function to save selected items to localStorage
     function saveCurrentPlateToLocalStorage() {
-        // Only save if at least one item is selected
+      
         const hasAnyItemSelected = Object.values(selectedItems).some(item => item !== null);
         if (!hasAnyItemSelected) {
             localStorage.removeItem('currentBalancedThali');
@@ -3114,10 +3114,10 @@
             totalFiber = currentPlate.totalFiber;
             // No need to set targetCalories here, as it's determined by age on load
 
-            // Update UI
+            
             updateThaliDisplay();
 
-            // Highlight selected cards in the UI
+            
             for (const [category, item] of Object.entries(selectedItems)) {
                 if (item) {
                     const card = document.querySelector(`.food-card[data-name="${item.name}"]`);
@@ -3127,7 +3127,7 @@
                 }
             }
 
-            // Show the thali visualization if any items are selected
+            
             if (Object.values(selectedItems).some(item => item !== null)) {
                 document.querySelector('.plate-visualization').style.display = 'flex';
                 document.getElementById('empty-thali').style.display = 'none';
@@ -3139,15 +3139,14 @@
                 document.querySelector('.order-btn').style.display = 'block';
             }
         }
-        updateOrderButtonState(); // Ensure button state is correct on load
+        updateOrderButtonState(); 
     }
 
-    // Function to check if all sections are filled
-    function checkAllSectionsFilled() {
+   
         return selectedItems.base && selectedItems.curry && selectedItems.dessert && selectedItems.beverage;
     }
 
-    // Function to update order button state
+   
     function updateOrderButtonState() {
         const orderBtn = document.querySelector('.order-btn');
         if (checkAllSectionsFilled()) {
@@ -3336,7 +3335,7 @@
         updateOrderButtonState();
     }
 
-    // Close button functionality (clears selection)
+  
     document.querySelector('.close-btn').addEventListener('click', function() {
         document.querySelectorAll('.food-card').forEach(card => {
             card.classList.remove('selected');
@@ -3367,7 +3366,7 @@
         document.querySelector('.order-btn').style.display = 'none';
         document.querySelector('.order-confirmation').style.display = 'none';
 
-        // Clear localStorage for the current plate when cleared
+       
         localStorage.removeItem('currentBalancedThali');
         localStorage.removeItem('hasCurrentPlate');
 
@@ -3401,7 +3400,7 @@
     // Function to create confetti effect
     function createConfetti() {
         const colors = ['#00996D', '#4CAF50', '#2196F3', '#FFA000', '#F44336'];
-        const container = document.querySelector('.thali-box'); // Ensure this selector is correct for your layout
+        const container = document.querySelector('.thali-box'); 
 
         for (let i = 0; i < 50; i++) {
             const confetti = document.createElement('div');
@@ -3424,13 +3423,13 @@
         }
     }
 
-    // Initialize order button state
+   
     updateOrderButtonState();
 
-    // Open first accordion by default
+    
     document.querySelector('.accordion-item').classList.add('open');
 
-    // Load any previously saved selections (current plate)
+   
     loadSelectedItems();
 });
 </script>
