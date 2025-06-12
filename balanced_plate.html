@@ -141,14 +141,14 @@
     .icon-circle {
       width: 60px;
       height: 60px;
-      background: #e0f2f1;
+      background: #008054;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 1rem;
       font-size: 1.8rem;
-      color: #00996D;
+      color:#008054;
     }
 
     .welcome-title {
@@ -210,7 +210,7 @@
       display: block;
       width: 100%;
       padding: 1rem;
-      background-color: #00996D;
+      background-color:#008054;
       color: #fff;
       border: none;
       border-radius: 10px;
@@ -263,7 +263,7 @@
     <nav class="navbar">
       <div class="logo">
         <a href="/home/rguktvalley/Videos/project/web1.html" style="text-decoration: none; color: inherit;">
-          <span class="logo-icon">🥗</span>
+          <span class="logo-icon">🍴</span>
           <span class="brand">The Balanced Plate</span>
         </a>
         <button class="design-btn">Design your own plate</button>
@@ -273,7 +273,7 @@
         <li><a href="balanced_thali.html" class="nav-item active">Balance Plate</a></li>
         <li><a href="/home/rguktvalley/Videos/project/communitypage.html" class="nav-item">&#128101;Community</a></li>
         <li><a href="/home/rguktvalley/Videos/project/my_plates.html" class="nav-item">My Plates</a></li>
-        <li><a href="/home/rguktvalley/Videos/project/bookmarks.html" class="nav-item"> &#128278;Bookmarks</a></li>
+        <li><a href="/home/rguktvalley/Videos/project/bookmarks.html" class="nav-item"><i class="fas fa-bookmark"></i>Bookmarks</a></li>
       </ul>
     </nav>
   </header>
@@ -284,7 +284,7 @@
 
     <div class="container" id="main-container">
       <div class="card" id="form-page">
-        <div class="icon-circle">🍽️</div>
+        <div class="icon-circle">🍴</div>
         <h2 class="welcome-title">Welcome to Balance Plate</h2>
         <p class="description">
           We'll create a personalized lunch meal plan based on your nutritional
@@ -342,12 +342,15 @@
         } else {
           const age = parseInt(ageInput.value);
           sessionStorage.setItem('userAge', age);
+           sessionStorage.setItem('profileSet', 'true'); // Add this line
           window.location.href = "balanced_thali.html?age=" + age;
         }
       });
     });
+    
+   
   </script>
 
 
 </body>
-</html>
+</html> 
