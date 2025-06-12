@@ -33,7 +33,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        /* Navbar */
+        
         .navbar {
             background-color: #008054;
             display: flex;
@@ -113,7 +113,7 @@
             padding:0.1rem;
         }
 
-        /* Post Card (Copied from community.html for consistency) */
+       
         .post-card {
             background: white;
             border-radius: 12px;
@@ -217,7 +217,7 @@
             border: none;
             font-size: 1.4rem;
             cursor:pointer;
-            color:#FFD700; /* Always filled on bookmarks page */
+            color:#FFD700;
             transition: all 0.3s;
         }
 
@@ -278,7 +278,7 @@
             transform: scale(1.1);
         }
 
-        /* Toast Notifications (Copied from community.html) */
+      
         .toast {
             position: fixed;
             bottom: 1.5rem;
@@ -319,7 +319,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Empty state for bookmarks */
+       
         .empty-bookmarks-state {
             text-align: center;
             padding: 3rem 1rem;
@@ -483,7 +483,7 @@
                         const postCard = createPostCardElement(postData);
                         bookmarkedPostsContainer.appendChild(postCard);
                     } else {
-                        // If bookmark flag exists but post data is missing, clean up
+                       
                         localStorage.removeItem(key);
                     }
                 }
@@ -542,7 +542,7 @@
             const postCard = button.closest('.post-card');
             const postId = postCard.dataset.postId;
 
-            // Remove from localStorage
+           
             localStorage.removeItem(`bookmarked_${postId}`);
             localStorage.removeItem(`post_${postId}`);
 
@@ -550,11 +550,11 @@
             postCard.remove();
             showToast('Bookmark Removed', 'This post has been removed from your bookmarks.');
 
-            // Check if there are no more bookmarks and show empty state
-            loadBookmarks(); // Re-run loadBookmarks to check for empty state
+           
+            loadBookmarks(); 
         }
 
-        // Dummy functions for actions on bookmarks page (same as community)
+       
         function showAddToast() {
             showToast('Plate Selected!', 'This balanced meal has been added to your plate.');
         }
