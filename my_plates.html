@@ -146,268 +146,476 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         /* Profile Section Styles */
-.profile-section {
-    max-width: 900px;
-    margin: 6rem auto 1rem;
-    text-align: left;
-}
+        .profile-section {
+            max-width: 900px;
+            margin: 6rem auto 1rem;
+            text-align: left;
+        }
 
-.profile-header h2 {
-    color: #333;
-    font-size: 1.9rem;
-    margin-bottom: 0.2rem;
-    display: flex;
-    align-items: center;
-    gap:10px;
-}
+        .profile-header h2 {
+            color: #333;
+            font-size: 1.9rem;
+            margin-bottom: 0.2rem;
+            display: flex;
+            align-items: center;
+            gap:10px;
+        }
 
-.profile-header h2 i {
-    color: #00996D;
-    font-size: 1.5rem;
-}
+        .profile-header h2 i {
+            color: #00996D;
+            font-size: 1.5rem;
+        }
 
-.profile-header p {
-    color: #666;
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-}
+        .profile-header p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
 
-/* Save Plate Box */
-.save-plate-box {
-    max-width: 900px;
-    margin: 2rem auto;
-    background-color: #00996D;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    animation: slideUp 0.5s ease-out;
-}
+        /* Save Plate Box */
+         .save-plate-box {
+            max-width: 900px;
+            margin: 2rem auto;
+            background-color: #00996D;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            animation: slideUp 0.5s ease-out;
+        }
 
-.save-plate-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
+        .save-plate-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
 
-.save-plate-box h2 {
-    color: #fff;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    text-align:left;
-}
+        .save-plate-box h2 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            text-align:left;
+        }
 
-.save-input-group {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-}
+        .save-input-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
 
-.plate-input {
-    padding: 0.8rem 1.2rem;
-    flex: 1;
-    border: none;
-    border-radius: 30px;
-    font-size: 1rem;
-    transition: all 0.3s;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
-}
+        .plate-input {
+            padding: 0.8rem 1.2rem;
+            flex: 1;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+        }
 
-.plate-input:focus {
-    outline: none;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.2), 0 0 0 2px rgba(0, 195, 137, 0.3);
-}
+        .plate-input:focus {
+            outline: none;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2), 0 0 0 2px rgba(0, 195, 137, 0.3);
+        }
 
-.save-btn {
-    background-color: #00C389;
-    color: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+        .save-btn {
+            background-color: #00C389;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-.save-btn:hover {
-    background-color: #00a56e;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 195, 137, 0.3);
-}
+        .save-btn:hover {
+            background-color: #00a56e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 195, 137, 0.3);
+        }
 
-.save-btn i {
-    font-size: 1.1rem;
-}
-
-
-/* Toast Message */
-.toast-message {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background:#fefefe;
-    border-left: 5px solid #008054 ;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-    padding: 0.7rem 1.5rem;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    color:black;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    z-index: 1000;
-    transform: translateX(120%);
-    transition: transform 0.3s ease;
-}
-
-.toast-message.show {
-    transform: translateX(0);
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from { 
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to { 
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        .save-btn i {
+            font-size: 1.1rem;
+        }
 
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .save-input-group {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .plate-input {
-        width: 100%;
-    }
-    
-    .save-btn {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .action-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .action-btn {
-        width: 100%;
-        justify-content: center;
-    }
-}
+        /* Toast Message */
+        .toast-message {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background:#fefefe;
+            border-left: 5px solid #008054 ;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color:black;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 1000;
+            transform: translateX(120%);
+            transition: transform 0.3s ease;
+        }
+
+        .toast-message.show {
+            transform: translateX(0);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
 
-.empty-saved-plates {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #fff;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.05);
-    transition: all 0.4s ease-in-out;
-    animation: fadeInUp 0.6s ease;
-}
-
-.empty-saved-plates:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-.icon-wrapper {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 1rem;
-    background-color: #C8F8E4;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: bounce 1.2s infinite;
-}
-
-.icon-wrapper i {
-    color: #00996D;
-    font-size: 1.8rem;
-}
-
-.empty-content h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: #222;
-}
-
-.empty-content p {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 1.5rem;
-}
-
-.build-btn {
-    background-color: #00C389;
-    color: white;
-    border: none;
-    padding: 0.7rem 1.8rem;
-    border-radius: 25px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.build-btn:hover {
-    background-color: #00a876;
-    box-shadow: 0 6px 16px rgba(0, 195, 137, 0.4);
-    transform: scale(1.05);
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-8px);
-    }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .empty-saved-plates {
-        margin: 1rem;
-        padding: 1.5rem;
-    }
-}
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .save-input-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .plate-input {
+                width: 100%;
+            }
+            
+            .save-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
 
 
-</style>
+        .empty-saved-plates {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease-in-out;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .empty-saved-plates:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-wrapper {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background-color: #C8F8E4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: bounce 1.2s infinite;
+        }
+
+        .icon-wrapper i {
+            color: #00996D;
+            font-size: 1.8rem;
+        }
+
+        .empty-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #222;
+        }
+
+        .empty-content p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .build-btn {
+            background-color: #00C389;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.8rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .build-btn:hover {
+            background-color: #00a876;
+            box-shadow: 0 6px 16px rgba(0, 195, 137, 0.4);
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .empty-saved-plates {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+        }
+
+        /* Saved Plates Container */
+        .saved-plates-container {
+            max-width:900px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+
+        .saved-plate-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            padding: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .saved-plate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .saved-plate-card h4 {
+            font-size: 1.2rem;
+            color:#008054;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+        }
+
+        .saved-plate-card p {
+            font-size: 0.85rem;
+            color: #555;
+            margin-bottom: 0.8rem;
+        }
+
+        .saved-plate-card .plate-date {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
+        /* Nutritional Info Table */
+        .nutritional-info {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+        }
+
+        .nutritional-info th {
+            text-align: left;
+            padding: 0.3rem 0;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nutritional-info td {
+            padding: 0.3rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nutritional-info tr:last-child td {
+            border-bottom: none;
+        }
+
+        .nutritional-info .label {
+            font-weight: 500;
+            color: #666;
+        }
+
+        .nutritional-info .value {
+            font-weight: 600;
+            color: #333;
+            text-align: right;
+        }
+
+        .load-btn {
+            background-color: #00996D;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .load-btn:hover {
+            background-color: #007a5a;
+        }
+
+        .delete-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background:none;
+            border: none;
+            color:black;
+            font-size: 1rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* Info Box/Modal */
+        .info-box-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .info-box-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .info-box-content {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 350px;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+
+        .info-box-overlay.show .info-box-content {
+            transform: translateY(0);
+        }
+
+        .info-box-content h3 {
+            margin-bottom: 1rem;
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: left;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-box-content p {
+            margin-bottom: 1.5rem;
+            color: #666;
+            font-size: 0.95rem;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        .info-box-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .info-box-btn {
+            padding: 0.5rem 1.2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .info-box-btn.confirm {
+            background-color: #00996D;
+            color: white;
+        }
+
+        .info-box-btn.confirm:hover {
+            background-color: #007a5a;
+        }
+
+        .info-box-btn.cancel {
+            background-color: #f5f5f5;
+            color: #666;
+            border: 1px solid #ddd;
+        }
+
+        .info-box-btn.cancel:hover {
+            background-color: #eee;
+            color: #333;
+        }
+    </style>
 
 </head>
 <body>
@@ -415,74 +623,74 @@
         <nav class="navbar">
             <div class="logo">
                 <a href="/home/rguktvalley/Videos/project/web1.html" style="text-decoration: none; color: inherit;">
-                    <span class="logo-icon">🥗</span>
+                    <span class="logo-icon">🍴</span>
                     <span class="brand">The Balanced Plate</span>
                 </a>
-                <button class="design-btn">Design your own plate</button>
+                <button class="design-btn" onclick="window.location.href='balanced_plate.html'">Design your own plate</button>
             </div>
             <ul class="nav-links">
                 <li><a href="/home/rguktvalley/Videos/project/web1.html" class="nav-item">Home</a></li>
                 <li><a href="/home/rguktvalley/Videos/project/balanced_plate.html" class="nav-item">Balance Plate</a></li>
                 <li><a href="/home/rguktvalley/Videos/project/communitypage.html" class="nav-item">&#128101;Community</a></li>
                 <li><a href="#" class="nav-item active">My Plates</a></li>
-                <li><a href="/home/rguktvalley/Videos/project/bookmarks.html" class="nav-item"> &#128278;Bookmarks</a></li>
+                <li><a href="/home/rguktvalley/Videos/project/bookmarks.html" class="nav-item"><i class="fas fa-bookmark"></i>Bookmarks</a></li>
             </ul>
         </nav>
     </header>
     
-   <main>
-    <!-- Profile Setup Section (shown when profile not set) -->
-    <div class="profile-setup" id="profileSetup">
-        <h1>Set Up Your Profile</h1>
-        <p>Please set your age first to get personalized nutritional recommendations.</p>
-        <div class="divider"></div>
-        <button class="btn" id="setupProfileBtn">Set Up Your Profile</button>
-    </div>
-    
-    <div class="empty-page" id="emptyPage">
-    
-    
-    <div class="profile-section">
-    <div class="profile-header">
-        <h2><i class="fas fa-user-circle"></i> Your Profile</h2>
-        <p>Save and manage your favourite meal plates for easy access</p>
-    </div>
-</div>
-        
-        <section class="save-plate-box">
-            <h2><i class="fas fa-bookmark"></i> Save Your Current Plate</h2>
-            <div class="save-input-group">
-                <input type="text" placeholder="Give your plate a name..." class="plate-input" id="plateNameInput">
-                <button class="save-btn" id="savePlateBtn">
-                    <i class="fas fa-bookmark"></i> Save Plate
-                </button>
-            </div>
-        </section>
-   
-
-   
-   
-   	<!-- Empty Plate Message UI -->
-<section class="empty-saved-plates">
-    <div class="empty-content animated">
-        <div class="icon-wrapper">
-            <i class="fas fa-bookmark"></i>
+    <main>
+        <div class="profile-setup" id="profileSetup">
+            <h1>Set Up Your Profile</h1>
+            <p>Please set your age first to get personalized nutritional recommendations.</p>
+            <div class="divider"></div>
+            <button class="btn" id="setupProfileBtn">Set Up Your Profile</button>
         </div>
-        <h3>No saved plates yet</h3>
-        <p>Create and save your favorite meal combinations for quick access in the future.</p>
-        <button class="btn build-btn" onclick="window.location.href='balanced_plate.html'">
-            🍽️ Build a New Plate
-        </button>
-    </div>
-</section>
+        
+        <div class="empty-page" id="emptyPage" style="display: none;">
+            <div class="profile-section">
+                <div class="profile-header">
+                    <h2><i class="fas fa-user-circle"></i> Your Profile</h2>
+                    <p>Save and manage your favourite meal plates for easy access</p>
+                </div>
+            </div>
+            
+            <section class="save-plate-box">
+                <h2><i class="fas fa-bookmark"></i> Save Your Current Plate</h2>
+                <div class="save-input-group">
+                    <input type="text" placeholder="Give your plate a name..." class="plate-input" id="plateNameInput">
+                    <button class="save-btn" id="savePlateBtn">
+                        <i class="fas fa-bookmark"></i> Save Plate
+                    </button>
+                </div>
+            </section>
+        
+            <section class="saved-plates-container" id="savedPlatesContainer">
+               
+            </section>
 
-    <div class="toast-message" id="toastMessage">
-        <i class="fas fa-info-circle"></i>
-        <span id="toastText">Please build a plate before saving</span>
-    </div>
-</main>  
+            <section class="empty-saved-plates" id="emptySavedPlatesMessage" style="display: none;">
+                <div class="empty-content animated">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-bookmark"></i>
+                    </div>
+                    <h3>No saved plates yet</h3>
+                    <p>Create and save your favorite meal combinations for quick access in the future.</p>
+                    <button class="btn build-btn" onclick="window.location.href='balanced_plate.html'">
+                        🍽️ Build a New Plate
+                    </button>
+                </div>
+            </section>
+
+            <div class="toast-message" id="toastMessage">
+                <i class="fas fa-info-circle"></i>
+                <span id="toastText">Plate saved successfully</span>
+            </div>
+        </div>
+
+        
+    </main> 
     
-<script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const profileSetup = document.getElementById('profileSetup');
             const emptyPage = document.getElementById('emptyPage');
@@ -490,37 +698,29 @@
             const plateNameInput = document.getElementById('plateNameInput');
             const toastMessage = document.getElementById('toastMessage');
             const toastText = document.getElementById('toastText');
-            const createPlateBtn = document.getElementById('createPlateBtn');
-            const exploreBtn = document.getElementById('exploreBtn');
-            
-            // Check if profile is already set
-            if (sessionStorage.getItem('profileSet') === 'true') {
-                profileSetup.style.display = 'none';
-                emptyPage.style.display = 'block';
-            } else {
-                profileSetup.style.display = 'flex';
-                emptyPage.style.display = 'none';
-                
-                document.getElementById('setupProfileBtn').addEventListener('click', function() {
-                    sessionStorage.setItem('profileSet', 'true');
-                    window.location.href = 'balanced_plate.html';
-                });
-            }
-            
-            // Save plate functionality
-            savePlateBtn.addEventListener('click', function() {
-                if (plateNameInput.value.trim() === '') {
-                    showToast('Please enter a plate name');
-                    plateNameInput.focus();
-                    return;
+            const setupProfileBtn = document.getElementById('setupProfileBtn');
+            const emptySavedPlatesMessage = document.getElementById('emptySavedPlatesMessage');
+            const savedPlatesContainer = document.getElementById('savedPlatesContainer');
+
+            // Function to show/hide sections based on profile setup and saved plates
+            function updatePageVisibility() {
+                if (sessionStorage.getItem('profileSet') === 'true') {
+                    profileSetup.style.display = 'none';
+                    emptyPage.style.display = 'block';
+                    loadSavedPlates(); // Load plates when the page is visible
+                } else {
+                    profileSetup.style.display = 'flex';
+                    emptyPage.style.display = 'none';
                 }
-                
-                // Here you would typically save to database
-                // For demo, we'll just show a success message
-                showToast('Plate "' + plateNameInput.value + '" saved successfully!');
-                plateNameInput.value = '';
+            }
+
+            // Initial call to set up page visibility
+            updatePageVisibility();
+
+            setupProfileBtn.addEventListener('click', function() {
+                sessionStorage.setItem('profileSet', 'true');
+                window.location.href = 'balanced_plate.html';
             });
-            
             
             // Show toast message
             function showToast(message) {
@@ -531,7 +731,168 @@
                     toastMessage.classList.remove('show');
                 }, 3000);
             }
-   
+
+            // Save plate functionality
+            savePlateBtn.addEventListener('click', function() {
+                const plateName = plateNameInput.value.trim();
+                const currentPlate = JSON.parse(localStorage.getItem('currentBalancedThali'));
+
+                if (!plateName) {
+                    showToast('Please enter a plate name.');
+                    plateNameInput.focus();
+                    return;
+                }
+
+                if (!currentPlate) {
+                    showToast('No plate to save. Please build a plate first.');
+                    emptySavedPlatesMessage.style.display = 'block';
+                    return;
+                }
+
+                // Save the plate immediately without confirmation
+                savePlateToLocalStorage(plateName);
+                showToast(`Plate "${plateName}" saved successfully!`);
+                plateNameInput.value = '';
+                loadSavedPlates(); // Refresh the list of saved plates
+                localStorage.removeItem('currentBalancedThali'); // Clear current plate after saving
+            });
+
+            // Function to save plate to local storage
+            function savePlateToLocalStorage(plateName) {
+                let savedPlates = JSON.parse(localStorage.getItem('savedBalancedThalis')) || [];
+                const currentPlate = JSON.parse(localStorage.getItem('currentBalancedThali'));
+
+                if (currentPlate) {
+                    const newPlate = {
+                        id: Date.now(), // Unique ID for each plate
+                        name: plateName,
+                        items: currentPlate.selectedItems,
+                        totals: {
+                            calories: currentPlate.totalCalories,
+                             price: currentPlate.totalPrice,
+                            protein: currentPlate.totalProtein,
+                            carbs: currentPlate.totalCarbs,
+                            fat: currentPlate.totalFat,
+                            fiber: currentPlate.totalFiber,
+                            targetCalories: currentPlate.targetCalories
+                        },
+                        date: new Date().toLocaleDateString('en-US', {
+                            day: 'numeric',
+                            month: 'short',
+                            year: 'numeric'
+                        })
+                    };
+                    savedPlates.push(newPlate);
+                    localStorage.setItem('savedBalancedThalis', JSON.stringify(savedPlates));
+                }
+            }
+
+            // Function to load and display saved plates
+            function loadSavedPlates() {
+                const savedPlates = JSON.parse(localStorage.getItem('savedBalancedThalis')) || [];
+                savedPlatesContainer.innerHTML = ''; // Clear previous plates
+
+                if (savedPlates.length === 0) {
+                    emptySavedPlatesMessage.style.display = 'block';
+                    savedPlatesContainer.style.display = 'none';
+                } else {
+                    emptySavedPlatesMessage.style.display = 'none';
+                    savedPlatesContainer.style.display = 'grid';
+                    savedPlates.forEach(plate => {
+                        const card = document.createElement('div');
+                        card.className = 'saved-plate-card';
+                        card.dataset.id = plate.id; // Store ID for deletion
+
+                        card.innerHTML = `
+                            <h4>${plate.name}</h4>
+                            <div class="plate-date">Created on ${plate.date || 'Unknown date'}</div>
+                            <button class="delete-btn" aria-label="Delete plate">
+                                <i class="fas fa-times-circle"></i>
+                            </button>
+                            <table class="nutritional-info">
+                                <tr>
+                                    <th colspan="2">Nutritional Info:</th>
+                                </tr>
+                                <tr>
+                                    <td class="label">Calories:</td>
+                                    <td class="value">${plate.totals.calories} kcal</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Protein:</td>
+                                    <td class="value">${plate.totals.protein}g</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Carbs:</td>
+                                    <td class="value">${plate.totals.carbs}g</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Fat:</td>
+                                    <td class="value">${plate.totals.fat}g</td>
+                                </tr>
+                            </table>
+                            <button class="load-btn" data-id="${plate.id}">Load This Plate</button>
+                        `;
+                        savedPlatesContainer.appendChild(card);
+                    });
+
+                    // Add event listeners for delete buttons - now immediately deletes without confirmation
+                    document.querySelectorAll('.delete-btn').forEach(button => {
+                        button.addEventListener('click', function() {
+                            const plateId = parseInt(this.closest('.saved-plate-card').dataset.id);
+                            deletePlate(plateId);
+                            showToast('Plate removed from bookmarks');
+                        });
+                    });
+
+                    // Add event listeners for load buttons
+                    document.querySelectorAll('.load-btn').forEach(button => {
+                        button.addEventListener('click', function() {
+                            const plateId = this.getAttribute('data-id');
+                            loadPlate(plateId);
+                        });
+                    });
+                }
+            }
+
+            // Function to load a plate
+            function loadPlate(plateId) {
+                const savedPlates = JSON.parse(localStorage.getItem('savedBalancedThalis')) || [];
+                const plateToLoad = savedPlates.find(plate => plate.id === parseInt(plateId));
+                
+                if (plateToLoad) {
+                    // Create a structure that matches what balanced_plate.html expects
+                    const plateData = {
+                        selectedItems: plateToLoad.items,
+                        totalCalories: plateToLoad.totals.calories,
+                         totalPrice: plateToLoad.totals.price,
+                        totalProtein: plateToLoad.totals.protein,
+                        totalCarbs: plateToLoad.totals.carbs,
+                        totalFat: plateToLoad.totals.fat,
+                        totalFiber: plateToLoad.totals.fiber,
+                        targetCalories: plateToLoad.totals.targetCalories
+                    };
+                    
+                    // Store the plate to load in localStorage
+                    localStorage.setItem('currentBalancedThali', JSON.stringify(plateData));
+                    // Redirect to balanced plate page
+                    window.location.href = 'balanced_plate.html';
+                } else {
+                    showToast('Plate not found');
+                }
+            }
+
+            // Function to delete a plate
+            function deletePlate(id) {
+                let savedPlates = JSON.parse(localStorage.getItem('savedBalancedThalis')) || [];
+                savedPlates = savedPlates.filter(plate => plate.id !== id);
+                localStorage.setItem('savedBalancedThalis', JSON.stringify(savedPlates));
+                loadSavedPlates(); // Refresh display
+            }
+
+            // Event listener for the "Design your own plate" button
+            document.querySelector('.design-btn').addEventListener('click', function() {
+                window.location.href = 'balanced_plate.html';
+            });
         });
     </script>
 </body>
