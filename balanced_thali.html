@@ -46,7 +46,7 @@
     }
     
     body {
-      font-family: 'Inter', Arial, sans-serif;
+      font-family:Arial, sans-serif;
       line-height: 1.6;
       margin: 0;
       padding: 0;
@@ -958,7 +958,7 @@
     <nav class="navbar">
       <div class="logo">
         <a href="/home/rguktvalley/Videos/project/web1.html" style="text-decoration: none; color: inherit;">
-          <span class="logo-icon">🥗</span>
+          <span class="logo-icon">🍴</span>
           <span class="brand">The Balanced Plate</span>
         </a>
         <button class="design-btn">Design your own plate</button>
@@ -968,7 +968,7 @@
         <li><a href="/home/rguktvalley/Videos/project/balanced_plate.html" class="nav-item active">Balance Plate</a></li>
         <li><a href="/home/rguktvalley/Videos/project/communitypage.html" class="nav-item">&#128101;Community</a></li>
         <li><a href="/home/rguktvalley/Videos/project/my_plates.html" class="nav-item">My Plates</a></li>
-        <li><a href="/home/rguktvalley/Videos/project/bookmarks.html" class="nav-item"> &#128278;Bookmarks</a></li>
+        <li><a href="/home/rguktvalley/Videos/project/bookmarks.html" class="nav-item"><i class="fas fa-bookmark"></i>Bookmarks</a></li>
       </ul>
     </nav>
   </header>
@@ -2976,301 +2976,291 @@
   </footer>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get age from URL parameters
-      const urlParams = new URLSearchParams(window.location.search);
-      const age = parseInt(urlParams.get('age')) || 0;
-      
-      // Set age group and calorie recommendation based on age
-      let ageGroup = "Children";
-      let calorieRecommendation = 1800;
-      
-      if (age >= 4 && age <= 6) {
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get age from URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const age = parseInt(urlParams.get('age')) || 0;
+
+    // Set age group and calorie recommendation based on age
+    let ageGroup = "Children";
+    let calorieRecommendation = 1800;
+
+    if (age >= 4 && age <= 6) {
         ageGroup = "Pre-school Children";
         calorieRecommendation = 1350;
-      } else if (age >= 7 && age <= 9) {
+    } else if (age >= 7 && age <= 9) {
         ageGroup = "School Children";
         calorieRecommendation = 1690;
-      } else if (age >= 10 && age <= 12) {
+    } else if (age >= 10 && age <= 12) {
         ageGroup = "Pre-teens";
         calorieRecommendation = 2010;
-      } else if (age >= 13 && age <= 15) {
+    } else if (age >= 13 && age <= 15) {
         ageGroup = "Teen Boys";
         calorieRecommendation = 2450;
-      } else if (age >= 16 && age <= 17) {
+    } else if (age >= 16 && age <= 17) {
         ageGroup = "Late Teens";
         calorieRecommendation = 2640;
-      } else if (age >= 18 && age <= 29) {
+    } else if (age >= 18 && age <= 29) {
         ageGroup = "Young Adults";
         calorieRecommendation = 2400;
-      } else if (age >= 30 && age <= 59) {
+    } else if (age >= 30 && age <= 59) {
         ageGroup = "Adults";
         calorieRecommendation = 2320;
-      } else if (age >= 60) {
+    } else if (age >= 60) {
         ageGroup = "Seniors";
         calorieRecommendation = 1900;
-      } else {
+    } else {
         ageGroup = "Children";
         calorieRecommendation = 1800;
-      }
-      
-      // Update the hero section
-      document.getElementById('age-group').textContent = ageGroup;
-      document.getElementById('calories-recommendation').textContent = calorieRecommendation;
-      
-      // Store the calorie recommendation for use in calculations
-      const targetCalories = calorieRecommendation;
-    
-      // Accordion functionality
-      const accordionHeaders = document.querySelectorAll('.accordion-header');
-      
-      accordionHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-          const item = header.parentElement;
-          const isOpen = item.classList.contains('open');
-          
-          document.querySelectorAll('.accordion-item').forEach(accordion => {
-            accordion.classList.remove('open');
-          });
-          
-          if (!isOpen) {
-            item.classList.add('open');
-          }
-        });
-      });
-     
-      // Enhanced Curry tab functionality
-      const curryTabs = document.querySelectorAll('.curry-tab');
+    }
 
-      curryTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          const tabType = tab.dataset.tab;
-          
-          curryTabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-          
-          document.querySelectorAll('.food-grid').forEach(content => {
-            if (content.id === 'veg-content' || content.id === 'nonveg-content') {
-              content.style.display = 'none';
+    // Update the hero section
+    document.getElementById('age-group').textContent = ageGroup;
+    document.getElementById('calories-recommendation').textContent = calorieRecommendation;
+
+    // Store the calorie recommendation for use in calculations
+    const targetCalories = calorieRecommendation;
+
+    // Accordion functionality
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const item = header.parentElement;
+            const isOpen = item.classList.contains('open');
+
+            document.querySelectorAll('.accordion-item').forEach(accordion => {
+                accordion.classList.remove('open');
+            });
+
+            if (!isOpen) {
+                item.classList.add('open');
             }
-          });
-          
-          document.getElementById(`${tabType}-content`).style.display = 'grid';
         });
-      });
-      
-      // Food selection functionality
-      const foodCards = document.querySelectorAll('.food-card');
-      let selectedItems = {
+    });
+
+    // Enhanced Curry tab functionality
+    const curryTabs = document.querySelectorAll('.curry-tab');
+
+    curryTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const tabType = tab.dataset.tab;
+
+            curryTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            document.querySelectorAll('.food-grid').forEach(content => {
+                if (content.id === 'veg-content' || content.id === 'nonveg-content') {
+                    content.style.display = 'none';
+                }
+            });
+
+            document.getElementById(`${tabType}-content`).style.display = 'grid';
+        });
+    });
+
+    // Food selection functionality
+    const foodCards = document.querySelectorAll('.food-card');
+    let selectedItems = {
         base: null,
         curry: null,
         dessert: null,
         beverage: null
-      };
-      let totalCalories = 0;
-      let totalPrice = 0;
-      let totalProtein = 0;
-      let totalCarbs = 0;
-      let totalFat = 0;
-      let totalFiber = 0;
-      
-      // Function to save selected items to localStorage
-      function saveSelectedItems() {
-        localStorage.setItem('balancedThaliSelection', JSON.stringify(selectedItems));
-        localStorage.setItem('balancedThaliTotals', JSON.stringify({
-          totalCalories,
-          totalPrice,
-          totalProtein,
-          totalCarbs,
-          totalFat,
-          totalFiber
-        }));
-      }
-      
-      // Function to load selected items from localStorage
-      function loadSelectedItems() {
-        const savedSelection = localStorage.getItem('balancedThaliSelection');
-        const savedTotals = localStorage.getItem('balancedThaliTotals');
-        
-        if (savedSelection) {
-          selectedItems = JSON.parse(savedSelection);
-          
-          // Update totals if available
-          if (savedTotals) {
-            const totals = JSON.parse(savedTotals);
-            totalCalories = totals.totalCalories;
-            totalPrice = totals.totalPrice;
-            totalProtein = totals.totalProtein;
-            totalCarbs = totals.totalCarbs;
-            totalFat = totals.totalFat;
-            totalFiber = totals.totalFiber;
-          } else {
-            // Calculate totals from selected items
-            totalCalories = 0;
-            totalPrice = 0;
-            totalProtein = 0;
-            totalCarbs = 0;
-            totalFat = 0;
-            totalFiber = 0;
-            
+    };
+    let totalCalories = 0;
+    let totalPrice = 0;
+    let totalProtein = 0;
+    let totalCarbs = 0;
+    let totalFat = 0;
+    let totalFiber = 0;
+
+    // Function to save selected items to localStorage
+    function saveCurrentPlateToLocalStorage() {
+        // Only save if at least one item is selected
+        const hasAnyItemSelected = Object.values(selectedItems).some(item => item !== null);
+        if (!hasAnyItemSelected) {
+            localStorage.removeItem('currentBalancedThali');
+            localStorage.removeItem('currentBalancedThaliTotals');
+            localStorage.removeItem('hasCurrentPlate'); // Clear the flag
+            return;
+        }
+
+        const currentPlate = {
+            selectedItems: selectedItems,
+            totalCalories: totalCalories,
+            totalPrice: totalPrice,
+            totalProtein: totalProtein,
+            totalCarbs: totalCarbs,
+            totalFat: totalFat,
+            totalFiber: totalFiber,
+            targetCalories: targetCalories // Store target calories for consistency
+        };
+        localStorage.setItem('currentBalancedThali', JSON.stringify(currentPlate));
+        localStorage.setItem('hasCurrentPlate', 'true'); // Set a flag indicating a plate exists
+    }
+
+    // Function to load selected items from localStorage
+    function loadSelectedItems() {
+        const savedCurrentPlate = localStorage.getItem('currentBalancedThali');
+
+        if (savedCurrentPlate) {
+            const currentPlate = JSON.parse(savedCurrentPlate);
+            selectedItems = currentPlate.selectedItems;
+            totalCalories = currentPlate.totalCalories;
+            totalPrice = currentPlate.totalPrice;
+            totalProtein = currentPlate.totalProtein;
+            totalCarbs = currentPlate.totalCarbs;
+            totalFat = currentPlate.totalFat;
+            totalFiber = currentPlate.totalFiber;
+            // No need to set targetCalories here, as it's determined by age on load
+
+            // Update UI
+            updateThaliDisplay();
+
+            // Highlight selected cards in the UI
             for (const [category, item] of Object.entries(selectedItems)) {
-              if (item) {
-                totalCalories += item.calories;
-                totalPrice += item.price;
-                totalProtein += item.protein;
-                totalCarbs += item.carbs;
-                totalFat += item.fat;
-                totalFiber += item.fiber;
-              }
+                if (item) {
+                    const card = document.querySelector(`.food-card[data-name="${item.name}"]`);
+                    if (card) {
+                        card.classList.add('selected');
+                    }
+                }
             }
-          }
-          
-          // Update UI
-          updateThaliDisplay();
-          
-          // Highlight selected cards in the UI
-          for (const [category, item] of Object.entries(selectedItems)) {
-            if (item) {
-              const card = document.querySelector(`.food-card[data-name="${item.name}"]`);
-              if (card) {
-                card.classList.add('selected');
-              }
+
+            // Show the thali visualization if any items are selected
+            if (Object.values(selectedItems).some(item => item !== null)) {
+                document.querySelector('.plate-visualization').style.display = 'flex';
+                document.getElementById('empty-thali').style.display = 'none';
+                document.querySelector('.selected-items').style.display = 'block';
+                document.querySelector('.total-price').style.display = 'flex';
+                document.querySelector('.nutrition-summary').style.display = 'block';
+                document.querySelector('.nutritional-target').style.display = 'block';
+                document.querySelector('.meal-balance').style.display = 'block';
+                document.querySelector('.order-btn').style.display = 'block';
             }
-          }
-          
-          // Show the thali visualization if any items are selected
-          if (Object.values(selectedItems).some(item => item !== null)) {
+        }
+        updateOrderButtonState(); // Ensure button state is correct on load
+    }
+
+    // Function to check if all sections are filled
+    function checkAllSectionsFilled() {
+        return selectedItems.base && selectedItems.curry && selectedItems.dessert && selectedItems.beverage;
+    }
+
+    // Function to update order button state
+    function updateOrderButtonState() {
+        const orderBtn = document.querySelector('.order-btn');
+        if (checkAllSectionsFilled()) {
+            orderBtn.disabled = false;
+            orderBtn.style.opacity = '1';
+            orderBtn.style.cursor = 'pointer';
+            document.querySelector('.caution-box').style.display = 'none';
+        } else {
+            orderBtn.disabled = true;
+            orderBtn.style.opacity = '0.6';
+            orderBtn.style.cursor = 'not-allowed';
+            document.querySelector('.caution-box').style.display = 'flex';
+        }
+    }
+
+    foodCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const category = this.dataset.category;
+            const name = this.dataset.name;
+            const calories = parseInt(this.dataset.calories);
+            const price = parseInt(this.dataset.price);
+            const protein = parseFloat(this.dataset.protein);
+            const carbs = parseFloat(this.dataset.carbs);
+            const fat = parseFloat(this.dataset.fat);
+            const fiber = parseFloat(this.dataset.fiber);
+
+            if (selectedItems[category]) {
+                const prevCard = document.querySelector(`.food-card[data-name="${selectedItems[category].name}"]`);
+                if (prevCard) prevCard.classList.remove('selected');
+                totalCalories -= selectedItems[category].calories;
+                totalPrice -= selectedItems[category].price;
+                totalProtein -= selectedItems[category].protein;
+                totalCarbs -= selectedItems[category].carbs;
+                totalFat -= selectedItems[category].fat;
+                totalFiber -= selectedItems[category].fiber;
+            }
+
+            this.classList.add('selected');
+            selectedItems[category] = {
+                name,
+                calories,
+                price,
+                protein,
+                carbs,
+                fat,
+                fiber
+            };
+            totalCalories += calories;
+            totalPrice += price;
+            totalProtein += protein;
+            totalCarbs += carbs;
+            totalFat += fat;
+            totalFiber += fiber;
+
+            updateThaliDisplay();
+
             document.querySelector('.plate-visualization').style.display = 'flex';
             document.getElementById('empty-thali').style.display = 'none';
+
             document.querySelector('.selected-items').style.display = 'block';
             document.querySelector('.total-price').style.display = 'flex';
             document.querySelector('.nutrition-summary').style.display = 'block';
             document.querySelector('.nutritional-target').style.display = 'block';
             document.querySelector('.meal-balance').style.display = 'block';
             document.querySelector('.order-btn').style.display = 'block';
-          }
-        }
-      }
-      
-      // Function to check if all sections are filled
-      function checkAllSectionsFilled() {
-        return selectedItems.base && selectedItems.curry && selectedItems.dessert && selectedItems.beverage;
-      }
-      
-      // Function to update order button state
-      function updateOrderButtonState() {
-        const orderBtn = document.querySelector('.order-btn');
-        if (checkAllSectionsFilled()) {
-          orderBtn.disabled = false;
-          orderBtn.style.opacity = '1';
-          orderBtn.style.cursor = 'pointer';
-          document.querySelector('.caution-box').style.display = 'none';
-        } else {
-          orderBtn.disabled = true;
-          orderBtn.style.opacity = '0.6';
-          orderBtn.style.cursor = 'not-allowed';
-          document.querySelector('.caution-box').style.display = 'flex';
-        }
-      }
-      
-      foodCards.forEach(card => {
-        card.addEventListener('click', function() {
-          const category = this.dataset.category;
-          const name = this.dataset.name;
-          const calories = parseInt(this.dataset.calories);
-          const price = parseInt(this.dataset.price);
-          const protein = parseFloat(this.dataset.protein);
-          const carbs = parseFloat(this.dataset.carbs);
-          const fat = parseFloat(this.dataset.fat);
-          const fiber = parseFloat(this.dataset.fiber);
-          
-          if (selectedItems[category]) {
-            const prevCard = document.querySelector(`.food-card[data-name="${selectedItems[category].name}"]`);
-            if (prevCard) prevCard.classList.remove('selected');
-            totalCalories -= selectedItems[category].calories;
-            totalPrice -= selectedItems[category].price;
-            totalProtein -= selectedItems[category].protein;
-            totalCarbs -= selectedItems[category].carbs;
-            totalFat -= selectedItems[category].fat;
-            totalFiber -= selectedItems[category].fiber;
-          }
-          
-          this.classList.add('selected');
-          selectedItems[category] = { 
-            name, 
-            calories,
-            price,
-            protein,
-            carbs,
-            fat,
-            fiber
-          };
-          totalCalories += calories;
-          totalPrice += price;
-          totalProtein += protein;
-          totalCarbs += carbs;
-          totalFat += fat;
-          totalFiber += fiber;
-          
-          updateThaliDisplay();
-          
-          document.querySelector('.plate-visualization').style.display = 'flex';
-          document.getElementById('empty-thali').style.display = 'none';
-          
-          document.querySelector('.selected-items').style.display = 'block';
-          document.querySelector('.total-price').style.display = 'flex';
-          document.querySelector('.nutrition-summary').style.display = 'block';
-          document.querySelector('.nutritional-target').style.display = 'block';
-          document.querySelector('.meal-balance').style.display = 'block';
-          document.querySelector('.order-btn').style.display = 'block';
-          
-          document.querySelector('.order-confirmation').style.display = 'none';
-          
-          this.classList.add('bounce');
-          setTimeout(() => {
-            this.classList.remove('bounce');
-          }, 500);
-          
-          // Save the selection to localStorage
-          saveSelectedItems();
-          
-          updateOrderButtonState();
+
+            document.querySelector('.order-confirmation').style.display = 'none';
+
+            this.classList.add('bounce');
+            setTimeout(() => {
+                this.classList.remove('bounce');
+            }, 500);
+
+            // Save the selection to localStorage after every item selection
+            saveCurrentPlateToLocalStorage();
+
+            updateOrderButtonState();
         });
-      });
-      
-      // Function to calculate meal balance rating
-      function calculateMealBalance() {
-        const caloriesPercent = Math.min(Math.round((totalCalories / 1800) * 100), 100);
+    });
+
+    // Function to calculate meal balance rating
+    function calculateMealBalance() {
+        const caloriesPercent = Math.min(Math.round((totalCalories / targetCalories) * 100), 100); // Use targetCalories
         const proteinPercent = Math.min(Math.round((totalProtein / 50) * 100), 100);
         const carbsPercent = Math.min(Math.round((totalCarbs / 300) * 100), 100);
         const fatPercent = Math.min(Math.round((totalFat / 70) * 100), 100);
         const fiberPercent = Math.min(Math.round((totalFiber / 25) * 100), 100);
-        
-        const avgPercent = (caloriesPercent * 0.4) + (proteinPercent * 0.2) + 
-                          (carbsPercent * 0.2) + (fatPercent * 0.1) + (fiberPercent * 0.1);
-        
+
+        const avgPercent = (caloriesPercent * 0.4) + (proteinPercent * 0.2) +
+            (carbsPercent * 0.2) + (fatPercent * 0.1) + (fiberPercent * 0.1);
+
         let rating, ratingClass;
         if (avgPercent >= 90) {
-          rating = "Excellent";
-          ratingClass = "rating-excellent";
+            rating = "Excellent";
+            ratingClass = "rating-excellent";
         } else if (avgPercent >= 75) {
-          rating = "Good";
-          ratingClass = "rating-good";
+            rating = "Good";
+            ratingClass = "rating-good";
         } else if (avgPercent >= 50) {
-          rating = "Fair";
-          ratingClass = "rating-fair";
+            rating = "Fair";
+            ratingClass = "rating-fair";
         } else {
-          rating = "Poor";
-          ratingClass = "rating-poor";
+            rating = "Poor";
+            ratingClass = "rating-poor";
         }
-        
+
         const ratingElement = document.getElementById('balance-rating-value');
         ratingElement.textContent = rating;
         ratingElement.className = 'rating-value ' + ratingClass;
-      }
-      
-      // Function to update the thali display
-      function updateThaliDisplay() {
+    }
+
+    // Function to update the thali display
+    function updateThaliDisplay() {
         const selectedItemsContainer = document.getElementById('selected-items');
         const plateCenterText = document.getElementById('plate-center-text');
         const totalCaloriesElement = document.getElementById('total-calories');
@@ -3281,94 +3271,94 @@
         const totalCarbsElement = document.getElementById('total-carbs');
         const totalFatElement = document.getElementById('total-fat');
         const totalFiberElement = document.getElementById('total-fiber');
-        
+
         selectedItemsContainer.innerHTML = '';
-        
+
         const hasItems = Object.values(selectedItems).some(item => item !== null);
-        
+
         if (hasItems) {
-          plateCenterText.textContent = `${totalCalories} cal`;
-          
-          document.querySelectorAll('.plate-segment').forEach(segment => {
-            const category = segment.dataset.category;
-            if (selectedItems[category]) {
-              segment.classList.add('active');
-            } else {
-              segment.classList.remove('active');
+            plateCenterText.textContent = `${totalCalories} cal`;
+
+            document.querySelectorAll('.plate-segment').forEach(segment => {
+                const category = segment.dataset.category;
+                if (selectedItems[category]) {
+                    segment.classList.add('active');
+                } else {
+                    segment.classList.remove('active');
+                }
+            });
+
+            for (const [category, item] of Object.entries(selectedItems)) {
+                if (item) {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'selected-item';
+                    itemElement.innerHTML = `
+                        <span class="selected-item-name">${item.name}</span>
+                        <div class="selected-item-details">
+                            <span class="selected-item-calories">${item.calories} cal</span>
+                            <span class="selected-item-price">₹${item.price}</span>
+                        </div>
+                    `;
+                    selectedItemsContainer.appendChild(itemElement);
+                }
             }
-          });
-          
-          for (const [category, item] of Object.entries(selectedItems)) {
-            if (item) {
-              const itemElement = document.createElement('div');
-              itemElement.className = 'selected-item';
-              itemElement.innerHTML = `
-                <span class="selected-item-name">${item.name}</span>
-                <div class="selected-item-details">
-                  <span class="selected-item-calories">${item.calories} cal</span>
-                  <span class="selected-item-price">₹${item.price}</span>
-                </div>
-              `;
-              selectedItemsContainer.appendChild(itemElement);
-            }
-          }
-          
-          totalCaloriesElement.textContent = totalCalories;
-          totalPriceElement.textContent = `₹${totalPrice}`;
-          orderPriceElement.textContent = totalPrice;
-          confirmationPriceElement.textContent = totalPrice;
-          totalProteinElement.textContent = `${totalProtein}g`;
-          totalCarbsElement.textContent = `${totalCarbs}g`;
-          totalFatElement.textContent = `${totalFat}g`;
-          totalFiberElement.textContent = `${totalFiber}g`;
-          
-          const caloriesPercent = Math.min(Math.round((totalCalories / 1800) * 100), 100);
-          const proteinPercent = Math.min(Math.round((totalProtein / 50) * 100), 100);
-          const carbsPercent = Math.min(Math.round((totalCarbs / 300) * 100), 100);
-          const fatPercent = Math.min(Math.round((totalFat / 70) * 100), 100);
-          const fiberPercent = Math.min(Math.round((totalFiber / 25) * 100), 100);
-          
-          document.getElementById('calories-percent').textContent = `${caloriesPercent}%`;
-          document.getElementById('protein-percent').textContent = `${proteinPercent}%`;
-          document.getElementById('carbs-percent').textContent = `${carbsPercent}%`;
-          document.getElementById('fat-percent').textContent = `${fatPercent}%`;
-          document.getElementById('fiber-percent').textContent = `${fiberPercent}%`;
-          
-          document.querySelector('.target-calories .target-progress').style.width = `${caloriesPercent}%`;
-          document.querySelector('.target-protein .target-progress').style.width = `${proteinPercent}%`;
-          document.querySelector('.target-carbs .target-progress').style.width = `${carbsPercent}%`;
-          document.querySelector('.target-fat .target-progress').style.width = `${fatPercent}%`;
-          document.querySelector('.target-fiber .target-progress').style.width = `${fiberPercent}%`;
-          
-          calculateMealBalance();
+
+            totalCaloriesElement.textContent = totalCalories;
+            totalPriceElement.textContent = `₹${totalPrice}`;
+            orderPriceElement.textContent = totalPrice;
+            confirmationPriceElement.textContent = totalPrice;
+            totalProteinElement.textContent = `${totalProtein}g`;
+            totalCarbsElement.textContent = `${totalCarbs}g`;
+            totalFatElement.textContent = `${totalFat}g`;
+            totalFiberElement.textContent = `${totalFiber}g`;
+
+            const caloriesPercent = Math.min(Math.round((totalCalories / targetCalories) * 100), 100); // Use targetCalories
+            const proteinPercent = Math.min(Math.round((totalProtein / 50) * 100), 100);
+            const carbsPercent = Math.min(Math.round((totalCarbs / 300) * 100), 100);
+            const fatPercent = Math.min(Math.round((totalFat / 70) * 100), 100);
+            const fiberPercent = Math.min(Math.round((totalFiber / 25) * 100), 100);
+
+            document.getElementById('calories-percent').textContent = `${caloriesPercent}%`;
+            document.getElementById('protein-percent').textContent = `${proteinPercent}%`;
+            document.getElementById('carbs-percent').textContent = `${carbsPercent}%`;
+            document.getElementById('fat-percent').textContent = `${fatPercent}%`;
+            document.getElementById('fiber-percent').textContent = `${fiberPercent}%`;
+
+            document.querySelector('.target-calories .target-progress').style.width = `${caloriesPercent}%`;
+            document.querySelector('.target-protein .target-progress').style.width = `${proteinPercent}%`;
+            document.querySelector('.target-carbs .target-progress').style.width = `${carbsPercent}%`;
+            document.querySelector('.target-fat .target-progress').style.width = `${fatPercent}%`;
+            document.querySelector('.target-fiber .target-progress').style.width = `${fiberPercent}%`;
+
+            calculateMealBalance();
         }
-        
+
         updateOrderButtonState();
-      }
-      
-      // Close button functionality
-      document.querySelector('.close-btn').addEventListener('click', function() {
+    }
+
+    // Close button functionality (clears selection)
+    document.querySelector('.close-btn').addEventListener('click', function() {
         document.querySelectorAll('.food-card').forEach(card => {
-          card.classList.remove('selected');
+            card.classList.remove('selected');
         });
-        
+
         selectedItems = {
-          base: null,
-          curry: null,
-          dessert: null,
-          beverage: null
+            base: null,
+            curry: null,
+            dessert: null,
+            beverage: null
         };
-        
+
         totalCalories = 0;
         totalPrice = 0;
         totalProtein = 0;
         totalCarbs = 0;
         totalFat = 0;
         totalFiber = 0;
-        
+
         document.querySelector('.plate-visualization').style.display = 'none';
         document.getElementById('empty-thali').style.display = 'block';
-        
+
         document.querySelector('.selected-items').style.display = 'none';
         document.querySelector('.total-price').style.display = 'none';
         document.querySelector('.nutrition-summary').style.display = 'none';
@@ -3376,67 +3366,73 @@
         document.querySelector('.meal-balance').style.display = 'none';
         document.querySelector('.order-btn').style.display = 'none';
         document.querySelector('.order-confirmation').style.display = 'none';
-        
-        // Clear localStorage
-        localStorage.removeItem('balancedThaliSelection');
-        localStorage.removeItem('balancedThaliTotals');
-        
+
+        // Clear localStorage for the current plate when cleared
+        localStorage.removeItem('currentBalancedThali');
+        localStorage.removeItem('hasCurrentPlate');
+
         updateThaliDisplay();
-      });
-      
-      // Order button functionality
-      document.querySelector('.order-btn').addEventListener('click', function() {
-        if (!checkAllSectionsFilled()) {
-          alert('Please select items from all four sections to complete your thali.');
-          return;
-        }
-        
-        if (totalPrice > 0) {
-          document.querySelector('.order-btn').style.display = 'none';
-          const confirmation = document.querySelector('.order-confirmation');
-          confirmation.style.display = 'block';
-          
-          createConfetti();
-          
-          confirmation.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-      
-      // Function to create confetti effect
-      function createConfetti() {
-        const colors = ['#00996D', '#4CAF50', '#2196F3', '#FFA000', '#F44336'];
-        const container = document.querySelector('.thali-box');
-        
-        for (let i = 0; i < 50; i++) {
-          const confetti = document.createElement('div');
-          confetti.style.position = 'absolute';
-          confetti.style.width = '8px';
-          confetti.style.height = '8px';
-          confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-          confetti.style.borderRadius = '50%';
-          confetti.style.left = Math.random() * 100 + '%';
-          confetti.style.top = '-10px';
-          confetti.style.opacity = '0';
-          confetti.style.animation = `confetti ${Math.random() * 3 + 2}s ease-out forwards`;
-          confetti.style.animationDelay = Math.random() * 0.5 + 's';
-          
-          container.appendChild(confetti);
-          
-          setTimeout(() => {
-            confetti.remove();
-          }, 5000);
-        }
-      }
-      
-      // Initialize order button state
-      updateOrderButtonState();
-      
-      // Open first accordion by default
-      document.querySelector('.accordion-item').classList.add('open');
-      
-      // Load any previously saved selections
-      loadSelectedItems();
     });
+
+    // Order button functionality
+    document.querySelector('.order-btn').addEventListener('click', function() {
+        if (!checkAllSectionsFilled()) {
+            alert('Please select items from all four sections to complete your thali.');
+            return;
+        }
+
+        if (totalPrice > 0) {
+            document.querySelector('.order-btn').style.display = 'none';
+            const confirmation = document.querySelector('.order-confirmation');
+            confirmation.style.display = 'block';
+
+            createConfetti();
+
+            confirmation.scrollIntoView({ behavior: 'smooth' });
+
+            // After successful order, clear the current plate data from local storage
+            // This is important so it doesn't show up in "Save your current plate" unless a new one is built
+            // localStorage.removeItem('currentBalancedThali');
+            // localStorage.removeItem('hasCurrentPlate'); // Keep this line if you want to clear it after order
+
+        }
+    });
+
+    // Function to create confetti effect
+    function createConfetti() {
+        const colors = ['#00996D', '#4CAF50', '#2196F3', '#FFA000', '#F44336'];
+        const container = document.querySelector('.thali-box'); // Ensure this selector is correct for your layout
+
+        for (let i = 0; i < 50; i++) {
+            const confetti = document.createElement('div');
+            confetti.style.position = 'absolute';
+            confetti.style.width = '8px';
+            confetti.style.height = '8px';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.borderRadius = '50%';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.top = '-10px';
+            confetti.style.opacity = '0';
+            confetti.style.animation = `confetti ${Math.random() * 3 + 2}s ease-out forwards`;
+            confetti.style.animationDelay = Math.random() * 0.5 + 's';
+
+            container.appendChild(confetti);
+
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+    }
+
+    // Initialize order button state
+    updateOrderButtonState();
+
+    // Open first accordion by default
+    document.querySelector('.accordion-item').classList.add('open');
+
+    // Load any previously saved selections (current plate)
+    loadSelectedItems();
+});
 </script>
 </body>
 </html>
