@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family:Arial, sans-serif;
   background-color: #005d42;
   color: #fff;
   line-height: 1.6;
@@ -42,6 +42,7 @@ nav {
 .logo-icon {
   font-size: 1.6rem;
   margin-right: 0.5rem;
+
 }
 .brand {
   font-size: 1.2rem;
@@ -139,7 +140,7 @@ nav {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
-}
+}/*opcity invisible and translayte (30) lower 30px than its final pos opacity 1 visible full
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -309,7 +310,6 @@ nav {
   color: #333;
 }
 
-/* Card themes */
 .card.red h3 {
   color: #d32f2f;
 }
@@ -471,7 +471,6 @@ li span.right {
   color: #555;
   padding: 1.5rem 1rem;
 }
-
 
 
 
