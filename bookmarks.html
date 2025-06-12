@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Balance Plate for Professionals</title>
+    <title>The Balanced Plate - Bookmarks</title>
     <style>
         * {
             margin: 0;
@@ -18,7 +18,7 @@
             background-color: #f5f5f5;
             color: #333;
         }
-        
+
         nav {
             position: fixed;
             top: 0;
@@ -89,32 +89,31 @@
             color: #005d42;
             font-weight: bold;
         }
-
         /* Main Content */
         .main-content {
             padding: 6rem 2rem 2rem;
             max-width: 900px;
             margin: 0 auto;
         }
-        
+
         .page-header {
             text-align: center;
             margin-bottom: 2rem;
         }
-        
+
         .page-header h1 {
             font-size: 2.1rem;
             color: #111827;
             margin-bottom: 0.1rem;
         }
-        
+
         .page-header .subtitle {
             color: #6b7280;
             font-size: 1rem;
             padding:0.1rem;
         }
 
-        /* Post Card Styles (same as community page) */
+        /* Post Card (Copied from community.html for consistency) */
         .post-card {
             background: white;
             border-radius: 12px;
@@ -125,46 +124,46 @@
             transition: transform 0.3s, box-shadow 0.3s;
             max-width:900px;
         }
-        
+
         .post-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 16px rgba(0,0,0,0.1);
         }
-        
+
         .post-header {
             display: flex;
             align-items: flex-start;
             gap: 0.8rem;
             margin-bottom: 0.8rem;
         }
-        
+
         .avatar {
             width: 44px;
             height: 44px;
             border-radius: 50%;
             object-fit: cover;
         }
-        
+
         .post-user {
             flex: 1;
         }
-        
+
         .post-user strong {
             display: block;
             font-size: 1rem;
             margin-bottom: 0.1rem;
         }
-        
+
         .post-user span {
             font-size: 0.8rem;
             color: #6b7280;
         }
-        
+
         .post-content {
             margin: 0.5rem 0;
             line-height: 1.5;
         }
-        
+
         .tags {
             color: #059669;
             font-size: 0.85rem;
@@ -173,12 +172,12 @@
             flex-wrap: wrap;
             gap: 0.5rem;
         }
-        
+
         .image-container {
             position: relative;
             margin: 1rem 0;
         }
-        
+
         .post-image {
             width: 100%;
             border-radius: 10px;
@@ -186,7 +185,7 @@
             max-height: 400px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        
+
         .image-action-btn {
             position: absolute;
             top: 10px;
@@ -204,24 +203,24 @@
             gap: 0.3rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        
+
         .image-action-btn:hover {
             background-color: white;
             transform: translateY(-1px);
         }
-        
+
         .bookmark-btn {
             position: absolute;
             top: 1.5rem;
             right: 1.5rem;
-            background: none;
+            background:none;
             border: none;
             font-size: 1.4rem;
-            cursor: pointer;
-            color: #FFD700;
+            cursor:pointer;
+            color:#FFD700; /* Always filled on bookmarks page */
             transition: all 0.3s;
         }
-        
+
         .bookmark-btn:hover {
             transform: scale(1.2);
         }
@@ -279,39 +278,122 @@
             transform: scale(1.1);
         }
 
-        /* Empty State */
-        .empty-state {
+        /* Toast Notifications (Copied from community.html) */
+        .toast {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-left: 6px solid #059669;
+            max-width: 300px;
+            font-size: 0.9rem;
+            z-index: 1000;
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+
+        .toast-close {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-left: 10px;
+            float: right;
+            color: inherit;
+            padding: 0;
+        }
+
+        .toast-close:hover {
+            opacity: 0.8;
+        }
+
+        .toast.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Empty state for bookmarks */
+        .empty-bookmarks-state {
             text-align: center;
             padding: 3rem 1rem;
             color: #6b7280;
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: 3rem;
         }
-        
-        .empty-state h2 {
-            font-size: 1.1rem;
-            margin-bottom: 0.4rem;
+
+        .empty-bookmarks-state .empty-icon {
+            font-size: 3rem;
+            color:#d1d5db;
+            margin-bottom: 0.5rem;
+        }
+
+        .empty-bookmarks-state h2 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
             color: #111827;
             font-weight: 600;
         }
-        
-        .empty-state p {
+
+        .empty-bookmarks-state p {
             font-size: 1rem;
-            margin-bottom: 0.5rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 100%;
+            margin-bottom: 1.5rem;
+            max-width: 450px;
+            line-height: 1.4;
         }
-        
-        .empty-icon {
-            font-size: 2rem;
-            color:#d1d5db;
-            margin-bottom: 0.3rem;
+
+        .browse-community-btn {
+            background-color: #00996D;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-decoration: none; /* For the anchor tag */
+        }
+
+        .browse-community-btn:hover {
+            background-color: #008054;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Footer Styles (Copied from community.html) */
+        .site-footer {
+            background-color: #f8f8f8;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-top: 2rem;
+            border-top: 1px solid #eaeaea;
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .footer-note {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .copyright {
+            color: #6b7280;
+            font-size: 0.85rem;
         }
     </style>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -319,7 +401,7 @@
         <nav class="navbar">
             <div class="logo">
                 <a href="/home/rguktvalley/Videos/project/web1.html" style="text-decoration: none; color: inherit;">
-                    <span class="logo-icon">🥗</span>
+                    <span class="logo-icon">🍴</span>
                     <span class="brand">The Balanced Plate</span>
                 </a>
                 <button class="design-btn">Design your own plate</button>
@@ -327,9 +409,9 @@
             <ul class="nav-links">
                 <li><a href="/home/rguktvalley/Videos/project/web1.html" class="nav-item">Home</a></li>
                 <li><a href="/home/rguktvalley/Videos/project/balanced_plate.html" class="nav-item">Balance Plate</a></li>
-                <li><a href="/home/rguktvalley/Videos/project/communitypage.html" class="nav-item">&#128101;Community</a></li>
+                <li><a href="/home/rguktvalley/Videos/project/communitypage.html" class="nav-item">Community</a></li>
                 <li><a href="/home/rguktvalley/Videos/project/my_plates.html" class="nav-item">My Plates</a></li>
-                <li><a href="#" class="nav-item active"> &#128278;Bookmarks</a></li>
+                <li><a href="#" class="nav-item active"><i class="fas fa-bookmark"></i>Bookmarks</a></li>
             </ul>
         </nav>
     </header>
@@ -337,125 +419,167 @@
     <main class="main-content">
         <div class="page-header">
             <h1>Your Bookmarked Plates</h1>
-            <p class="subtitle">All your saved balanced plates in one place</p>
+            <p class="subtitle">Curated collection of your favorite balanced plates from the community</p>
         </div>
 
-        <div id="bookmarks-container">
-            <!-- Bookmarks will be loaded here by JavaScript -->
-        </div>
+        <section id="bookmarked-posts">
+            </section>
 
-        <div id="no-bookmarks" class="empty-state" style="display: none;">
+        <div id="empty-bookmarks" class="empty-bookmarks-state" style="display: none;">
             <div class="empty-icon">
                 <i class="far fa-bookmark"></i>
             </div>
-            <h2>No bookmarks yet</h2>
-            <p>When you bookmark posts from the community, they'll appear here.</p>
+            <h2>No Bookmarks Yet</h2>
+            <p>Looks like you haven't bookmarked any plates. Explore the community and save your favorite meals!</p>
+            <a href="/home/rguktvalley/Videos/project/communitypage.html" class="browse-community-btn">Browse Community</a>
         </div>
+
+
+        <div id="toast" class="toast">
+            <button class="toast-close" onclick="hideToast()">×</button>
+            <strong id="toast-title">Title</strong>
+            <p id="toast-message">Message</p>
+        </div>
+
     </main>
 
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p class="footer-note">Nutritional data based on Indian National Institute of Nutrition (NIN) guidelines</p>
+            <p class="copyright">© 2025 Balance Plate - Personalized Nutrition for Healthy Living</p>
+        </div>
+    </footer>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Load bookmarks from localStorage
-            const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || {};
-            const container = document.getElementById('bookmarks-container');
-            const noBookmarks = document.getElementById('no-bookmarks');
-            
-            if (Object.keys(bookmarks).length === 0) {
-                noBookmarks.style.display = 'flex';
-                return;
-            }
-            
-            // Create HTML for each bookmarked post
-            Object.values(bookmarks).forEach(post => {
-                const postCard = document.createElement('div');
-                postCard.className = 'post-card';
-                postCard.id = post.id;
-                
-                postCard.innerHTML = `
-                    <button class="bookmark-btn filled" onclick="removeBookmark('${post.id}', this)">★</button>
-                    
-                    <div class="post-header">
-                        <img src="${getAvatarImage(post.user)}" class="avatar" alt="${post.user}" />
-                        <div class="post-user">
-                            <strong>${post.user}</strong>
-                            <span>${post.username}</span>
-                        </div>
-                    </div>
-                    
-                    <div class="post-content">
-                        <p>${post.content}</p>
-                        <p class="tags">${post.tags}</p>
-                    </div>
-                    
-                    <div class="image-container">
-                        <img class="post-image" src="${post.imageSrc}" alt="Balanced plate" />
-                        <button class="image-action-btn" onclick="showAddToast()">
-                            <span>Add To My Plate</span>
-                        </button>
-                    </div>
-                    
-                    <div class="ingredients">
-                        ${post.ingredients}
-                    </div>
-                    
-                    <div class="actions">
-                        <div class="action-group">
-                            <span class="like" onclick="likePost(this)">♡ <span class="like-count">${post.likes}</span></span>
-                            <span class="comment" onclick="commentFeature()">💬 <span class="comment-count">${post.comments}</span></span>
-                        </div>
-                        <span class="share" onclick="sharePost()">🔗 Share</span>
-                    </div>
-                `;
-                
-                container.appendChild(postCard);
-            });
+        document.addEventListener('DOMContentLoaded', loadBookmarks);
 
-            // Function to get appropriate avatar image based on user
-            function getAvatarImage(username) {
-                if (username.includes('Jyoshna')) {
-                    return '/home/rguktvalley/Downloads/InShot_20250509_185841304.jpg';
-                } else if (username.includes('mahesh')) {
-                    return '/home/rguktvalley/Downloads/BTECH/file(1).jpeg';
-                } else if (username.includes('Lucky')) {
-                    return '/home/rguktvalley/Downloads/KUTTI/IMG-20221201-WA0004.jpg';
+        function showToast(title, message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-title').innerText = title;
+            document.getElementById('toast-message').innerText = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000); // Hide after 3 seconds
+        }
+
+        function hideToast() {
+            document.getElementById('toast').classList.remove('show');
+        }
+
+        function loadBookmarks() {
+            const bookmarkedPostsContainer = document.getElementById('bookmarked-posts');
+            bookmarkedPostsContainer.innerHTML = ''; // Clear existing content
+            let hasBookmarks = false;
+
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.startsWith('bookmarked_') && localStorage.getItem(key) === 'true') {
+                    const postId = key.replace('bookmarked_', '');
+                    const postData = JSON.parse(localStorage.getItem(`post_${postId}`));
+
+                    if (postData) {
+                        hasBookmarks = true;
+                        const postCard = createPostCardElement(postData);
+                        bookmarkedPostsContainer.appendChild(postCard);
+                    } else {
+                        // If bookmark flag exists but post data is missing, clean up
+                        localStorage.removeItem(key);
+                    }
                 }
-                return 'https://via.placeholder.com/44'; // Default avatar
             }
-        });
 
-        // Function to remove bookmark
-        function removeBookmark(postId, btn) {
-            let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || {};
-            delete bookmarks[postId];
-            localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-            
-            // Remove the card from the DOM
-            const card = btn.closest('.post-card');
-            card.remove();
-            
-            // Show no bookmarks message if empty
-            if (Object.keys(bookmarks).length === 0) {
-                document.getElementById('no-bookmarks').style.display = 'flex';
+            const emptyBookmarksState = document.getElementById('empty-bookmarks');
+            if (!hasBookmarks) {
+                emptyBookmarksState.style.display = 'flex';
+            } else {
+                emptyBookmarksState.style.display = 'none';
             }
-            
-            alert('Bookmark removed!');
         }
 
-        // Placeholder functions for other actions
+        function createPostCardElement(post) {
+            const postCard = document.createElement('div');
+            postCard.classList.add('post-card');
+            postCard.dataset.postId = post.id;
+
+            const ingredientsHtml = post.ingredients.map(tag => `<span class="tag">${tag}</span>`).join('');
+
+            postCard.innerHTML = `
+                <button class="bookmark-btn" onclick="toggleBookmark(this)">★</button>
+                <div class="post-header">
+                    <img src="${post.avatarSrc}" class="avatar" alt="${post.userName}" />
+                    <div class="post-user">
+                        <strong>${post.userName}</strong>
+                        <span>${post.userHandle}</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>${post.text}</p>
+                    <p class="tags">${post.tags}</p>
+                </div>
+                <div class="image-container">
+                    <img class="post-image" src="${post.imageSrc}" alt="Balanced plate" />
+                   <!-- <button class="image-action-btn" onclick="showAddToast()">
+                        <span>Add To My Plate</span>
+                    </button> -->
+                </div> 
+                <div class="ingredients">
+                    <strong>Plate Ingredients:</strong>
+                    ${ingredientsHtml}
+                </div>
+             <!--   <div class="actions">
+                    <div class="action-group">
+                        <span class="like" onclick="likePost(this)"><i class="fas fa-heart"></i> <span class="like-count">${post.likes}</span></span>
+                        <span class="comment" onclick="commentFeature()"><i class="fas fa-comment"></i> <span class="comment-count">${post.comments}</span></span>
+                    </div>
+                    <span class="share" onclick="sharePost()"><i class="fas fa-share-alt"></i> Share</span>
+                </div> -->
+            `;
+            return postCard;
+        }
+
+        function toggleBookmark(button) {
+            const postCard = button.closest('.post-card');
+            const postId = postCard.dataset.postId;
+
+            // Remove from localStorage
+            localStorage.removeItem(`bookmarked_${postId}`);
+            localStorage.removeItem(`post_${postId}`);
+
+            // Remove the post card from the DOM
+            postCard.remove();
+            showToast('Bookmark Removed', 'This post has been removed from your bookmarks.');
+
+            // Check if there are no more bookmarks and show empty state
+            loadBookmarks(); // Re-run loadBookmarks to check for empty state
+        }
+
+        // Dummy functions for actions on bookmarks page (same as community)
         function showAddToast() {
-            alert("Add to plate functionality would go here");
+            showToast('Plate Selected!', 'This balanced meal has been added to your plate.');
         }
-        
-        function likePost(el) {
-            alert("Like functionality would go here");
-        }
-        
+
         function commentFeature() {
-            alert("Comment functionality would go here");
+            showToast('Comments Feature', 'Comments will be available in the next update!');
         }
-        
+
         function sharePost() {
-            alert("Share functionality would go here");
+            showToast('Sharing Post', "You're sharing this balanced plate with your friends!");
+        }
+
+        function likePost(button) {
+            const likeCountSpan = button.querySelector('.like-count');
+            let currentLikes = parseInt(likeCountSpan.innerText);
+
+            if (button.classList.contains('liked')) {
+                button.classList.remove('liked');
+                likeCountSpan.innerText = currentLikes - 1;
+                showToast('Unliked!', 'You have unliked this post.');
+            } else {
+                button.classList.add('liked');
+                likeCountSpan.innerText = currentLikes + 1;
+                showToast('Liked!', 'You have liked this post!');
+            }
         }
     </script>
 </body>
